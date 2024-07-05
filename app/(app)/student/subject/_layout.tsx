@@ -31,17 +31,7 @@ export default function SubjectLayout() {
       <Stack.Screen options={{ headerShown: false }} />
       <Tabs
         screenOptions={{
-          tabBarStyle: {
-            backgroundColor:
-              colorScheme === 'light'
-                ? tw.color(`secondary-${theme}-50`)
-                : tw.color(`primary-${theme}-950`),
-            elevation: 0,
-            borderTopColor:
-              colorScheme === 'light'
-                ? tw.color(`secondary-${theme}-100`)
-                : tw.color(`primary-${theme}-950`)
-          }
+          tabBarStyle: tw`bg-secondary-${theme}-50 dark:bg-primary-${theme}-950 elevation-0 border-t-0 android:h-[70px] android:pb-[15px]`
         }}
       >
         <Tabs.Screen

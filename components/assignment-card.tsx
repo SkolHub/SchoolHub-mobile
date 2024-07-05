@@ -26,18 +26,18 @@ export default function AssignmentCard({
         size={30}
         color={
           colorScheme === 'light'
-            ? tw.color(`primary-${theme}-800`)
-            : tw.color(`primary-${theme}-200`)
+            ? tw.color(`primary-800`)
+            : tw.color(`primary-200`)
         }
       />
       <View>
         <Text
-          style={tw`text-lg font-bold leading-tight text-primary-${theme}-800 dark:text-primary-${theme}-200`}
+          style={tw`text-primary-800 dark:text-primary-200 text-lg font-bold leading-tight`}
         >
           {title}
         </Text>
         <Text
-          style={tw`text-sm font-semibold text-primary-${theme}-700 dark:text-primary-${theme}-300`}
+          style={tw`text-primary-700 dark:text-primary-300 text-sm font-semibold`}
         >
           Due {dueDate}
         </Text>

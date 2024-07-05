@@ -1,27 +1,35 @@
-import { router, Stack } from 'expo-router';
-import { SafeAreaView, ScrollView, useColorScheme } from 'react-native';
-
-import { useSession } from '@/context/AuthContext';
+import { router, Stack, useLocalSearchParams } from 'expo-router';
+import {
+  SafeAreaView,
+  ScrollView,
+  Text,
+  useColorScheme,
+  View
+} from 'react-native';
 import * as yup from 'yup';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import React, { useEffect } from 'react';
+import React from 'react';
 import FormInput from '@/components/form-input';
 import LargeButton from '@/components/large-button';
 import LinkButton from '@/components/link-button';
-import Toast from 'react-native-toast-message';
 import KeyboardAccessory from '@/components/keyboard-accessory';
-import { useAccount } from '@/data/accounts';
 import tw from '@/lib/tailwind';
+import Ionicons from '@expo/vector-icons/Ionicons';
+import { useSession } from '@/context/AuthContext';
+import Toast from 'react-native-toast-message';
 
 export default function SignIn() {
   const inputAccessoryViewID = 'keyboard-accessory';
 
-  const { addAccount, setLoggedIn, loggedIn, getAccount } = useAccount();
+  const { isSecondStep } = useLocalSearchParams();
+
+  // const { addAccount, setLoggedIn, loggedIn, getAccount } = useAccount();
+  const { signIn, session } = useSession();
 
   const colorScheme = useColorScheme();
   const schema = yup.object({
-    email: yup.string().email().required(),
+    email: yup.string().required(),
     password: yup.string().required().min(8)
   });
   const { control, handleSubmit } = useForm({
@@ -33,24 +41,37 @@ export default function SignIn() {
     resolver: yupResolver(schema)
   });
   const onSubmit = async (data: { email: string; password: string }) => {
-    const account = getAccount(data.email);
-    if (account === null) {
+    console.log(data);
+    const err = await signIn(data);
+    if (err) {
       Toast.show({
         type: 'customToast',
         text1: "Can't sign you in!",
-        text2: 'Email or password is incorrect',
+        text2: err,
         position: 'bottom'
       });
-      return;
-    }
-    setLoggedIn(account);
-  };
-
-  useEffect(() => {
-    if (loggedIn !== null) {
+      console.log(JSON.stringify(err));
+    } else {
       router.replace('/');
     }
-  }, [loggedIn]);
+    // const account = getAccount(data.email);
+    // if (account === null) {
+    //   Toast.show({
+    //     type: 'customToast',
+    //     text1: "Can't sign you in!",
+    //     text2: 'Email or password is incorrect',
+    //     position: 'bottom'
+    //   });
+    //   return;
+    // }
+    // setLoggedIn(account);
+  };
+
+  // useEffect(() => {
+  //   if (loggedIn !== null) {
+  //     router.replace('/');
+  //   }
+  // }, [loggedIn]);
 
   return (
     <>
@@ -68,9 +89,28 @@ export default function SignIn() {
         style={tw`flex-1 items-center justify-start bg-secondary-blue-100 dark:bg-primary-blue-950`}
       >
         <ScrollView
-          style={tw`android:pt-28 flex w-full flex-1 px-4 pt-8`}
+          style={tw`android:pt-28 flex w-full flex-1 px-4 pt-4`}
           contentContainerStyle={tw`gap-2 android:pt-20`}
         >
+          <Text>{session}</Text>
+          {isSecondStep === 'true' ? (
+            <View
+              style={tw`mb-4 flex-row rounded-3xl bg-white p-4 pr-6 dark:bg-neutral-700`}
+            >
+              <Ionicons
+                name={'checkmark-circle'}
+                size={40}
+                style={tw`pr-2`}
+                color={tw.color('green-400')}
+              />
+              <Text
+                style={tw`flex-1 text-base font-semibold leading-tight text-neutral-800 dark:text-neutral-200`}
+              >
+                Your organization has been created successfully! Now you can
+                sign in.
+              </Text>
+            </View>
+          ) : null}
           <FormInput
             control={control}
             name={'email'}
@@ -99,7 +139,7 @@ export default function SignIn() {
           <LinkButton
             text={`Don't have an account? Sign up`}
             onPress={() => {
-              router.replace('signup');
+              router.replace('/create-organization');
             }}
           />
         </ScrollView>

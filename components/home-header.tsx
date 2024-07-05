@@ -23,30 +23,28 @@ export default function HomeHeader({
   const colorScheme = useColorScheme();
 
   return (
-    <SafeAreaView
-      style={tw`flex-row bg-secondary-${theme}-100 dark:bg-primary-${theme}-950`}
-    >
+    <SafeAreaView style={tw`bg-secondary-100 dark:bg-primary-950 flex-row`}>
       <View
         style={tw`android:pt-10 mt-10 flex-1 flex-row items-center justify-center px-4 pb-4`}
       >
         <Text
-          style={tw`flex-1 text-3xl font-bold text-primary-${theme}-800 dark:text-primary-${theme}-100`}
+          style={tw`text-primary-800 flex-1 text-3xl font-bold dark:text-primary-${theme}-100`}
         >
           {text}
         </Text>
         <Pressable
           onPress={onPress}
-          style={tw`shrink active:opacity-80 justify-center`}
+          style={tw`shrink justify-center active:opacity-80`}
         >
           <Ionicons
             name='person-circle-outline'
             size={44}
             color={
               colorScheme === 'dark'
-                ? tw.color('primary-blue-200')
-                : tw.color('primary-blue-800')
+                ? tw.color('primary-200')
+                : tw.color('primary-800')
             }
-            style={tw`w-11 h-11`}
+            style={tw`h-11 w-11`}
             source={profileImage}
           />
         </Pressable>

@@ -50,9 +50,7 @@ export default function Index() {
   }
 
   return (
-    <View
-      style={tw`bg-secondary-blue-100 dark:bg-primary-blue-950 flex-1 px-4`}
-    >
+    <View style={tw`bg-secondary-100 dark:bg-primary-950 flex-1 px-4`}>
       <FlatList
         data={gradesBySubjectArray}
         renderItem={({ item, index }) => (
@@ -71,12 +69,12 @@ export default function Index() {
             )}
           >
             <Text
-              style={tw`text-lg font-bold leading-tight text-primary-blue-800 dark:text-primary-blue-50`}
+              style={tw`text-primary-800 dark:text-primary-50 text-lg font-bold leading-tight`}
             >
               {item.subject}
             </Text>
             <Text
-              style={tw`text-base font-bold leading-tight text-primary-blue-500 dark:text-primary-blue-300`}
+              style={tw`text-primary-500 dark:text-primary-300 text-base font-bold leading-tight`}
             >
               {'Average: ' + item.mean}
             </Text>
@@ -94,9 +92,7 @@ export default function Index() {
             setVisible(false);
           }}
         />
-        <View
-          style={tw`flex-1 bg-secondary-blue-100 px-4 dark:bg-primary-blue-950`}
-        >
+        <View style={tw`bg-secondary-100 dark:bg-primary-950 flex-1 px-4`}>
           <FlatList
             data={modalData.grades}
             renderItem={({ item, index }) => (
@@ -115,12 +111,12 @@ export default function Index() {
                 )}
               >
                 <Text
-                  style={tw`text-lg font-bold leading-tight text-primary-blue-800 dark:text-primary-blue-50`}
+                  style={tw`text-primary-800 dark:text-primary-50 text-lg font-bold leading-tight`}
                 >
                   {item.grade}
                 </Text>
                 <Text
-                  style={tw`text-base font-bold leading-tight text-primary-blue-500 dark:text-primary-blue-300`}
+                  style={tw`text-primary-500 dark:text-primary-300 text-base font-bold leading-tight`}
                 >
                   {`${new Date(item.date)
                     .getDate()
@@ -131,7 +127,7 @@ export default function Index() {
                 </Text>
                 {item?.assignment ? (
                   <Text
-                    style={tw`text-base font-bold leading-tight text-primary-blue-500 dark:text-primary-blue-300`}
+                    style={tw`text-primary-500 dark:text-primary-300 text-base font-bold leading-tight`}
                   >
                     {item.assignment}
                   </Text>

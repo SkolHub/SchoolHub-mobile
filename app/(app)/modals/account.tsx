@@ -1,10 +1,4 @@
-import {
-  Pressable,
-  ScrollView,
-  Text,
-  useColorScheme,
-  View
-} from 'react-native';
+import { ScrollView, Text, useColorScheme, View } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { useAccount } from '@/data/accounts';
 import { router } from 'expo-router';
@@ -13,15 +7,38 @@ import { useGlobalView } from '@/data/global-view';
 import List from '@/components/list';
 import ListItem from '@/components/list-item';
 import tw from '@/lib/tailwind';
+import { useGetAccount } from '@/api/account';
+import LoadingView from '@/components/loading-view';
+import { useSession } from '@/context/AuthContext';
+import ErrorView from '@/components/error-view';
 
 export default function Account() {
   const colorScheme = useColorScheme();
   const { loggedIn, setLoggedIn } = useAccount();
   const { view, setView } = useGlobalView();
 
+  const account = useGetAccount();
+  const { signOut } = useSession();
+
+  const { session } = useSession();
+
+  if (account.isPending) {
+    return <LoadingView />;
+  }
+
+  if (account.isError) {
+    return (
+      <ErrorView
+        refetch={account.refetch}
+        // @ts-ignore
+        error={account.error.response?.data?.message + ' ' + session}
+      />
+    );
+  }
+
   return (
     <ScrollView
-      style={tw`bg-secondary-blue-100 dark:bg-primary-blue-950`}
+      style={tw`bg-secondary-100 dark:bg-primary-950`}
       contentContainerStyle={tw`px-4 py-6`}
     >
       <View style={tw`items-center justify-center`}>
@@ -30,17 +47,17 @@ export default function Account() {
           size={120}
           color={
             colorScheme === 'light'
-              ? tw.color('primary-blue-800')
-              : tw.color('primary-blue-200')
+              ? tw.color('primary-800')
+              : tw.color('primary-200')
           }
         />
         <Text
-          style={tw`pt-2 text-3xl font-bold text-primary-blue-800 dark:text-primary-blue-50`}
+          style={tw`text-primary-800 dark:text-primary-50 pt-2 text-3xl font-bold`}
         >
-          {loggedIn?.name + ' ' + loggedIn?.surname}
+          {account.data?.name}
         </Text>
         <Text
-          style={tw`text-base font-semibold text-primary-blue-800 dark:text-primary-blue-300`}
+          style={tw`text-primary-800 dark:text-primary-300 text-base font-semibold`}
         >
           {loggedIn?.email}
         </Text>
@@ -52,7 +69,7 @@ export default function Account() {
           text='Log out'
           textStyle='text-red-500 dark:text-red-500'
           onPress={() => {
-            setLoggedIn(null);
+            signOut();
             router.push('/');
           }}
         />
@@ -69,8 +86,8 @@ export default function Account() {
                 size={20}
                 color={
                   colorScheme === 'light'
-                    ? tw.color('primary-blue-800')
-                    : tw.color('primary-blue-100')
+                    ? tw.color('primary-800')
+                    : tw.color('primary-100')
                 }
               />
             ) : (
@@ -88,8 +105,8 @@ export default function Account() {
                 size={20}
                 color={
                   colorScheme === 'light'
-                    ? tw.color('primary-blue-800')
-                    : tw.color('primary-blue-100')
+                    ? tw.color('primary-800')
+                    : tw.color('primary-100')
                 }
               />
             ) : (
@@ -107,8 +124,8 @@ export default function Account() {
                 size={20}
                 color={
                   colorScheme === 'light'
-                    ? tw.color('primary-blue-800')
-                    : tw.color('primary-blue-100')
+                    ? tw.color('primary-800')
+                    : tw.color('primary-100')
                 }
               />
             ) : (

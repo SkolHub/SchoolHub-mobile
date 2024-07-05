@@ -41,9 +41,7 @@ export default function Assessment() {
   ];
 
   return (
-    <ScrollView
-      style={tw`flex-1 bg-secondary-blue-100 px-4 dark:bg-primary-blue-950`}
-    >
+    <ScrollView style={tw`bg-secondary-100 dark:bg-primary-950 flex-1 px-4`}>
       <List>
         <ListItem
           text='Number of students'

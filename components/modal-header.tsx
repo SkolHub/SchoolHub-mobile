@@ -22,25 +22,25 @@ export default function ModalHeader({
 
   return (
     <SafeAreaView
-      style={tw`flex-row items-center bg-secondary-${theme}-100 px-4 py-6 dark:bg-primary-${theme}-950`}
+      style={tw`bg-secondary-100 dark:bg-primary-950 flex-row items-center px-4 py-6`}
     >
       <View style={tw`flex-row items-center px-4 py-6`}>
         <Text
-          style={tw`flex-1 text-4xl font-bold text-primary-${theme}-800 dark:text-primary-${theme}-50`}
+          style={tw`text-primary-800 dark:text-primary-50 flex-1 text-4xl font-bold`}
         >
           {text}
         </Text>
         <TouchableOpacity
           onPress={onPress}
-          style={tw`rounded-full bg-primary-${theme}-200 p-2 dark:bg-primary-${theme}-900`}
+          style={tw`bg-primary-200 dark:bg-primary-900 rounded-full p-2`}
         >
           <Ionicons
             name='close'
             size={30}
             color={
               colorScheme === 'light'
-                ? tw.color(`primary-${theme}-800`)
-                : tw.color(`primary-${theme}-200`)
+                ? tw.color(`primary-800`)
+                : tw.color(`primary-200`)
             }
           />
         </TouchableOpacity>

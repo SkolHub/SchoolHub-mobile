@@ -13,7 +13,7 @@ export default function HomeLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarStyle: tw`bg-secondary-blue-100 dark:bg-primary-blue-950 elevation-0 border-t-0 android:h-[70px] android:pb-[15px]`
+        tabBarStyle: tw`bg-secondary-100 dark:bg-primary-950 elevation-0 border-t-0 android:h-[70px] android:pb-[15px]`
       }}
     >
       <Tabs.Screen
@@ -23,15 +23,14 @@ export default function HomeLayout() {
           tabBarLabel: ({ focused }) => {
             return (
               <Text
-                style={tw`text-primary-blue-800${focused ? '' : '/60'} dark:text-primary-blue-200${focused ? '' : '/60'} text-[10.5px] leading-tight`}
+                style={tw`text-primary-800${focused ? '' : '/60'} dark:text-primary-200${focused ? '' : '/60'} text-[10.5px] leading-tight`}
               >
                 Subjects
               </Text>
             );
           },
           tabBarIcon: ({ focused }) => {
-            let color =
-              colorScheme === 'light' ? 'primary-blue-800' : 'primary-blue-300';
+            let color = colorScheme === 'light' ? 'primary-800' : 'primary-300';
 
             if (!focused) {
               color += '/50';
@@ -67,15 +66,14 @@ export default function HomeLayout() {
           tabBarLabel: ({ focused }) => {
             return (
               <Text
-                style={tw`text-primary-blue-800${focused ? '' : '/60'} dark:text-primary-blue-200${focused ? '' : '/60'} text-[10.5px] leading-tight`}
+                style={tw`text-primary-800${focused ? '' : '/60'} dark:text-primary-200${focused ? '' : '/60'} text-[10.5px] leading-tight`}
               >
                 Grades
               </Text>
             );
           },
           tabBarIcon: ({ focused }) => {
-            let color =
-              colorScheme === 'light' ? 'primary-blue-800' : 'primary-blue-300';
+            let color = colorScheme === 'light' ? 'primary-800' : 'primary-300';
 
             if (!focused) {
               color += '/50';
@@ -113,15 +111,14 @@ export default function HomeLayout() {
           tabBarLabel: ({ focused }) => {
             return (
               <Text
-                style={tw`text-primary-blue-800${focused ? '' : '/60'} dark:text-primary-blue-200${focused ? '' : '/60'} text-[10.5px] leading-tight`}
+                style={tw`text-primary-800${focused ? '' : '/60'} dark:text-primary-200${focused ? '' : '/60'} text-[10.5px] leading-tight`}
               >
                 Attendance
               </Text>
             );
           },
           tabBarIcon: ({ focused }) => {
-            let color =
-              colorScheme === 'light' ? 'primary-blue-800' : 'primary-blue-300';
+            let color = colorScheme === 'light' ? 'primary-800' : 'primary-300';
 
             if (!focused) {
               color += '/50';
@@ -163,15 +160,14 @@ export default function HomeLayout() {
           tabBarLabel: ({ focused }) => {
             return (
               <Text
-                style={tw`text-primary-blue-800${focused ? '' : '/60'} dark:text-primary-blue-200${focused ? '' : '/60'} text-[10.5px] leading-tight`}
+                style={tw`text-primary-800${focused ? '' : '/60'} dark:text-primary-200${focused ? '' : '/60'} text-[10.5px] leading-tight`}
               >
                 Assignments
               </Text>
             );
           },
           tabBarIcon: ({ focused }) => {
-            let color =
-              colorScheme === 'light' ? 'primary-blue-800' : 'primary-blue-300';
+            let color = colorScheme === 'light' ? 'primary-800' : 'primary-300';
 
             if (!focused) {
               color += '/50';

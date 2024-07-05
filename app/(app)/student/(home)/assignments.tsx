@@ -16,9 +16,7 @@ export default function Assignments() {
   );
 
   return (
-    <View
-      style={tw`flex-1 bg-secondary-blue-100 px-4 dark:bg-primary-blue-950`}
-    >
+    <View style={tw`bg-secondary-100 dark:bg-primary-950 flex-1 px-4`}>
       {assignments.map((item, index) => (
         <AssignmentCard
           key={index}

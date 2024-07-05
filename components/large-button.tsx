@@ -35,7 +35,7 @@ export default function LargeButton({
     >
       <View
         style={tw.style(
-          `h-14 w-full flex-row items-center justify-center rounded-[16.5] bg-primary-${theme}-600`,
+          `bg-primary-600 h-14 w-full flex-row items-center justify-center rounded-[16.5]`,
           contentContainerStyle
         )}
       >
@@ -48,10 +48,7 @@ export default function LargeButton({
           />
         )}
         <Text
-          style={tw.style(
-            `text-lg font-semibold text-primary-${theme}-50`,
-            textStyle
-          )}
+          style={tw.style(`text-primary-50 text-lg font-semibold`, textStyle)}
         >
           {text}
         </Text>

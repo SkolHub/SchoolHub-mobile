@@ -61,12 +61,12 @@ export function SessionProvider(props: React.PropsWithChildren) {
         }) => {
           let err = null;
           await api
-            .post('/auth/login', { email, password })
+            .post('/auth/login', { user: email, password })
             .then((res) => {
-              setSession(res.data.access_token);
+              setSession(res.data.token);
             })
             .catch((error) => {
-              err = error.message;
+              err = error.response.data.message;
             });
           return err;
         },
@@ -84,23 +84,26 @@ export function SessionProvider(props: React.PropsWithChildren) {
           password: string;
         }) => {
           let err = null;
-          await api
-            .post('/auth/register', {
-              email,
-              password,
-              user: username,
-              firstName,
-              lastName
-            })
-            .then(() => {
-              setSession(null);
-            })
-            .catch((error) => {
-              err = error.response.data.message;
-            });
+          // await api
+          //   .post('/auth/register', {
+          //     email,
+          //     password,
+          //     user: username,
+          //     firstName,
+          //     lastName
+          //   })
+          //   .then(() => {
+          //     setSession(null);
+          //   })
+          //   .catch((error) => {
+          //     err = error.response.data.message;
+          //   });
           return err;
         },
-        signOut: () => {
+        signOut: async () => {
+          // await api.post('/auth/logout');
+          // const queryClient = useQueryClient();
+          // queryClient.clear();
           setSession(null);
         },
         session,

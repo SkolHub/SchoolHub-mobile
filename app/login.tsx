@@ -86,13 +86,12 @@ export default function SignIn() {
         }}
       />
       <SafeAreaView
-        style={tw`flex-1 items-center justify-start bg-secondary-blue-100 dark:bg-primary-blue-950`}
+        style={tw`flex-1 items-center justify-start bg-secondary-100 dark:bg-primary-950`}
       >
         <ScrollView
           style={tw`android:pt-28 flex w-full flex-1 px-4 pt-4`}
           contentContainerStyle={tw`gap-2 android:pt-20`}
         >
-          <Text>{session}</Text>
           {isSecondStep === 'true' ? (
             <View
               style={tw`mb-4 flex-row rounded-3xl bg-white p-4 pr-6 dark:bg-neutral-700`}

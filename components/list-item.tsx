@@ -6,44 +6,58 @@ import tw from '@/lib/tailwind';
 export default function ListItem({
   text,
   onPress,
+  leftComponent,
   rightComponent,
   textStyle,
   firstItem,
-  lastItem
+  lastItem,
+  shouldPress = true
 }: {
   text: string;
   onPress?: () => void;
+  leftComponent?: React.ReactNode;
   rightComponent?: React.ReactNode;
   textStyle?: string;
   firstItem?: boolean;
   lastItem?: boolean;
+  shouldPress?: boolean;
 }) {
   const colorScheme = useColorScheme();
 
   return (
     <Pressable
       onPress={onPress}
-      style={tw.style(
-        'flex-row items-center justify-between bg-neutral-50 pl-4 active:bg-neutral-200 dark:bg-neutral-700 dark:active:bg-neutral-600',
-        lastItem && 'rounded-b-2xl',
-        firstItem && 'rounded-t-2xl'
-      )}
+      android_ripple={
+        shouldPress ? { color: 'rgba(0, 0, 0, 0.1)', borderless: false } : null
+      }
+      style={({ pressed }) =>
+        tw.style(
+          'flex-row items-center justify-between bg-neutral-50 pl-4 active:bg-neutral-200 dark:bg-neutral-700 dark:active:bg-neutral-600',
+          lastItem && 'rounded-b-2xl',
+          firstItem && 'rounded-t-2xl',
+          shouldPress && pressed && 'opacity-80'
+        )
+      }
     >
       <View
         style={tw.style(
-          'flex-1 flex-row items-center justify-between py-3 pr-4',
+          'flex-1 flex-row items-center justify-between gap-4 py-3 pr-4',
           lastItem ??
             'border-b-[0.7px] border-b-black/10 dark:border-b-white/10'
         )}
       >
-        <Text
-          style={tw.style(
-            'p-0 text-base text-black dark:text-white',
-            textStyle
-          )}
-        >
-          {text}
-        </Text>
+        {leftComponent ? (
+          leftComponent
+        ) : (
+          <Text
+            style={tw.style(
+              'flex-1 p-0 text-base text-black dark:text-white',
+              textStyle
+            )}
+          >
+            {text}
+          </Text>
+        )}
         {rightComponent ? (
           rightComponent
         ) : (

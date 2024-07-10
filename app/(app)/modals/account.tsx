@@ -7,10 +7,17 @@ import { useGlobalView } from '@/data/global-view';
 import List from '@/components/list';
 import ListItem from '@/components/list-item';
 import tw from '@/lib/tailwind';
-import { useGetAccount } from '@/api/account';
+import {
+  useGetAccount,
+  useGetAccountID,
+  useGetAccountRole
+} from '@/api/account';
 import LoadingView from '@/components/loading-view';
 import { useSession } from '@/context/AuthContext';
 import ErrorView from '@/components/error-view';
+import { useEffect, useState } from 'react';
+import * as SecureStorage from 'expo-secure-store';
+import { useQueryClient } from '@tanstack/react-query';
 
 export default function Account() {
   const colorScheme = useColorScheme();
@@ -21,6 +28,11 @@ export default function Account() {
   const { signOut } = useSession();
 
   const { session } = useSession();
+
+  const role = useGetAccountRole();
+  const userID = useGetAccountID();
+
+  const queryClient = useQueryClient();
 
   if (account.isPending) {
     return <LoadingView />;
@@ -52,14 +64,24 @@ export default function Account() {
           }
         />
         <Text
-          style={tw`text-primary-800 dark:text-primary-50 pt-2 text-3xl font-bold`}
+          style={tw`pt-2 text-3xl font-bold text-primary-800 dark:text-primary-50`}
         >
           {account.data?.name}
         </Text>
         <Text
-          style={tw`text-primary-800 dark:text-primary-300 text-base font-semibold`}
+          style={tw`text-base font-semibold text-primary-800 dark:text-primary-300`}
         >
-          {loggedIn?.email}
+          {account.data.user}
+        </Text>
+        <Text
+          style={tw`text-base font-semibold text-primary-800 dark:text-primary-300`}
+        >
+          {userID.data}
+        </Text>
+        <Text
+          style={tw`text-base font-semibold text-primary-800 dark:text-primary-300`}
+        >
+          {role.data}
         </Text>
       </View>
       <Caption text='Account' />
@@ -68,7 +90,11 @@ export default function Account() {
         <ListItem
           text='Log out'
           textStyle='text-red-500 dark:text-red-500'
-          onPress={() => {
+          onPress={async () => {
+            queryClient.clear();
+            await queryClient.resetQueries();
+            // await queryClient.invalidateQueries();
+
             signOut();
             router.push('/');
           }}

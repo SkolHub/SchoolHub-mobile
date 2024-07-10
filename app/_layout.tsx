@@ -1,10 +1,6 @@
-import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
-import * as SplashScreen from 'expo-splash-screen';
-import React, { useEffect } from 'react';
+import React from 'react';
 import 'react-native-reanimated';
-
-import { useColorScheme } from '@/hooks/useColorScheme';
 import Toast, { ToastConfig } from 'react-native-toast-message';
 import { Text, View } from 'react-native';
 import { SessionProvider } from '@/context/AuthContext';
@@ -12,22 +8,8 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { useDeviceContext } from 'twrnc';
 import tw from '@/lib/tailwind';
 
-// Prevent the splash screen from auto-hiding before asset loading is complete.
-SplashScreen.preventAutoHideAsync();
-
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
-  const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf')
-  });
-
   const queryClient = new QueryClient();
-
-  useEffect(() => {
-    if (loaded) {
-      SplashScreen.hideAsync();
-    }
-  }, [loaded]);
 
   useDeviceContext(tw);
 
@@ -43,10 +25,6 @@ export default function RootLayout() {
       );
     }
   };
-
-  if (!loaded) {
-    return null;
-  }
 
   return (
     <>

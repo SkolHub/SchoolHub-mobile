@@ -3,15 +3,13 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import tw from '@/lib/tailwind';
 import { Theme } from '@/lib/types';
 
-export default function AssignmentCard({
+export default function MaterialCard({
   title,
-  dueDate,
   date,
   onPress,
   theme = 'blue'
 }: {
   title: string;
-  dueDate: string | null;
   date: string;
   onPress: () => void;
   theme?: Theme;
@@ -34,7 +32,7 @@ export default function AssignmentCard({
       }
     >
       <Ionicons
-        name='clipboard-outline'
+        name='document-text-outline'
         size={30}
         color={
           colorScheme === 'light'
@@ -43,7 +41,7 @@ export default function AssignmentCard({
         }
       />
       <View style={tw`flex-1`}>
-        <View style={tw`flex-row items-start justify-between gap-2`}>
+        <View style={tw`flex-row items-center justify-between gap-2`}>
           <Text
             style={tw`flex-1 text-base font-bold leading-tight text-primary-800 dark:text-primary-200`}
           >
@@ -55,12 +53,6 @@ export default function AssignmentCard({
             {date}
           </Text>
         </View>
-        <Text
-          style={tw`text-sm font-semibold text-primary-700 dark:text-primary-300`}
-        >
-          {dueDate ? 'Due' : 'No due date'}
-          {dueDate}
-        </Text>
       </View>
     </Pressable>
   );

@@ -21,7 +21,7 @@ export default function GenericHeader({
   const colorScheme = useColorScheme();
 
   return (
-    <SafeAreaView style={tw`bg-secondary-50 dark:bg-primary-950 flex-row`}>
+    <SafeAreaView style={tw`flex-row bg-secondary-100 dark:bg-primary-950`}>
       <View style={tw`flex-row items-center gap-3 p-4`}>
         <Pressable onPress={onPress}>
           <Ionicons
@@ -35,7 +35,7 @@ export default function GenericHeader({
           />
         </Pressable>
         <Text
-          style={tw`text-3xl font-bold leading-tight text-neutral-800 dark:text-neutral-200`}
+          style={tw`text-2xl font-bold leading-tight text-neutral-800 dark:text-neutral-200`}
         >
           {text}
         </Text>

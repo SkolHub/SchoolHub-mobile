@@ -1,137 +1,215 @@
-import { Stack, Tabs, useLocalSearchParams, useNavigation } from 'expo-router';
-import { useOrganizations } from '@/data/organizations';
+import {
+  router,
+  Stack,
+  Tabs,
+  useLocalSearchParams,
+  useNavigation
+} from 'expo-router';
 import SubjectHeader from '@/components/subject-header';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import tw from '@/lib/tailwind';
-import { useColorScheme } from 'react-native';
+import { Class, useGetStudentSubjects } from '@/api/subject';
+import LoadingView from '@/components/loading-view';
+import ErrorView from '@/components/error-view';
+import { Text } from 'react-native';
+import { rgbaToHex } from '@/lib/utils';
+import { SymbolView } from 'expo-symbols';
+import { MaterialIcons } from '@expo/vector-icons';
+import HomeHeader from '@/components/home-header';
+
+function findSubject(classes: Class[], subjectID: string) {
+  for (const class_ of classes) {
+    for (const subject of class_.subjects) {
+      if (subject.id == subjectID) {
+        return subject;
+      }
+    }
+  }
+
+  return {
+    name: 'Error',
+    icon: 'book'
+  };
+}
 
 export default function SubjectLayout() {
-  const { subject, className } = useLocalSearchParams();
-  const { activeOrganization } = useOrganizations();
-  const { getSubject } = useOrganizations();
-
   const navigation = useNavigation();
+  const colorScheme = tw.prefixMatch('dark') ? 'dark' : 'light';
 
-  const colorScheme = useColorScheme();
+  const { subjectID } = useLocalSearchParams();
 
-  const subjectData = getSubject(
-    activeOrganization,
-    className as string,
-    subject as string
-  );
+  const { data, isError, error, isPending, refetch } = useGetStudentSubjects();
 
-  // useEffect(() => {
-  //   handleThemeSwitch(subjectData.theme);
-  // }, []);
+  if (isPending) {
+    return <LoadingView />;
+  }
 
-  const theme = subjectData.theme;
+  if (isError) {
+    return (
+      <ErrorView
+        refetch={refetch}
+        // @ts-ignore
+        error={error.response?.data?.message + ' ' + session}
+      />
+    );
+  }
+
+  const subjectData = findSubject(data, subjectID as string);
+  console.log(subjectData);
 
   return (
     <>
       <Stack.Screen options={{ headerShown: false }} />
       <Tabs
         screenOptions={{
-          tabBarStyle: tw`bg-secondary-${theme}-50 dark:bg-primary-${theme}-950 elevation-0 border-t-0 android:h-[70px] android:pb-[15px]`
+          tabBarStyle: tw`bg-secondary-50 dark:bg-primary-950 elevation-0 border-t-0 android:h-[70px] android:pb-[15px]`
         }}
       >
         <Tabs.Screen
           name='index'
           options={{
-            tabBarLabel: 'Stream',
-            tabBarLabelStyle: {
-              color:
-                colorScheme === 'light'
-                  ? tw.color(`primary-${theme}-800`)
-                  : tw.color(`primary-${theme}-200`)
+            title: 'Stream',
+            tabBarLabel: ({ focused }) => {
+              return (
+                <Text
+                  style={tw`text-primary-800${focused ? '' : '/60'} dark:text-primary-200${focused ? '' : '/60'} text-[10.5px] leading-tight`}
+                >
+                  Stream
+                </Text>
+              );
             },
             tabBarIcon: ({ focused }) => {
-              const color =
-                colorScheme === 'light'
-                  ? tw.color(`primary-${theme}-800`)
-                  : tw.color(`primary-${theme}-300`);
-              if (focused) {
-                return <Ionicons name='home' size={24} color={color} />;
+              let color =
+                colorScheme === 'light' ? 'primary-800' : 'primary-300';
+
+              if (!focused) {
+                color += '/50';
+                color = rgbaToHex(tw.color(color) as string);
+              } else {
+                color = tw.color(color) as string;
               }
-              return <Ionicons name='home-outline' size={24} color={color} />;
+
+              // console.log(focused);
+
+              return (
+                <SymbolView
+                  name='house.fill'
+                  tintColor={color}
+                  fallback={
+                    <MaterialIcons name='home' size={24} color={color} />
+                  }
+                />
+              );
             },
-            header: () => (
-              <SubjectHeader
-                text={subjectData.name}
-                icon={subjectData.icon}
-                onPress={() => {
-                  navigation.goBack();
-                }}
-                theme={theme}
-              />
-            )
+            header: () => {
+              return (
+                <SubjectHeader
+                  text={subjectData.name}
+                  icon={subjectData.icon}
+                  onPress={() => {
+                    navigation.goBack();
+                  }}
+                />
+              );
+            }
           }}
         />
         <Tabs.Screen
           name='grades'
           options={{
-            tabBarLabel: 'Grades',
-            tabBarLabelStyle: {
-              color:
-                colorScheme === 'light'
-                  ? tw.color(`primary-${theme}-800`)
-                  : tw.color(`primary-${theme}-200`)
-            },
-            tabBarIcon: ({ focused }) => {
-              const color =
-                colorScheme === 'light'
-                  ? tw.color(`primary-${theme}-800`)
-                  : tw.color(`primary-${theme}-300`);
-              if (focused) {
-                return <Ionicons name='stats-chart' size={24} color={color} />;
-              }
+            title: 'Grades',
+            tabBarLabel: ({ focused }) => {
               return (
-                <Ionicons name='stats-chart-outline' size={24} color={color} />
+                <Text
+                  style={tw`text-primary-800${focused ? '' : '/60'} dark:text-primary-200${focused ? '' : '/60'} text-[10.5px] leading-tight`}
+                >
+                  Grades
+                </Text>
               );
             },
-            header: () => (
-              <SubjectHeader
-                text={subjectData.name}
-                icon={subjectData.icon}
-                onPress={() => {
-                  navigation.goBack();
-                }}
-                theme={theme}
-              />
-            )
+            tabBarIcon: ({ focused }) => {
+              let color =
+                colorScheme === 'light' ? 'primary-800' : 'primary-300';
+
+              if (!focused) {
+                color += '/50';
+                color = rgbaToHex(tw.color(color) as string);
+              } else {
+                color = tw.color(color) as string;
+              }
+
+              return (
+                <SymbolView
+                  name='chart.bar.fill'
+                  tintColor={color}
+                  fallback={
+                    <MaterialIcons name='bar-chart' size={30} color={color} />
+                  }
+                />
+              );
+            },
+            header: () => {
+              return (
+                <SubjectHeader
+                  text={subjectData.name}
+                  icon={subjectData.icon}
+                  onPress={() => {
+                    navigation.goBack();
+                  }}
+                />
+              );
+            }
           }}
         />
         <Tabs.Screen
           name='absences'
           options={{
-            tabBarLabel: 'Absences',
-            tabBarLabelStyle: {
-              color:
-                colorScheme === 'light'
-                  ? tw.color(`primary-${theme}-800`)
-                  : tw.color(`primary-${theme}-200`)
-            },
-            tabBarIcon: ({ focused }) => {
-              const color =
-                colorScheme === 'light'
-                  ? tw.color(`primary-${theme}-800`)
-                  : tw.color(`primary-${theme}-300`);
-              if (focused) {
-                return <Ionicons name='calendar' size={24} color={color} />;
-              }
+            title: 'Attendance',
+            tabBarLabel: ({ focused }) => {
               return (
-                <Ionicons name='calendar-outline' size={24} color={color} />
+                <Text
+                  style={tw`text-primary-800${focused ? '' : '/60'} dark:text-primary-200${focused ? '' : '/60'} text-[10.5px] leading-tight`}
+                >
+                  Attendance
+                </Text>
               );
             },
-            header: () => (
-              <SubjectHeader
-                text={subjectData.name}
-                icon={subjectData.icon}
-                onPress={() => {
-                  navigation.goBack();
-                }}
-                theme={theme}
-              />
-            )
+            tabBarIcon: ({ focused }) => {
+              let color =
+                colorScheme === 'light' ? 'primary-800' : 'primary-300';
+
+              if (!focused) {
+                color += '/50';
+                color = rgbaToHex(tw.color(color) as string);
+              } else {
+                color = tw.color(color) as string;
+              }
+
+              return (
+                <SymbolView
+                  name='calendar'
+                  tintColor={color}
+                  fallback={
+                    <MaterialIcons
+                      name='calendar-month'
+                      size={24}
+                      color={color}
+                    />
+                  }
+                />
+              );
+            },
+            header: () => {
+              return (
+                <SubjectHeader
+                  text={subjectData.name}
+                  icon={subjectData.icon}
+                  onPress={() => {
+                    navigation.goBack();
+                  }}
+                />
+              );
+            }
           }}
         />
       </Tabs>

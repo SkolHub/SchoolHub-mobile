@@ -55,7 +55,7 @@ export default function SubjectHeader({
           style={{ width: 50, height: 50 }}
         />
         <Text
-          style={tw`pl-2 text-2xl font-bold leading-tight text-neutral-800 dark:text-neutral-200`}
+          style={tw`text-primary-800 dark:text-primary-200 pl-2 text-2xl font-bold leading-tight`}
         >
           {text}
         </Text>

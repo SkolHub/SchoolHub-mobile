@@ -1,158 +1,224 @@
-import { FlatList, Text, View } from 'react-native';
+import { FlatList, RefreshControl, Text, View } from 'react-native';
 import { router, useLocalSearchParams } from 'expo-router';
-import { useOrganizations } from '@/data/organizations';
-import { useGrades } from '@/data/grades';
-import { useAbsences } from '@/data/absences';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import AssignmentCard from '@/components/assignment-card';
 import AnnouncementCard from '@/components/announcement-card';
 import tw from '@/lib/tailwind';
+import { useGetSubjectStats } from '@/api/subject';
+import LoadingView from '@/components/loading-view';
+import ErrorView from '@/components/error-view';
+import { Post, useGetStudentSubjectPosts } from '@/api/post';
+import SmallButton from '@/components/small-button';
+import FilterDropdown from '@/components/filter-dropdown';
+import { formatShortDate, formatTime } from '@/lib/utils';
+import MaterialCard from '@/components/material-card';
+import TestCard from '@/components/test-card';
 
 export default function Index() {
-  const { subject, className } = useLocalSearchParams();
-  const { activeOrganization } = useOrganizations();
-  const { getSubject } = useOrganizations();
+  const { subjectID } = useLocalSearchParams();
 
-  const subjectData = getSubject(
-    activeOrganization,
-    className as string,
-    subject as string
-  );
+  const subjectStats = useGetSubjectStats(subjectID as string);
+  const posts = useGetStudentSubjectPosts(subjectID as string);
 
-  const { grades } = useGrades();
-  const { absences } = useAbsences();
-
-  const [mean, setMean] = useState(10);
-  const [unexcusedAbsences, setUnexcusedAbsences] = useState(0);
-  const [assignmentsNum, setAssignmentsNum] = useState(0);
+  const [shownPosts, setShownPosts] = useState<Post[]>([]);
+  const [filter, setFilter] = useState<string[]>([
+    'announcement',
+    'assignment',
+    'material',
+    'test'
+  ]);
 
   useEffect(() => {
-    let sum = 0;
-    let count = 0;
-    let subjectGrades = grades.filter(
-      (grade) => grade.subject === subjectData.name
+    if (posts.data) {
+      let temp = posts.data.filter((p) => filter.includes(p.type));
+      temp = temp.sort(
+        (a, b) =>
+          new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
+      );
+      setShownPosts(temp);
+    }
+  }, [posts.data, filter]);
+
+  if (subjectStats.isPending || posts.isPending) {
+    return <LoadingView />;
+  }
+
+  if (subjectStats.isError) {
+    return (
+      <ErrorView
+        refetch={subjectStats.refetch}
+        error={subjectStats.error.message}
+      />
     );
-    subjectGrades.forEach((grade) => {
-      sum += grade.grade;
-      count++;
-    });
-    setMean(sum / count);
+  }
 
-    let unexcused = 0;
-    let subjectAbsences = absences.filter(
-      (absence) => absence.subject === subjectData.name
-    );
-    subjectAbsences.forEach((absence) => {
-      if (!absence.excused) {
-        unexcused++;
-      }
-    });
-    setUnexcusedAbsences(unexcused);
+  if (posts.isError) {
+    return <ErrorView refetch={posts.refetch} error={posts.error.message} />;
+  }
 
-    let assignments = 0;
-    subjectData.assignments.forEach((assignment) => {
-      assignments++;
-    });
-    setAssignmentsNum(assignments);
-  }, [grades, absences]);
-
-  const streamData = [...subjectData.assignments, ...subjectData.announcements];
-
-  streamData.sort(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+  posts.data.sort(
+    (a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
   );
 
-  const theme = subjectData.theme;
-
   return (
-    <View
-      style={tw`flex-1 bg-secondary-${theme}-50 px-4 dark:bg-primary-${theme}-950`}
-    >
-      <View style={tw`mb-6 rounded-3xl bg-neutral-50 p-4 dark:bg-neutral-700`}>
-        <View style={tw`flex-row justify-between`}>
-          <View
-            style={tw`flex-1 items-stretch border-r border-black/15 pr-4 dark:border-white/20`}
-          >
-            <Text
-              style={tw`text-center text-xl font-bold text-primary-${theme}-800 dark:text-primary-${theme}-50`}
-            >
-              {assignmentsNum}
-            </Text>
-            <Text
-              style={tw`flex-1 text-center text-sm font-semibold text-primary-${theme}-700 dark:text-primary-${theme}-200`}
-            >
-              assignments
-            </Text>
-          </View>
-          <View
-            style={tw`flex-1 items-stretch border-r border-black/15 px-4 dark:border-white/20`}
-          >
-            <Text
-              style={tw`text-center text-xl font-bold text-primary-${theme}-800 dark:text-primary-${theme}-50`}
-            >
-              {mean > 0 ? mean : 'No grades'}
-            </Text>
-            <Text
-              style={tw`text-center text-sm font-semibold text-primary-${theme}-700 dark:text-primary-${theme}-200`}
-            >
-              overall average
-            </Text>
-          </View>
-          <View style={tw`flex-1 items-stretch pl-4`}>
-            <Text
-              style={tw`text-center text-xl font-bold text-primary-${theme}-800 dark:text-primary-${theme}-50`}
-            >
-              {unexcusedAbsences}
-            </Text>
-            <Text
-              style={tw`text-center text-sm font-semibold text-primary-${theme}-700 dark:text-primary-${theme}-200`}
-            >
-              unexcused absences
-            </Text>
-          </View>
-        </View>
-      </View>
-
+    <View style={tw`flex-1 bg-secondary-50 px-4 dark:bg-primary-950`}>
       <FlatList
-        data={streamData}
-        renderItem={({ item }: any) => {
-          if (item?.due) {
-            return (
-              <AssignmentCard
+        ListHeaderComponent={
+          <>
+            <View
+              style={tw`mb-6 rounded-3xl bg-neutral-50 p-4 dark:bg-neutral-700`}
+            >
+              <View style={tw`flex-row justify-between`}>
+                <View
+                  style={tw`flex-1 items-stretch border-r border-black/15 pr-4 dark:border-white/20`}
+                >
+                  <Text
+                    style={tw`text-center text-xl font-bold text-primary-800 dark:text-primary-50`}
+                  >
+                    {subjectStats.data.assignments}
+                  </Text>
+                  <Text
+                    style={tw`flex-1 text-center text-sm font-semibold text-primary-700 dark:text-primary-200`}
+                  >
+                    assignments
+                  </Text>
+                </View>
+                <View
+                  style={tw`flex-1 items-stretch border-r border-black/15 px-4 dark:border-white/20`}
+                >
+                  <Text
+                    style={tw`text-center text-xl font-bold text-primary-800 dark:text-primary-50`}
+                  >
+                    {subjectStats.data.average.toFixed(2) ?? 'No grades'}
+                  </Text>
+                  <Text
+                    style={tw`text-center text-sm font-semibold text-primary-700 dark:text-primary-200`}
+                  >
+                    overall average
+                  </Text>
+                </View>
+                <View style={tw`flex-1 items-stretch pl-4`}>
+                  <Text
+                    style={tw`text-center text-xl font-bold text-primary-800 dark:text-primary-50`}
+                  >
+                    {subjectStats.data.absences}
+                  </Text>
+                  <Text
+                    style={tw`text-center text-sm font-semibold text-primary-700 dark:text-primary-200`}
+                  >
+                    unexcused absences
+                  </Text>
+                </View>
+              </View>
+            </View>
+
+            <View style={tw`mb-4 flex-row items-start justify-between`}>
+              <SmallButton
+                text={'Create post'}
+                iconName={'add-outline'}
                 onPress={() => {
                   router.push({
-                    pathname: '/student/assignment',
+                    pathname: '/modals/create-announcement',
                     params: {
-                      subject: subject,
-                      className: className,
-                      assignment: item.title
+                      subjectID: subjectID,
+                      userType: 'student'
+                    }
+                  });
+                }}
+              />
+              <FilterDropdown filter={filter} setFilter={setFilter} />
+            </View>
+          </>
+        }
+        refreshControl={
+          <RefreshControl
+            refreshing={subjectStats.isPending || posts.isPending}
+            onRefresh={() => {
+              Promise.all([subjectStats.refetch(), posts.refetch()]);
+            }}
+          />
+        }
+        data={shownPosts}
+        renderItem={({ item }) => {
+          if (item.type === 'material') {
+            return (
+              <MaterialCard
+                onPress={() => {
+                  router.push({
+                    pathname: '/student/post/material',
+                    params: {
+                      postID: item.id
                     }
                   });
                 }}
                 title={item.title}
-                dueDate={`${new Date(item.due)
-                  .getDate()
-                  .toString()
-                  .padStart(2, '0')}.${(new Date(item.due).getMonth() + 1)
-                  .toString()
-                  .padStart(2, '0')}.${new Date(item.due).getFullYear()}`}
-                theme={theme}
+                date={formatShortDate(item.timestamp)}
               />
             );
           }
-          return (
-            <AnnouncementCard
-              title={item.title}
-              body={item.body}
-              date={`${new Date(item.date)
-                .getDate()
-                .toString()
-                .padStart(2, '0')}.${(new Date(item.date).getMonth() + 1)
-                .toString()
-                .padStart(2, '0')}.${new Date(item.date).getFullYear()}`}
-              theme={theme}
-            />
-          );
+          if (item.type === 'assignment') {
+            return (
+              <AssignmentCard
+                onPress={() => {
+                  router.push({
+                    pathname: '/student/post/assignment',
+                    params: {
+                      postID: item.id
+                    }
+                  });
+                }}
+                title={item.title}
+                date={formatShortDate(item.timestamp)}
+                dueDate={
+                  item.dueDate
+                    ? formatShortDate(item.dueDate) +
+                      ', ' +
+                      formatTime(item.dueDate)
+                    : null
+                }
+              />
+            );
+          }
+          if (item.type === 'announcement') {
+            return (
+              <AnnouncementCard
+                title={item.title}
+                body={item.body}
+                date={`${new Date(item.timestamp)
+                  .getDate()
+                  .toString()
+                  .padStart(2, '0')}.${(new Date(item.timestamp).getMonth() + 1)
+                  .toString()
+                  .padStart(2, '0')}.${new Date(item.timestamp).getFullYear()}`}
+                onPress={() => {
+                  router.push({
+                    pathname: '/student/post/announcement',
+                    params: {
+                      postID: item.id
+                    }
+                  });
+                }}
+              />
+            );
+          }
+          if (item.type === 'test') {
+            return (
+              <TestCard
+                onPress={() => {
+                  router.push({
+                    pathname: '/student/post/test',
+                    params: {
+                      postID: item.id
+                    }
+                  });
+                }}
+                title={item.title}
+                date={formatShortDate(item.timestamp)}
+                dueDate={formatShortDate(item.dueDate)}
+              />
+            );
+          }
+          return null;
         }}
       />
     </View>

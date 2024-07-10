@@ -19,13 +19,13 @@ export default function HomeLayout() {
       <Tabs.Screen
         name='index'
         options={{
-          title: 'Subjects',
+          title: 'Classes',
           tabBarLabel: ({ focused }) => {
             return (
               <Text
                 style={tw`text-primary-800${focused ? '' : '/60'} dark:text-primary-200${focused ? '' : '/60'} text-[10.5px] leading-tight`}
               >
-                Subjects
+                Classes
               </Text>
             );
           },
@@ -50,52 +50,7 @@ export default function HomeLayout() {
           header: () => {
             return (
               <HomeHeader
-                text='Subjects'
-                onPress={() => {
-                  router.push('/modals/account');
-                }}
-              />
-            );
-          }
-        }}
-      />
-      <Tabs.Screen
-        name='grades'
-        options={{
-          title: 'Classbook',
-          tabBarLabel: ({ focused }) => {
-            return (
-              <Text
-                style={tw`text-primary-800${focused ? '' : '/60'} dark:text-primary-200${focused ? '' : '/60'} text-[10.5px] leading-tight`}
-              >
-                Classbook
-              </Text>
-            );
-          },
-          tabBarIcon: ({ focused }) => {
-            let color = colorScheme === 'light' ? 'primary-800' : 'primary-300';
-
-            if (!focused) {
-              color += '/50';
-              color = rgbaToHex(tw.color(color) as string);
-            } else {
-              color = tw.color(color) as string;
-            }
-
-            return (
-              <SymbolView
-                name='chart.bar.fill'
-                tintColor={color}
-                fallback={
-                  <MaterialIcons name='bar-chart' size={30} color={color} />
-                }
-              />
-            );
-          },
-          header: () => {
-            return (
-              <HomeHeader
-                text='Classbook'
+                text='Classes'
                 onPress={() => {
                   router.push('/modals/account');
                 }}

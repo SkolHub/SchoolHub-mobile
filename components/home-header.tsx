@@ -9,8 +9,6 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import tw from '@/lib/tailwind';
 import { Theme } from '@/lib/types';
 
-const profileImage = require('../assets/images/profile.png');
-
 export default function HomeHeader({
   text,
   onPress,
@@ -23,12 +21,12 @@ export default function HomeHeader({
   const colorScheme = useColorScheme();
 
   return (
-    <SafeAreaView style={tw`bg-secondary-100 dark:bg-primary-950 flex-row`}>
+    <SafeAreaView style={tw`flex-row bg-secondary-100 dark:bg-primary-950`}>
       <View
         style={tw`android:pt-10 mt-10 flex-1 flex-row items-center justify-center px-4 pb-4`}
       >
         <Text
-          style={tw`text-primary-800 flex-1 text-3xl font-bold dark:text-primary-${theme}-100`}
+          style={tw`flex-1 text-3xl font-bold text-primary-800 dark:text-primary-${theme}-100`}
         >
           {text}
         </Text>
@@ -45,7 +43,6 @@ export default function HomeHeader({
                 : tw.color('primary-800')
             }
             style={tw`h-11 w-11`}
-            source={profileImage}
           />
         </Pressable>
       </View>

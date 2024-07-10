@@ -5,6 +5,34 @@ export default function ModalsLayout() {
   return (
     <Stack>
       <Stack.Screen
+        name='classbook-subject'
+        options={{
+          presentation: 'modal',
+          header: () => (
+            <ModalHeader
+              text=''
+              onPress={() => {
+                router.back();
+              }}
+            />
+          )
+        }}
+      />
+      <Stack.Screen
+        name='create-announcement'
+        options={{
+          presentation: 'modal',
+          header: () => (
+            <ModalHeader
+              text='Create a new announcement'
+              onPress={() => {
+                router.back();
+              }}
+            />
+          )
+        }}
+      />
+      <Stack.Screen
         name='create-assignment'
         options={{
           presentation: 'modal',

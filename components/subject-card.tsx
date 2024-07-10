@@ -6,12 +6,12 @@ import tw from '@/lib/tailwind';
 export default function SubjectCard({
   name,
   icon,
-  teacher,
+  secondaryText,
   onPress
 }: {
   name: string;
   icon: string;
-  teacher: string;
+  secondaryText: string;
   onPress: () => void;
 }) {
   return (
@@ -38,14 +38,14 @@ export default function SubjectCard({
         />
         <View style={tw`justify-center px-4`}>
           <Text
-            style={tw`text-lg font-bold leading-tight text-neutral-800 dark:text-neutral-200`}
+            style={tw`text-lg font-bold leading-tight text-primary-800 dark:text-neutral-200`}
           >
             {name}
           </Text>
           <Text
-            style={tw`text-base font-semibold leading-tight text-neutral-800 dark:text-neutral-200`}
+            style={tw`text-base font-semibold leading-tight text-primary-700 dark:text-neutral-200`}
           >
-            {teacher}
+            {secondaryText}
           </Text>
         </View>
       </Pressable>

@@ -1,35 +1,68 @@
-import { Text, View } from 'react-native';
-import { useOrganizations } from '@/data/organizations';
-import AssignmentCard from '@/components/assignment-card';
+import { RefreshControl, ScrollView, View } from 'react-native';
 import tw from '@/lib/tailwind';
+import { Post, useGetStudentOrganizationAssignments } from '@/api/post';
+import React from 'react';
+import LoadingView from '@/components/loading-view';
+import ErrorView from '@/components/error-view';
+import KanbanColumn from '@/components/kanban-column';
 
 export default function Assignments() {
-  const { activeOrganization, organizations, getOrganization } =
-    useOrganizations();
+  const assignments = useGetStudentOrganizationAssignments();
 
-  const assignments = getOrganization(activeOrganization).classes.flatMap(
-    (c) => {
-      return c.subjects.flatMap((s) => {
-        return s.assignments;
-      });
+  if (assignments.isPending) {
+    return <LoadingView />;
+  }
+
+  if (assignments.isError) {
+    return (
+      <ErrorView
+        refetch={assignments.refetch}
+        error={assignments.error.message}
+      />
+    );
+  }
+
+  let missingAssignments: Post[] = [];
+  let noDueDateAssignments: Post[] = [];
+  let thisWeekAssignments: Post[] = [];
+  let laterAssignments: Post[] = [];
+
+  assignments.data.forEach((assignment) => {
+    if (!assignment.dueDate) {
+      noDueDateAssignments.push(assignment);
+    } else if (new Date(assignment.dueDate).getTime() < new Date().getTime()) {
+      missingAssignments.push(assignment);
+    } else if (
+      new Date(assignment.dueDate).getTime() <
+      new Date().getTime() + 7 * 24 * 60 * 60 * 1000
+    ) {
+      thisWeekAssignments.push(assignment);
+    } else {
+      laterAssignments.push(assignment);
     }
-  );
+  });
 
   return (
-    <View style={tw`bg-secondary-100 dark:bg-primary-950 flex-1 px-4`}>
-      {assignments.map((item, index) => (
-        <AssignmentCard
-          key={index}
-          onPress={() => {}}
-          title={item.title}
-          dueDate={`${new Date(item.date)
-            .getDate()
-            .toString()
-            .padStart(2, '0')}.${(new Date(item.date).getMonth() + 1)
-            .toString()
-            .padStart(2, '0')}.${new Date(item.date).getFullYear()}`}
+    <View style={tw`flex-1 bg-secondary-100 px-4 dark:bg-primary-950`}>
+      <ScrollView
+        horizontal={true}
+        showsHorizontalScrollIndicator={false}
+        refreshControl={
+          <RefreshControl
+            refreshing={assignments.isPending}
+            onRefresh={assignments.refetch}
+          />
+        }
+      >
+        <KanbanColumn title={'This week'} posts={thisWeekAssignments} key={1} />
+        <KanbanColumn title={'Later'} posts={laterAssignments} key={2} />
+        <KanbanColumn
+          title={'No due date'}
+          posts={noDueDateAssignments}
+          key={3}
         />
-      ))}
+        <KanbanColumn title={'Missing'} posts={missingAssignments} key={4} />
+      </ScrollView>
     </View>
   );
 }

@@ -1,6 +1,9 @@
 import React from 'react';
 import { useStorageState } from '@/hooks/useStorageState';
 import api from '@/api/api';
+import * as SecureStore from 'expo-secure-store';
+import { Account } from '@/api/account';
+import { useQueryClient } from '@tanstack/react-query';
 
 const AuthContext = React.createContext<{
   signIn: ({
@@ -62,8 +65,21 @@ export function SessionProvider(props: React.PropsWithChildren) {
           let err = null;
           await api
             .post('/auth/login', { user: email, password })
-            .then((res) => {
+            .then(async (res) => {
               setSession(res.data.token);
+              const profile = await api.get('/profile', {
+                headers: {
+                  Authorization: `Bearer ${res.data.token}`
+                }
+              });
+              await SecureStore.setItemAsync(
+                'userID',
+                (profile.data as Account).id.toString()
+              );
+              await SecureStore.setItemAsync(
+                'role',
+                (profile.data as Account).role.toString()
+              );
             })
             .catch((error) => {
               err = error.response.data.message;
@@ -105,6 +121,8 @@ export function SessionProvider(props: React.PropsWithChildren) {
           // const queryClient = useQueryClient();
           // queryClient.clear();
           setSession(null);
+          await SecureStore.deleteItemAsync('userID');
+          await SecureStore.deleteItemAsync('role');
         },
         session,
         isLoading

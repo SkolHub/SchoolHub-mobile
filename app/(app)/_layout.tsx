@@ -33,6 +33,10 @@ export default function AppLayout() {
         name='student/(home)'
         options={{ headerShown: false, animation: 'none' }}
       />
+      <Stack.Screen
+        name='teacher/(home)'
+        options={{ headerShown: false, animation: 'none' }}
+      />
       <Stack.Screen name='index' options={{ headerShown: false }} />
     </Stack>
   );

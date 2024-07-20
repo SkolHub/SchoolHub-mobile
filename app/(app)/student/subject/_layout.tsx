@@ -1,23 +1,22 @@
-import {
-  router,
-  Stack,
-  Tabs,
-  useLocalSearchParams,
-  useNavigation
-} from 'expo-router';
+import { Stack, Tabs, useLocalSearchParams, useNavigation } from 'expo-router';
 import SubjectHeader from '@/components/subject-header';
-import Ionicons from '@expo/vector-icons/Ionicons';
 import tw from '@/lib/tailwind';
-import { Class, useGetStudentSubjects } from '@/api/subject';
+import { Class, Teacher, useGetStudentSubjects } from '@/api/subject';
 import LoadingView from '@/components/loading-view';
 import ErrorView from '@/components/error-view';
 import { Text } from 'react-native';
 import { rgbaToHex } from '@/lib/utils';
 import { SymbolView } from 'expo-symbols';
 import { MaterialIcons } from '@expo/vector-icons';
-import HomeHeader from '@/components/home-header';
 
-function findSubject(classes: Class[], subjectID: string) {
+function findSubject(
+  classes: Class[],
+  subjectID: string
+): {
+  name: string;
+  icon: string;
+  teachers: Teacher[] | null;
+} {
   for (const class_ of classes) {
     for (const subject of class_.subjects) {
       if (subject.id == subjectID) {
@@ -28,7 +27,8 @@ function findSubject(classes: Class[], subjectID: string) {
 
   return {
     name: 'Error',
-    icon: 'book'
+    icon: 'book',
+    teachers: []
   };
 }
 
@@ -55,14 +55,13 @@ export default function SubjectLayout() {
   }
 
   const subjectData = findSubject(data, subjectID as string);
-  console.log(subjectData);
 
   return (
     <>
       <Stack.Screen options={{ headerShown: false }} />
       <Tabs
         screenOptions={{
-          tabBarStyle: tw`bg-secondary-50 dark:bg-primary-950 elevation-0 border-t-0 android:h-[70px] android:pb-[15px]`
+          tabBarStyle: tw`bg-secondary-100 dark:bg-primary-950 elevation-0 border-t-0 android:h-[70px] android:pb-[15px]`
         }}
       >
         <Tabs.Screen
@@ -94,6 +93,8 @@ export default function SubjectLayout() {
               return (
                 <SymbolView
                   name='house.fill'
+                  size={22}
+                  resizeMode={'scaleAspectFill'}
                   tintColor={color}
                   fallback={
                     <MaterialIcons name='home' size={24} color={color} />
@@ -105,6 +106,9 @@ export default function SubjectLayout() {
               return (
                 <SubjectHeader
                   text={subjectData.name}
+                  secondaryText={
+                    subjectData.teachers?.map((t) => t.name).join(', ') ?? ''
+                  }
                   icon={subjectData.icon}
                   onPress={() => {
                     navigation.goBack();
@@ -141,6 +145,8 @@ export default function SubjectLayout() {
               return (
                 <SymbolView
                   name='chart.bar.fill'
+                  size={22}
+                  resizeMode={'scaleAspectFill'}
                   tintColor={color}
                   fallback={
                     <MaterialIcons name='bar-chart' size={30} color={color} />
@@ -189,6 +195,8 @@ export default function SubjectLayout() {
                 <SymbolView
                   name='calendar'
                   tintColor={color}
+                  size={22}
+                  resizeMode={'scaleAspectFill'}
                   fallback={
                     <MaterialIcons
                       name='calendar-month'

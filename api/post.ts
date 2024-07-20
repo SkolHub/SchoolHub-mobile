@@ -1,6 +1,7 @@
 import api from '@/api/api';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import Toast from 'react-native-toast-message';
+import Submission from '@/api/submission';
 
 export interface Post {
   id: number;
@@ -15,6 +16,7 @@ export interface Post {
     name: string;
   };
   comments: Comment[];
+  submission?: Submission;
 }
 
 export interface Comment {
@@ -46,7 +48,7 @@ const fetchStudentPost = async (id: string) => {
 const createStudentPost = async (data: {
   title: string;
   body: string;
-  subjectID: number;
+  subjectID: string;
 }) => {
   return api.post(`/post/student`, data).then((res) => res.data as null);
 };
@@ -55,10 +57,8 @@ const deletePost = async (id: number) => {
   return api.delete(`/post/${id}`).then((res) => res.data as null);
 };
 
-const createComment = async (data: { body: string; postID: number }) => {
-  return api
-    .post(`/post-comment/student`, data)
-    .then((res) => res.data as null);
+const createStudentComment = async (data: { body: string; postID: number }) => {
+  return api.post(`/post-comment/`, data).then((res) => res.data as null);
 };
 
 const deleteComment = async (id: number) => {
@@ -97,7 +97,7 @@ export const useCreateStudentPost = () => {
     }: {
       title: string;
       body: string;
-      subjectID: number;
+      subjectID: string;
     }) => createStudentPost({ title, body, subjectID }),
     onError: (err) => {
       Toast.show({
@@ -108,7 +108,7 @@ export const useCreateStudentPost = () => {
         visibilityTime: 8000
       });
     },
-    onSettled: async (data, error, variables, context) => {
+    onSuccess: async (data, variables, context) => {
       await queryClient.invalidateQueries({ queryKey: ['posts'] });
       await queryClient.invalidateQueries({
         queryKey: ['posts', variables.subjectID]
@@ -130,7 +130,7 @@ export const useDeletePost = () => {
         visibilityTime: 8000
       });
     },
-    onSettled: (data, error, variables, context) => {
+    onSuccess: (data, variables, context) => {
       queryClient.invalidateQueries({ queryKey: ['posts'] });
       queryClient.invalidateQueries({
         queryKey: ['posts', variables.toString()]
@@ -146,11 +146,11 @@ export const useDeletePost = () => {
   });
 };
 
-export const useCreateComment = () => {
+export const useCreateStudentComment = () => {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: ({ body, postID }: { body: string; postID: number }) =>
-      createComment({ body, postID }),
+      createStudentComment({ body, postID }),
     onError: (err) => {
       Toast.show({
         type: 'customToast',
@@ -160,7 +160,7 @@ export const useCreateComment = () => {
         visibilityTime: 8000
       });
     },
-    onSettled: async (data, error, variables, context) => {
+    onSuccess: async (data, variables, context) => {
       await queryClient.invalidateQueries({
         queryKey: ['post', variables.postID.toString()]
       });
@@ -183,13 +183,12 @@ export const useDeleteComment = () => {
         visibilityTime: 8000
       });
     },
-    onSettled: (data, error, variables, context) => {
+    onSuccess: (data, variables, context) => {
       queryClient
         .invalidateQueries({
           queryKey: ['post', variables.postID.toString()]
         })
         .then(() => {
-          console.log(['post', variables.toString()]);
           Toast.show({
             type: 'customToast',
             text1: 'Comment deleted',
@@ -198,6 +197,121 @@ export const useDeleteComment = () => {
             visibilityTime: 8000
           });
         });
+    }
+  });
+};
+
+// #s #################################################
+//    Teacher API
+//    #################################################
+
+const fetchTeacherOrganizationAssignments = async () => {
+  return api
+    .get(`/post/teacher/organization`)
+    .then((res) => res.data as Post[]);
+};
+
+const fetchTeacherSubjectPosts = async (id: string) => {
+  return api
+    .get(`/post/teacher/subject/${id}`)
+    .then((res) => res.data as Post[]);
+};
+
+const fetchTeacherPost = async (id: string) => {
+  return api.get(`/post/teacher/${id}`).then((res) => res.data as Post);
+};
+
+const createTeacherPost = async (data: {
+  title: string;
+  body: string;
+  type: 'announcement' | 'assignment' | 'material' | 'test';
+  subjectID: string;
+  dueDate?: string;
+}) => {
+  return api.post(`/post/teacher`, data).then((res) => res.data as null);
+};
+
+const createTeacherComment = async (data: { body: string; postID: number }) => {
+  return api.post(`/post-comment/`, data).then((res) => res.data as null);
+};
+
+export const useGetTeacherOrganizationAssignments = () => {
+  return useQuery({
+    queryKey: ['posts'],
+    queryFn: fetchTeacherOrganizationAssignments
+  });
+};
+
+export const useGetTeacherSubjectPosts = (id: string) => {
+  return useQuery({
+    queryKey: ['posts', id],
+    queryFn: () => fetchTeacherSubjectPosts(id)
+  });
+};
+
+export const useGetTeacherPost = (id: string) => {
+  return useQuery({
+    queryKey: ['post', id],
+    queryFn: () => fetchTeacherPost(id),
+    staleTime: 1000 * 60 * 5
+  });
+};
+
+export const useCreateTeacherPost = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: ({
+      title,
+      body,
+      type,
+      subjectID,
+      dueDate
+    }: {
+      title: string;
+      body: string;
+      type: 'announcement' | 'assignment' | 'material' | 'test';
+      subjectID: string;
+      dueDate?: string;
+    }) => createTeacherPost({ title, body, type, subjectID, dueDate }),
+    onError: (err) => {
+      Toast.show({
+        type: 'customToast',
+        text1: 'Error',
+        text2: JSON.stringify(err),
+        position: 'bottom',
+        visibilityTime: 8000
+      });
+    },
+    onSuccess: async (data, variables, context) => {
+      await queryClient.invalidateQueries({ queryKey: ['posts'] });
+      await queryClient.invalidateQueries({
+        queryKey: ['posts', variables.subjectID.toString()]
+      });
+    },
+    onSettled: () => {
+      console.log('sugi pl');
+    }
+  });
+};
+
+export const useCreateTeacherComment = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: ({ body, postID }: { body: string; postID: number }) =>
+      createTeacherComment({ body, postID }),
+    onError: (err) => {
+      Toast.show({
+        type: 'customToast',
+        text1: 'Error',
+        text2: err.message,
+        position: 'bottom',
+        visibilityTime: 8000
+      });
+    },
+    onSuccess: async (data, variables, context) => {
+      await queryClient.invalidateQueries({
+        queryKey: ['post', variables.postID.toString()]
+      });
     }
   });
 };

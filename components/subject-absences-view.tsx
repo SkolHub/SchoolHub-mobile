@@ -5,7 +5,6 @@ import {
   useWindowDimensions,
   View
 } from 'react-native';
-import { useGetStudentSubjectGradesAbsences } from '@/api/grade';
 import LoadingView from '@/components/loading-view';
 import ErrorView from '@/components/error-view';
 import tw from '@/lib/tailwind';
@@ -16,6 +15,8 @@ import ListItem from '@/components/list-item';
 import { formatShortDate } from '@/lib/utils';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import React from 'react';
+import StatsSummaryView from '@/components/stats-summary-view';
+import { useGetStudentSubjectAbsences } from '@/api/grade';
 
 export default function SubjectAbsencesView({
   subjectID
@@ -24,31 +25,26 @@ export default function SubjectAbsencesView({
 }) {
   const dimensions = useWindowDimensions();
 
-  let gradesAndAbsences = useGetStudentSubjectGradesAbsences(subjectID);
+  let absences = useGetStudentSubjectAbsences(subjectID);
 
-  if (gradesAndAbsences.isPending) {
+  if (absences.isPending) {
     return <LoadingView />;
   }
 
-  if (gradesAndAbsences.isError) {
+  if (absences.isError) {
     return (
-      <ErrorView
-        refetch={gradesAndAbsences.refetch}
-        error={gradesAndAbsences.error.message}
-      />
+      <ErrorView refetch={absences.refetch} error={absences.error.message} />
     );
   }
 
-  gradesAndAbsences.data.absences = gradesAndAbsences.data.absences.sort(
-    (a, b) => {
-      return new Date(b.date).getTime() - new Date(a.date).getTime();
-    }
-  );
+  absences.data = absences.data.sort((a, b) => {
+    return new Date(b.date).getTime() - new Date(a.date).getTime();
+  });
 
   let absencesNum = 0,
     unexcusedAbsencesNum = 0;
 
-  gradesAndAbsences.data?.absences.forEach((absence) => {
+  absences.data?.forEach((absence) => {
     absencesNum++;
     if (!absence.excused) {
       unexcusedAbsencesNum++;
@@ -59,7 +55,7 @@ export default function SubjectAbsencesView({
   for (let i = 0; i < 12; i++) {
     absencesPerMonth[i] = 0;
   }
-  gradesAndAbsences.data?.absences.forEach((absence) => {
+  absences.data?.forEach((absence) => {
     absencesPerMonth[new Date(absence.date).getMonth()]++;
   });
 
@@ -110,8 +106,8 @@ export default function SubjectAbsencesView({
       contentContainerStyle={tw`pb-12`}
       refreshControl={
         <RefreshControl
-          refreshing={gradesAndAbsences.isPending}
-          onRefresh={gradesAndAbsences.refetch}
+          refreshing={absences.isPending}
+          onRefresh={absences.refetch}
         />
       }
     >
@@ -128,39 +124,17 @@ export default function SubjectAbsencesView({
         />
       </View>
       <Caption text='Absences' />
-      <View style={tw`mb-6 rounded-3xl bg-neutral-50 p-4 dark:bg-neutral-700`}>
-        <View style={tw`flex-row justify-between`}>
-          <View
-            style={tw`flex-1 items-stretch border-r border-black/15 px-4 dark:border-white/20`}
-          >
-            <Text
-              style={tw`text-center text-xl font-bold text-primary-800 dark:text-primary-50`}
-            >
-              {absencesNum}
-            </Text>
-            <Text
-              style={tw`text-center text-sm font-semibold text-primary-700 dark:text-primary-200`}
-            >
-              absences
-            </Text>
-          </View>
-          <View style={tw`flex-1 items-stretch pl-4`}>
-            <Text
-              style={tw`text-center text-xl font-bold text-primary-800 dark:text-primary-50`}
-            >
-              {unexcusedAbsencesNum}
-            </Text>
-            <Text
-              style={tw`text-center text-sm font-semibold text-primary-700 dark:text-primary-200`}
-            >
-              unexcused absences
-            </Text>
-          </View>
-        </View>
-      </View>
+      <StatsSummaryView
+        data={[
+          { absences: absencesNum.toString() },
+          { 'unexcused absences': unexcusedAbsencesNum.toString() }
+        ]}
+        style={'mb-6'}
+      />
       <List>
-        {gradesAndAbsences.data?.absences.map((item) => (
+        {absences.data?.map((item) => (
           <ListItem
+            shouldPress={false}
             leftComponent={
               <View>
                 <Text

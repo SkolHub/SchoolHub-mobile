@@ -6,12 +6,11 @@ import { View } from 'react-native';
 import FormInput from '@/components/form-input';
 import LargeButton from '@/components/large-button';
 import tw from '@/lib/tailwind';
-import { useCreateStudentPost, useCreateTeacherPost } from '@/api/post';
+import { useCreateTeacherPost } from '@/api/post';
 
 export default function CreateAnnouncement() {
-  const { subjectID, userType } = useLocalSearchParams();
+  const { subjectID } = useLocalSearchParams();
 
-  const createStudentPost = useCreateStudentPost();
   const createTeacherPost = useCreateTeacherPost();
 
   const schema = yup.object().shape({
@@ -27,20 +26,11 @@ export default function CreateAnnouncement() {
     resolver: yupResolver(schema)
   });
   const onSubmit = async (values: { title: string; body: string }) => {
-    if (userType === 'teacher') {
-      await createTeacherPost.mutateAsync({
-        title: values.title,
-        body: values.body,
-        subjectID: subjectID as string,
-        type: 'announcement'
-      });
-      router.back();
-      return;
-    }
-    await createStudentPost.mutateAsync({
+    await createTeacherPost.mutateAsync({
       title: values.title,
       body: values.body,
-      subjectID: subjectID as string
+      subjectID: subjectID as string,
+      type: 'material'
     });
     router.back();
   };

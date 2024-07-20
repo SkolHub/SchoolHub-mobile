@@ -36,7 +36,7 @@ export default function CreateAssignment() {
       title: data.title,
       body: data.body,
       subjectID: subjectID as string,
-      type: 'assignment',
+      type: 'test',
       dueDate: dueDate.toISOString()
     });
 
@@ -69,7 +69,7 @@ export default function CreateAssignment() {
       />
       <List>
         <ListItem
-          text={'Due date'}
+          text={'Planned on'}
           rightComponent={
             <Pressable
               style={tw`rounded-xl bg-neutral-200 px-4 py-3 dark:bg-neutral-600`}
@@ -77,8 +77,7 @@ export default function CreateAssignment() {
             >
               <Text style={tw`text-black dark:text-white`}>
                 {dueDate.toLocaleString('ro-RO', {
-                  dateStyle: 'short',
-                  timeStyle: 'short'
+                  dateStyle: 'short'
                 })}
               </Text>
             </Pressable>
@@ -104,7 +103,10 @@ export default function CreateAssignment() {
           style={tw`items-center rounded-[8] bg-white p-6 dark:bg-neutral-700`}
         >
           <View style={tw`w-full flex-row items-start justify-between`}>
-            <Caption text={'Choose due date'} style={'pb-6 pt-0'} />
+            <Caption
+              text={'Choose planned day for the test'}
+              style={'pb-6 pt-0'}
+            />
             <Pressable
               onPress={() => {
                 setModalVisible(false);
@@ -122,11 +124,7 @@ export default function CreateAssignment() {
               />
             </Pressable>
           </View>
-          <DatePicker
-            mode='datetime'
-            date={dueDate}
-            onDateChange={setDueDate}
-          />
+          <DatePicker mode='date' date={dueDate} onDateChange={setDueDate} />
         </View>
       </Modal>
     </View>

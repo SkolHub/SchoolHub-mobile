@@ -8,7 +8,7 @@ export default function Grades() {
   const { subjectID } = useGlobalSearchParams();
 
   return (
-    <View style={tw`flex-1 bg-secondary-50 px-4 dark:bg-primary-950`}>
+    <View style={tw`flex-1 bg-secondary-100 px-4 dark:bg-primary-950`}>
       <SubjectGradesView subjectID={+(subjectID as string)} />
     </View>
   );

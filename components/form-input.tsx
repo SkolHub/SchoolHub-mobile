@@ -63,7 +63,7 @@ const FormInput = ({
                   shouldError && !!error && 'border border-red-500',
                   !editable && 'text-neutral-500 dark:text-neutral-400',
                   inModal && 'bg-background-50 dark:bg-background-800',
-                  multiline && 'h-40'
+                  multiline && 'h-40 pt-3'
                 )}
                 defaultValue={defaultValue}
                 placeholder={placeholder}

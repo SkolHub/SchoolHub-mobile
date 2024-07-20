@@ -58,7 +58,7 @@ export default function AssignmentCard({
         <Text
           style={tw`text-sm font-semibold text-primary-700 dark:text-primary-300`}
         >
-          {dueDate ? 'Due' : 'No due date'}
+          {dueDate ? 'Due ' : 'No due date'}
           {dueDate}
         </Text>
       </View>

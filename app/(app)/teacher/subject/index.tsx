@@ -1,142 +1,294 @@
-import { FlatList, Text, View } from 'react-native';
+import { FlatList, Pressable, RefreshControl, View } from 'react-native';
 import { router, useLocalSearchParams } from 'expo-router';
-import { useOrganizations } from '@/data/organizations';
-import { useGrades } from '@/data/grades';
-import { useAbsences } from '@/data/absences';
-import { useEffect, useState } from 'react';
-import AssignmentCard from '@/components/assignment-card';
-import AnnouncementCard from '@/components/announcement-card';
-import LargeButton from '@/components/large-button';
+import React, { useEffect, useState } from 'react';
 import tw from '@/lib/tailwind';
+import { useGetFewGrades, useGetTeacherSubjectStats } from '@/api/subject';
+import { Post, useGetTeacherSubjectPosts } from '@/api/post';
+import LoadingView from '@/components/loading-view';
+import ErrorView from '@/components/error-view';
+import StatsSummaryView from '@/components/stats-summary-view';
+import SmallButton from '@/components/small-button';
+import FilterDropdown from '@/components/filter-dropdown';
+import { PostsListItem } from '@/components/posts-list-item';
+import Modal from 'react-native-modal';
+import Caption from '@/components/caption';
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 export default function Index() {
-  const { subject, className } = useLocalSearchParams();
-  const { activeOrganization } = useOrganizations();
-  const { getSubject } = useOrganizations();
+  const { subjectID } = useLocalSearchParams();
+  const stats = useGetTeacherSubjectStats(subjectID as string);
+  const fewGrades = useGetFewGrades(subjectID as string);
 
-  const subjectData = getSubject(
-    activeOrganization,
-    className as string,
-    subject as string
-  );
+  const posts = useGetTeacherSubjectPosts(subjectID as string);
 
-  const { grades } = useGrades();
-  const { absences } = useAbsences();
+  const [shownPosts, setShownPosts] = useState<Post[]>([]);
+  const [filter, setFilter] = useState<string[]>([
+    'announcement',
+    'assignment',
+    'material',
+    'test'
+  ]);
 
-  const [mean, setMean] = useState(10);
-  const [unexcusedAbsences, setUnexcusedAbsences] = useState(0);
-  const [assignmentsNum, setAssignmentsNum] = useState(0);
+  const [toolsModalVisible, setToolsModalVisible] = useState(false);
+  const [createModalVisible, setCreateModalVisible] = useState(false);
 
   useEffect(() => {
-    let sum = 0;
-    let count = 0;
-    let subjectGrades = grades.filter(
-      (grade) => grade.subject === subjectData.name
+    if (posts.data) {
+      let temp = posts.data.filter((p) => filter.includes(p.type));
+      temp = temp.sort(
+        (a, b) =>
+          new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
+      );
+      setShownPosts(temp);
+    }
+  }, [posts.data, filter]);
+
+  if (stats.isPending || posts.isPending || fewGrades.isPending) {
+    return <LoadingView />;
+  }
+
+  if (stats.isError) {
+    return <ErrorView refetch={stats.refetch} error={stats.error.message} />;
+  }
+
+  if (posts.isError) {
+    return <ErrorView refetch={posts.refetch} error={posts.error.message} />;
+  }
+
+  if (fewGrades.isError) {
+    return (
+      <ErrorView refetch={fewGrades.refetch} error={fewGrades.error.message} />
     );
-    subjectGrades.forEach((grade) => {
-      sum += grade.grade;
-      count++;
-    });
-    setMean(sum / count);
+  }
 
-    let unexcused = 0;
-    let subjectAbsences = absences.filter(
-      (absence) => absence.subject === subjectData.name
-    );
-    subjectAbsences.forEach((absence) => {
-      if (!absence.excused) {
-        unexcused++;
-      }
-    });
-    setUnexcusedAbsences(unexcused);
-
-    let assignments = 0;
-    subjectData.assignments.forEach((assignment) => {
-      assignments++;
-    });
-    setAssignmentsNum(assignments);
-  }, [grades, absences]);
-
-  const streamData = [...subjectData.assignments, ...subjectData.announcements];
-
-  streamData.sort(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+  posts.data.sort(
+    (a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
   );
 
-  const theme = subjectData.theme || 'blue';
-
   return (
-    <View style={tw`bg-secondary-${theme}-50 dark:bg-primary-950 flex-1 px-4`}>
-      <LargeButton
-        text='Create announcement'
-        onPress={() => {
-          router.push({
-            pathname: '/modals/create-announcement',
-            params: {
-              subject: subject,
-              className: className,
-              organization: activeOrganization
-            }
-          });
-        }}
-        style='mb-3'
-        theme={theme}
-      />
-      <LargeButton
-        text='Create assignment'
-        onPress={() => {
-          router.push({
-            pathname: '/modals/create-assignment',
-            params: {
-              subject: subject,
-              className: className,
-              organization: activeOrganization
-            }
-          });
-        }}
-        style='mb-6'
-        theme={theme}
-      />
+    <View style={tw`flex-1 bg-secondary-100 px-4 dark:bg-primary-950`}>
       <FlatList
-        data={streamData}
-        renderItem={({ item }: any) => {
-          if (item?.due) {
-            return (
-              <AssignmentCard
-                onPress={() => {
+        ListHeaderComponent={
+          <>
+            <StatsSummaryView
+              data={[
+                {
+                  'average grades': (+stats.data.averagecount)
+                    .toFixed(1)
+                    .toString()
+                },
+                {
+                  'class average': (+stats.data.average).toFixed(2).toString()
+                },
+                {
+                  'students with few grades': fewGrades.data.count
+                }
+              ]}
+              style={`mb-4`}
+            />
+            <View style={tw`flex-row items-start justify-between pb-4`}>
+              <View style={tw`flex-row gap-2`}>
+                <SmallButton
+                  text={'Create'}
+                  iconName={'add-outline'}
+                  onPress={() => {
+                    setCreateModalVisible(true);
+                  }}
+                />
+                <SmallButton
+                  text={'Tools'}
+                  iconName={'hammer'}
+                  onPress={() => {
+                    setToolsModalVisible(true);
+                  }}
+                />
+              </View>
+              <FilterDropdown filter={filter} setFilter={setFilter} />
+            </View>
+          </>
+        }
+        refreshControl={
+          <RefreshControl
+            refreshing={stats.isPending || posts.isPending}
+            onRefresh={async () => {
+              await Promise.all([stats.refetch(), posts.refetch()]);
+            }}
+          />
+        }
+        data={shownPosts}
+        renderItem={({ item }) => {
+          return <PostsListItem post={item} userType={'teacher'} />;
+        }}
+      />
+      <Modal
+        animationIn={'slideInUp'}
+        isVisible={createModalVisible}
+        onBackdropPress={() => {
+          setCreateModalVisible(false);
+        }}
+        onSwipeComplete={() => {
+          setCreateModalVisible(false);
+        }}
+        swipeDirection={['down']}
+        style={tw`mx-4 mb-8 justify-end`}
+        backdropOpacity={0.2}
+        animationInTiming={200}
+      >
+        <View style={tw`rounded-[8] bg-white p-6 dark:bg-neutral-700`}>
+          <View style={tw`flex-row items-start justify-between`}>
+            <Caption text={'Create'} style={'pb-6 pt-0'} />
+            <Pressable
+              onPress={() => {
+                setCreateModalVisible(false);
+              }}
+              style={tw`rounded-full bg-primary-200/70 p-1 dark:bg-neutral-600/50`}
+            >
+              <Ionicons
+                name='close'
+                size={24}
+                color={
+                  tw.prefixMatch('dark')
+                    ? tw.color('primary-100/50')
+                    : tw.color(`primary-800`)
+                }
+              />
+            </Pressable>
+          </View>
+          <View style={tw`gap-2.5`}>
+            <SmallButton
+              text={'Assignment'}
+              onPress={() => {
+                setCreateModalVisible(false);
+                setTimeout(() => {
                   router.push({
-                    pathname: '/teacher/assignment',
+                    pathname: '/modals/create-assignment',
                     params: {
-                      subject: subject,
-                      className: className,
-                      assignment: item.title
+                      subjectID: subjectID as string
                     }
                   });
-                }}
-                title={item.title}
-                dueDate={`${new Date(item.due)
-                  .getDate()
-                  .toString()
-                  .padStart(2, '0')}.${(new Date(item.due).getMonth() + 1)
-                  .toString()
-                  .padStart(2, '0')}.${new Date(item.due).getFullYear()}`}
-              />
-            );
-          }
-          return (
-            <AnnouncementCard
-              title={item.title}
-              body={item.body}
-              date={`${new Date(item.date)
-                .getDate()
-                .toString()
-                .padStart(2, '0')}.${(new Date(item.date).getMonth() + 1)
-                .toString()
-                .padStart(2, '0')}.${new Date(item.date).getFullYear()}`}
+                }, 400);
+              }}
+              contentContainerStyle={'bg-neutral-200/70 dark:bg-neutral-600'}
+              iconName={'document-attach'}
             />
-          );
+            <SmallButton
+              text={'Announcement'}
+              onPress={() => {
+                setCreateModalVisible(false);
+                setTimeout(() => {
+                  router.push({
+                    pathname: '/modals/create-announcement',
+                    params: {
+                      subjectID: subjectID as string,
+                      userType: 'teacher'
+                    }
+                  });
+                }, 400);
+              }}
+              contentContainerStyle={'bg-neutral-200/70 dark:bg-neutral-600'}
+              iconName={'chatbubbles'}
+            />
+            <SmallButton
+              text={'Material'}
+              onPress={() => {
+                setCreateModalVisible(false);
+                setTimeout(() => {
+                  router.push({
+                    pathname: '/modals/create-material',
+                    params: {
+                      subjectID: subjectID as string
+                    }
+                  });
+                }, 400);
+              }}
+              contentContainerStyle={'bg-neutral-200/70 dark:bg-neutral-600'}
+              iconName={'document-text'}
+            />
+            <SmallButton
+              text={'Test'}
+              onPress={() => {
+                setCreateModalVisible(false);
+                setTimeout(() => {
+                  router.push({
+                    pathname: '/modals/create-test',
+                    params: {
+                      subjectID: subjectID as string
+                    }
+                  });
+                }, 400);
+              }}
+              contentContainerStyle={'bg-neutral-200/70 dark:bg-neutral-600'}
+              iconName={'list'}
+            />
+          </View>
+        </View>
+      </Modal>
+      <Modal
+        animationIn={'slideInUp'}
+        isVisible={toolsModalVisible}
+        onBackdropPress={() => {
+          setToolsModalVisible(false);
         }}
-      />
+        onSwipeComplete={() => {
+          setToolsModalVisible(false);
+        }}
+        swipeDirection={['down']}
+        style={tw`mx-4 mb-8 justify-end`}
+        backdropOpacity={0.2}
+        animationInTiming={200}
+      >
+        <View style={tw`rounded-[8] bg-white p-6 dark:bg-neutral-700`}>
+          <View style={tw`flex-row items-start justify-between`}>
+            <Caption text={'Tools'} style={'pb-6 pt-0'} />
+            <Pressable
+              onPress={() => {
+                setToolsModalVisible(false);
+              }}
+              style={tw`rounded-full bg-primary-200/70 p-1 dark:bg-neutral-600/50`}
+            >
+              <Ionicons
+                name='close'
+                size={24}
+                color={
+                  tw.prefixMatch('dark')
+                    ? tw.color('primary-100/50')
+                    : tw.color(`primary-800`)
+                }
+              />
+            </Pressable>
+          </View>
+          <View style={tw`gap-2.5`}>
+            <SmallButton
+              text={'Grade the class'}
+              onPress={() => {}}
+              contentContainerStyle={'bg-neutral-200/70 dark:bg-neutral-600'}
+              iconName={'stats-chart'}
+            />
+            <SmallButton
+              text={'Attendance mode'}
+              onPress={() => {}}
+              contentContainerStyle={'bg-neutral-200/70 dark:bg-neutral-600'}
+              iconName={'calendar'}
+            />
+            <SmallButton
+              text={'Assessment mode'}
+              onPress={() => {
+                setToolsModalVisible(false);
+                setTimeout(() => {
+                  router.push({
+                    pathname: '/modals/assessment',
+                    params: {
+                      subjectID: subjectID as string
+                    }
+                  });
+                }, 400);
+              }}
+              contentContainerStyle={'bg-neutral-200/70 dark:bg-neutral-600'}
+              iconName={'list'}
+            />
+          </View>
+        </View>
+      </Modal>
     </View>
   );
 }

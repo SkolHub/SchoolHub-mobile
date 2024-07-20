@@ -78,11 +78,12 @@ export function SessionProvider(props: React.PropsWithChildren) {
               );
               await SecureStore.setItemAsync(
                 'role',
-                (profile.data as Account).role.toString()
+                (profile.data as Account).role
               );
             })
             .catch((error) => {
-              err = error.response.data.message;
+              // err = error.response.data.message;
+              err = error.message;
             });
           return err;
         },

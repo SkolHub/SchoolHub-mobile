@@ -21,6 +21,28 @@ export default function Index() {
     );
   }
 
+  subjects.data.map((class_) => {
+    class_.subjects = class_.subjects.sort((a, b) => {
+      if (a.name < b.name) {
+        return -1;
+      }
+      if (a.name > b.name) {
+        return 1;
+      }
+      return 0;
+    });
+  });
+
+  subjects.data = subjects.data.sort((a, b) => {
+    if (a.name < b.name) {
+      return -1;
+    }
+    if (a.name > b.name) {
+      return 1;
+    }
+    return 0;
+  });
+
   return (
     <>
       <ScrollView
@@ -33,7 +55,7 @@ export default function Index() {
           />
         }
       >
-        {subjects.data?.map((class_, index) => (
+        {subjects.data?.map((class_) => (
           <View key={class_.id}>
             <Caption text={class_.name} key={class_.name} />
             <View style={tw`gap-3`}>
@@ -42,7 +64,7 @@ export default function Index() {
                   name={subject.name}
                   icon={subject.icon}
                   secondaryText={(subject.teachers ?? [])
-                    .map((teacher) => teacher.id)
+                    .map((teacher) => teacher.name)
                     .join(', ')}
                   onPress={() => {
                     router.push({

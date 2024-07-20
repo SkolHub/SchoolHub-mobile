@@ -3,13 +3,16 @@ import { ScrollView, Text, View } from 'react-native';
 import tw from '@/lib/tailwind';
 import SmallAssignmentCard from '@/components/small-assignment-card';
 import React from 'react';
+import { router } from 'expo-router';
 
 export default function KanbanColumn({
   title,
-  posts
+  posts,
+  type
 }: {
   title: string;
   posts: Post[];
+  type: 'student' | 'teacher';
 }) {
   return (
     <ScrollView style={tw`mr-6 w-72`}>
@@ -27,7 +30,18 @@ export default function KanbanColumn({
       </View>
       <View style={tw`gap-2`}>
         {posts.map((item, index) => (
-          <SmallAssignmentCard assignment={item} key={index} />
+          <SmallAssignmentCard
+            assignment={item}
+            key={index}
+            onPress={() => {
+              router.push({
+                pathname: `/${type}/post/assignment`,
+                params: {
+                  postID: item.id
+                }
+              });
+            }}
+          />
         ))}
       </View>
     </ScrollView>

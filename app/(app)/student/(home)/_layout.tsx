@@ -42,6 +42,8 @@ export default function HomeLayout() {
             return (
               <SymbolView
                 name='book.closed.fill'
+                size={22}
+                resizeMode={'scaleAspectFill'}
                 tintColor={color}
                 fallback={<MaterialIcons name='book' size={24} color={color} />}
               />
@@ -85,6 +87,8 @@ export default function HomeLayout() {
             return (
               <SymbolView
                 name='chart.bar.fill'
+                size={22}
+                resizeMode={'scaleAspectFill'}
                 tintColor={color}
                 fallback={
                   <MaterialIcons name='bar-chart' size={30} color={color} />
@@ -130,6 +134,8 @@ export default function HomeLayout() {
             return (
               <SymbolView
                 name='doc.text.fill'
+                size={22}
+                resizeMode={'scaleAspectFill'}
                 tintColor={color}
                 fallback={
                   <MaterialIcons name='description' size={24} color={color} />

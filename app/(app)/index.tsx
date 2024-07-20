@@ -16,8 +16,6 @@ export default function Index() {
     );
   }
 
-  console.log(account.data);
-
   if (account.data === 'student') {
     return <Redirect href='/student' />;
   }

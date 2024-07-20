@@ -1,7 +1,7 @@
 import { useLocalSearchParams } from 'expo-router';
 import { RefreshControl, ScrollView, Text, View } from 'react-native';
 import {
-  useCreateComment,
+  useCreateStudentComment,
   useDeleteComment,
   useGetStudentPost
 } from '@/api/post';
@@ -19,11 +19,12 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useGetAccountID } from '@/api/account';
 import DeleteDropdown from '@/components/delete-dropdown';
 import Ionicons from '@expo/vector-icons/Ionicons';
+import CommentCard from '@/components/comment-card';
 
 export default function Material() {
   const { postID } = useLocalSearchParams();
   const post = useGetStudentPost(postID as string);
-  const createComment = useCreateComment();
+  const createComment = useCreateStudentComment();
   const deleteComment = useDeleteComment();
 
   const accountID = useGetAccountID();
@@ -126,36 +127,13 @@ export default function Material() {
       </View>
       <View style={tw`gap-3`}>
         {post.data.comments.map((comment) => (
-          <View
-            style={tw`rounded-2xl bg-white px-4 py-3 pr-1 dark:bg-neutral-700`}
+          <CommentCard
             key={comment.id}
-          >
-            <View style={tw`flex-row items-center justify-between`}>
-              <View style={tw`w-full flex-row justify-between`}>
-                <Text style={tw`text-base font-semibold dark:text-white`}>
-                  {comment.member.name}
-                </Text>
-                <View style={tw`flex-row items-center`}>
-                  <Text style={tw`text-base font-semibold dark:text-white`}>
-                    {formatShortDate(comment.timestamp)}
-                  </Text>
-                  {comment.member.id === +(accountID.data as string) ? (
-                    <DeleteDropdown
-                      onDelete={() => {
-                        deleteComment.mutate({
-                          id: comment.id,
-                          postID: +(postID as string)
-                        });
-                      }}
-                    />
-                  ) : null}
-                </View>
-              </View>
-            </View>
-            <Text style={tw` text-base dark:text-white`}>
-              {comment.body.trim()}
-            </Text>
-          </View>
+            comment={comment}
+            deleteComment={deleteComment}
+            postID={postID as string}
+            accountID={accountID}
+          />
         ))}
       </View>
     </ScrollView>

@@ -7,6 +7,7 @@ import { SessionProvider } from '@/context/AuthContext';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { useDeviceContext } from 'twrnc';
 import tw from '@/lib/tailwind';
+import { ActionSheetProvider } from '@expo/react-native-action-sheet';
 
 export default function RootLayout() {
   const queryClient = new QueryClient();
@@ -29,10 +30,12 @@ export default function RootLayout() {
   return (
     <>
       <QueryClientProvider client={queryClient}>
-        <SessionProvider>
-          <Stack screenOptions={{ headerShown: false }} />
-          <Toast config={toastConfig} />
-        </SessionProvider>
+        <ActionSheetProvider>
+          <SessionProvider>
+            <Stack screenOptions={{ headerShown: false }} />
+            <Toast config={toastConfig} />
+          </SessionProvider>
+        </ActionSheetProvider>
       </QueryClientProvider>
     </>
   );

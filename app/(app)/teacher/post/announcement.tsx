@@ -4,7 +4,7 @@ import {
   useCreateStudentComment,
   useDeleteComment,
   useDeletePost,
-  useGetStudentPost
+  useGetTeacherPost
 } from '@/api/post';
 import React from 'react';
 import LoadingView from '@/components/loading-view';
@@ -23,7 +23,7 @@ import CommentCard from '@/components/comment-card';
 
 export default function Announcement() {
   const { postID } = useLocalSearchParams();
-  const post = useGetStudentPost(postID as string);
+  const post = useGetTeacherPost(postID as string);
   const deletePost = useDeletePost();
   const createComment = useCreateStudentComment();
   const deleteComment = useDeleteComment();

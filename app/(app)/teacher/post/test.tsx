@@ -4,7 +4,7 @@ import {
   useCreateStudentComment,
   useDeleteComment,
   useDeletePost,
-  useGetStudentPost
+  useGetTeacherPost
 } from '@/api/post';
 import React from 'react';
 import LoadingView from '@/components/loading-view';
@@ -19,12 +19,14 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useGetAccountID } from '@/api/account';
 import DeleteDropdown from '@/components/delete-dropdown';
+import Ionicons from '@expo/vector-icons/Ionicons';
 import CommentCard from '@/components/comment-card';
 
-export default function Announcement() {
+export default function Test() {
   const { postID } = useLocalSearchParams();
-  const post = useGetStudentPost(postID as string);
+  const post = useGetTeacherPost(postID as string);
   const deletePost = useDeletePost();
+
   const createComment = useCreateStudentComment();
   const deleteComment = useDeleteComment();
 
@@ -68,20 +70,38 @@ export default function Announcement() {
       style={tw`bg-secondary-100 px-4 dark:bg-primary-950`}
     >
       <View style={tw`mb-4 rounded-3xl bg-neutral-50 p-4 dark:bg-neutral-700`}>
-        <View style={tw`flex-row justify-between`}>
-          <Text
-            style={tw`text-xl font-semibold text-primary-800 dark:text-primary-50`}
-          >
-            {post.data.title}
-          </Text>
-          {post.data.member.id == +(accountID.data as string) && (
-            <DeleteDropdown
-              onDelete={() => {
-                deletePost.mutate(+(postID as string));
-                router.back();
-              }}
-            />
-          )}
+        <View style={tw`mb-2 flex-row items-center gap-2.5`}>
+          <Ionicons
+            name={'checkmark-circle'}
+            size={30}
+            color={
+              tw.prefixMatch('dark')
+                ? tw.color('primary-100')
+                : tw.color('primary-700')
+            }
+          />
+          <View style={tw`flex-1`}>
+            <View style={tw`grow flex-row justify-between`}>
+              <Text
+                style={tw`text-xl font-semibold text-primary-800 dark:text-primary-50`}
+              >
+                {post.data.title}
+              </Text>
+              {post.data.member.id == +(accountID.data as string) && (
+                <DeleteDropdown
+                  onDelete={() => {
+                    deletePost.mutate(+(postID as string));
+                    router.back();
+                  }}
+                />
+              )}
+            </View>
+            <Text
+              style={tw`mt-[-2px] text-base font-semibold leading-tight text-primary-700 dark:text-primary-100`}
+            >
+              Planned on {formatShortDate(post.data.dueDate)}
+            </Text>
+          </View>
         </View>
         <View style={tw`flex-row justify-between`}>
           <Text

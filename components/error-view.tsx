@@ -14,7 +14,9 @@ export default function ErrorView({
   const [[isLoading, session], setSession] = useStorageState('session');
 
   return (
-    <View style={tw`w-full flex-1 items-center justify-center dark:bg-black`}>
+    <View
+      style={tw`w-full flex-1 items-center justify-center bg-secondary-100 dark:bg-primary-950`}
+    >
       <Ionicons
         name='cloud-offline-outline'
         size={100}

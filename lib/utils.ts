@@ -1,5 +1,12 @@
 import { twMerge } from 'tailwind-merge';
 import { type ClassValue, clsx } from 'clsx';
+import { Post } from '@/api/post';
+import MaterialCard from '@/components/material-card';
+import { router } from 'expo-router';
+import AssignmentCard from '@/components/assignment-card';
+import AnnouncementCard from '@/components/announcement-card';
+import TestCard from '@/components/test-card';
+import React from 'react';
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));

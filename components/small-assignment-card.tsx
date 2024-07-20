@@ -3,24 +3,18 @@ import { Pressable, Text, View } from 'react-native';
 import tw from '@/lib/tailwind';
 import { androidRipple, formatShortDate, formatTime } from '@/lib/utils';
 import React from 'react';
-import { router } from 'expo-router';
 
 export default function SmallAssignmentCard({
-  assignment
+  assignment,
+  onPress
 }: {
   assignment: Post;
+  onPress: () => void;
 }) {
   return (
     <View style={tw`overflow-hidden rounded-2xl`}>
       <Pressable
-        onPress={() => {
-          router.push({
-            pathname: '/student/post/assignment',
-            params: {
-              postID: assignment.id
-            }
-          });
-        }}
+        onPress={onPress}
         android_ripple={androidRipple}
         style={tw`flex-row justify-between rounded-2xl bg-neutral-50 px-4 py-3 dark:bg-neutral-700`}
       >

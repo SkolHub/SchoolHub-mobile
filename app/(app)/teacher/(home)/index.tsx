@@ -7,17 +7,25 @@ import { useGetTeacherSubjects } from '@/api/subject';
 import LoadingView from '@/components/loading-view';
 import ErrorView from '@/components/error-view';
 import ClassCard from '@/components/class-card';
+import { useGetAccountID } from '@/api/account';
 
 export default function Index() {
   const subjects = useGetTeacherSubjects();
+  const accountID = useGetAccountID();
 
-  if (subjects.isPending) {
+  if (subjects.isPending || accountID.isPending) {
     return <LoadingView />;
   }
 
   if (subjects.isError) {
     return (
       <ErrorView refetch={subjects.refetch} error={subjects.error.message} />
+    );
+  }
+
+  if (accountID.isError) {
+    return (
+      <ErrorView refetch={accountID.refetch} error={accountID.error.message} />
     );
   }
 
@@ -45,13 +53,12 @@ export default function Index() {
                   key={class_.subjects[0].id}
                   name={class_.schoolClasses.map((c) => c.name).join(', ')}
                   icon={class_.subjects[0].icon}
-                  secondaryText={class_.subjects[0].name}
+                  secondaryText={class_.subjects[0].id}
                   onPress={() => {
                     router.push({
                       pathname: '/teacher/subject',
                       params: {
-                        // subject: subject.name,
-                        className: '10A'
+                        subjectID: class_.subjects[0].id
                       }
                     });
                   }}
@@ -64,6 +71,9 @@ export default function Index() {
                 key={class_.subjects[0].id}
                 name={class_.schoolClasses.map((c) => c.name).join(', ')}
                 subjects={class_.subjects}
+                classMaster={
+                  class_.schoolClasses[0].classMasterID == accountID.data
+                }
               />
             );
           })}

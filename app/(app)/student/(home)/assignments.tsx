@@ -54,14 +54,30 @@ export default function Assignments() {
           />
         }
       >
-        <KanbanColumn title={'This week'} posts={thisWeekAssignments} key={1} />
-        <KanbanColumn title={'Later'} posts={laterAssignments} key={2} />
+        <KanbanColumn
+          title={'This week'}
+          posts={thisWeekAssignments}
+          key={1}
+          type={'student'}
+        />
+        <KanbanColumn
+          title={'Later'}
+          posts={laterAssignments}
+          key={2}
+          type={'student'}
+        />
         <KanbanColumn
           title={'No due date'}
           posts={noDueDateAssignments}
           key={3}
+          type={'student'}
         />
-        <KanbanColumn title={'Missing'} posts={missingAssignments} key={4} />
+        <KanbanColumn
+          title={'Missing'}
+          posts={missingAssignments}
+          key={4}
+          type={'student'}
+        />
       </ScrollView>
     </View>
   );

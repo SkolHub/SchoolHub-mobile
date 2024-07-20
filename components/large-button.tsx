@@ -1,4 +1,4 @@
-import { Button, Pressable, Text, View } from 'react-native';
+import { Pressable, Text, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import tw from '@/lib/tailwind';
 import { Theme } from '@/lib/types';
@@ -10,6 +10,7 @@ export default function LargeButton({
   textStyle,
   onPress,
   iconName,
+  iconColor = 'white',
   theme = 'blue'
 }: {
   text: string;
@@ -18,6 +19,7 @@ export default function LargeButton({
   contentContainerStyle?: string;
   onPress: () => void;
   iconName?: string;
+  iconColor?: string;
   theme?: Theme;
 }) {
   return (
@@ -35,7 +37,7 @@ export default function LargeButton({
     >
       <View
         style={tw.style(
-          `bg-primary-600 h-14 w-full flex-row items-center justify-center rounded-[16.5]`,
+          `h-14 w-full flex-row items-center justify-center rounded-[16.5] bg-primary-600`,
           contentContainerStyle
         )}
       >
@@ -43,12 +45,12 @@ export default function LargeButton({
           <Ionicons
             name={iconName as any}
             size={28}
-            color={textStyle ? '#17A34A' : 'white'}
+            color={iconColor}
             style={tw.style(text ? `mr-2` : ``, textStyle)}
           />
         )}
         <Text
-          style={tw.style(`text-primary-50 text-lg font-semibold`, textStyle)}
+          style={tw.style(`text-lg font-semibold text-primary-50`, textStyle)}
         >
           {text}
         </Text>

@@ -5,12 +5,54 @@ export default function ModalsLayout() {
   return (
     <Stack>
       <Stack.Screen
+        name='student-classbook'
+        options={{
+          presentation: 'modal',
+          header: () => (
+            <ModalHeader
+              text=''
+              onPress={() => {
+                router.back();
+              }}
+            />
+          )
+        }}
+      />
+      <Stack.Screen
         name='classbook-subject'
         options={{
           presentation: 'modal',
           header: () => (
             <ModalHeader
               text=''
+              onPress={() => {
+                router.back();
+              }}
+            />
+          )
+        }}
+      />
+      <Stack.Screen
+        name='create-material'
+        options={{
+          presentation: 'modal',
+          header: () => (
+            <ModalHeader
+              text='Post a new material'
+              onPress={() => {
+                router.back();
+              }}
+            />
+          )
+        }}
+      />
+      <Stack.Screen
+        name='create-test'
+        options={{
+          presentation: 'modal',
+          header: () => (
+            <ModalHeader
+              text='Plan a new test'
               onPress={() => {
                 router.back();
               }}

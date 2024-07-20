@@ -1,10 +1,10 @@
 import { router, useLocalSearchParams } from 'expo-router';
 import { RefreshControl, ScrollView, Text, View } from 'react-native';
 import {
-  useCreateStudentComment,
+  useCreateTeacherComment,
   useDeleteComment,
   useDeletePost,
-  useGetStudentPost
+  useGetTeacherPost
 } from '@/api/post';
 import React from 'react';
 import LoadingView from '@/components/loading-view';
@@ -19,13 +19,17 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useGetAccountID } from '@/api/account';
 import DeleteDropdown from '@/components/delete-dropdown';
+import Ionicons from '@expo/vector-icons/Ionicons';
+import LargeButton from '@/components/large-button';
+import StatsSummaryView from '@/components/stats-summary-view';
 import CommentCard from '@/components/comment-card';
 
-export default function Announcement() {
+export default function Assignment() {
   const { postID } = useLocalSearchParams();
-  const post = useGetStudentPost(postID as string);
+  const post = useGetTeacherPost(postID as string);
   const deletePost = useDeletePost();
-  const createComment = useCreateStudentComment();
+
+  const createComment = useCreateTeacherComment();
   const deleteComment = useDeleteComment();
 
   const accountID = useGetAccountID();
@@ -56,9 +60,11 @@ export default function Announcement() {
     );
   }
 
-  post.data.comments = post.data.comments.sort((a, b) => {
-    return new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime();
-  });
+  console.log('hellooooooo0o0');
+  console.log(post.data);
+  // post.data.comments = post.data.comments.sort((a, b) => {
+  //   return new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime();
+  // });
 
   return (
     <ScrollView
@@ -68,20 +74,40 @@ export default function Announcement() {
       style={tw`bg-secondary-100 px-4 dark:bg-primary-950`}
     >
       <View style={tw`mb-4 rounded-3xl bg-neutral-50 p-4 dark:bg-neutral-700`}>
-        <View style={tw`flex-row justify-between`}>
-          <Text
-            style={tw`text-xl font-semibold text-primary-800 dark:text-primary-50`}
-          >
-            {post.data.title}
-          </Text>
-          {post.data.member.id == +(accountID.data as string) && (
-            <DeleteDropdown
-              onDelete={() => {
-                deletePost.mutate(+(postID as string));
-                router.back();
-              }}
-            />
-          )}
+        <View style={tw`mb-2 flex-row items-center gap-2.5`}>
+          <Ionicons
+            name={'document-attach'}
+            size={30}
+            color={
+              tw.prefixMatch('dark')
+                ? tw.color('primary-200')
+                : tw.color('primary-700')
+            }
+          />
+          <View style={tw`grow`}>
+            <View style={tw`grow flex-row items-center justify-between`}>
+              <Text
+                style={tw`text-xl font-semibold text-primary-800 dark:text-primary-50`}
+              >
+                {post.data.title}
+              </Text>
+              {post.data.member.id == +(accountID.data as string) && (
+                <DeleteDropdown
+                  onDelete={() => {
+                    deletePost.mutate(+(postID as string));
+                    router.back();
+                  }}
+                />
+              )}
+            </View>
+            <Text
+              style={tw`mt-[-2px] text-base font-semibold leading-tight text-primary-700 dark:text-primary-100`}
+            >
+              {post.data.dueDate
+                ? 'Due ' + formatShortDate(post.data.dueDate)
+                : 'No due date'}
+            </Text>
+          </View>
         </View>
         <View style={tw`flex-row justify-between`}>
           <Text
@@ -104,6 +130,18 @@ export default function Announcement() {
         >
           {post.data.body.trim()}
         </Text>
+      </View>
+      <Caption text={'Student submissions'} />
+      <View style={tw`gap-3`}>
+        <StatsSummaryView
+          data={[{ assigned: '9' }, { total: '10' }, { graded: '10' }]}
+        />
+        <LargeButton
+          text={'View student submissions'}
+          onPress={() => {
+            router.push('/teacher/post/assignment/submissions');
+          }}
+        />
       </View>
       <Caption text={'Comments'} />
       <View style={tw`mb-3 flex-1 flex-row gap-2`}>

@@ -5,7 +5,6 @@ import {
   useWindowDimensions,
   View
 } from 'react-native';
-import { useGetStudentSubjectGradesAbsences } from '@/api/grade';
 import LoadingView from '@/components/loading-view';
 import ErrorView from '@/components/error-view';
 import { formatShortDate } from '@/lib/utils';
@@ -15,6 +14,8 @@ import Caption from '@/components/caption';
 import List from '@/components/list';
 import ListItem from '@/components/list-item';
 import React from 'react';
+import StatsSummaryView from '@/components/stats-summary-view';
+import { useGetStudentSubjectGrades } from '@/api/grade';
 
 export default function SubjectGradesView({
   subjectID
@@ -23,29 +24,24 @@ export default function SubjectGradesView({
 }) {
   const dimensions = useWindowDimensions();
 
-  const gradesAndAbsences = useGetStudentSubjectGradesAbsences(subjectID);
+  const grades = useGetStudentSubjectGrades(subjectID);
 
-  if (gradesAndAbsences.isPending) {
+  if (grades.isPending) {
     return <LoadingView />;
   }
 
-  if (gradesAndAbsences.isError) {
-    return (
-      <ErrorView
-        refetch={gradesAndAbsences.refetch}
-        error={gradesAndAbsences.error.message}
-      />
-    );
+  if (grades.isError) {
+    return <ErrorView refetch={grades.refetch} error={grades.error.message} />;
   }
 
-  gradesAndAbsences.data.grades = gradesAndAbsences.data.grades.sort((a, b) => {
+  grades.data = grades.data.sort((a, b) => {
     return new Date(b.date).getTime() - new Date(a.date).getTime();
   });
 
   let gradesNum = 0;
   let average = 0;
 
-  gradesAndAbsences.data?.grades.forEach((grade) => {
+  grades.data?.forEach((grade) => {
     gradesNum++;
     average += +grade.value;
   });
@@ -53,14 +49,12 @@ export default function SubjectGradesView({
   average = average / gradesNum;
 
   let chartData = {
-    labels: gradesAndAbsences.data.grades
+    labels: grades.data
       .map((grade) => formatShortDate(grade.date).slice(0, -5))
       .reverse(),
     datasets: [
       {
-        data: gradesAndAbsences.data.grades
-          .map((grade) => +grade.value)
-          .reverse(),
+        data: grades.data.map((grade) => +grade.value).reverse(),
         color: (opacity = 1) =>
           tw.prefixMatch('dark')
             ? tw.color('secondary-500') ?? ''
@@ -88,8 +82,8 @@ export default function SubjectGradesView({
       contentContainerStyle={tw`pb-12`}
       refreshControl={
         <RefreshControl
-          refreshing={gradesAndAbsences.isPending}
-          onRefresh={gradesAndAbsences.refetch}
+          refreshing={grades.isPending}
+          onRefresh={grades.refetch}
         />
       }
     >
@@ -108,38 +102,15 @@ export default function SubjectGradesView({
         />
       </View>
       <Caption text='Grades' />
-      <View style={tw`mb-6 rounded-3xl bg-neutral-50 p-4 dark:bg-neutral-700`}>
-        <View style={tw`flex-row justify-between`}>
-          <View
-            style={tw`flex-1 items-stretch border-r border-black/15 px-4 dark:border-white/20`}
-          >
-            <Text
-              style={tw`text-center text-xl font-bold text-primary-800 dark:text-primary-50`}
-            >
-              {gradesNum > 0 ? average.toFixed(2) : 'No grades'}
-            </Text>
-            <Text
-              style={tw`text-center text-sm font-semibold text-primary-700 dark:text-primary-200`}
-            >
-              overall average
-            </Text>
-          </View>
-          <View style={tw`flex-1 items-stretch pl-4`}>
-            <Text
-              style={tw`text-center text-xl font-bold text-primary-800 dark:text-primary-50`}
-            >
-              {gradesNum}
-            </Text>
-            <Text
-              style={tw`text-center text-sm font-semibold text-primary-700 dark:text-primary-200`}
-            >
-              {gradesNum === 1 ? 'grade' : 'grades'}
-            </Text>
-          </View>
-        </View>
-      </View>
+      <StatsSummaryView
+        data={[
+          { 'overall average': average.toFixed(2).toString() },
+          { grades: gradesNum.toString() }
+        ]}
+        style={'mb-6'}
+      />
       <List>
-        {gradesAndAbsences.data?.grades.map((grade, index) => (
+        {grades.data?.map((grade, index) => (
           <ListItem
             shouldPress={false}
             leftComponent={

@@ -1,5 +1,6 @@
 import api from '@/api/api';
 import { useQuery } from '@tanstack/react-query';
+import { Absence, Grade } from '@/api/grade';
 
 export interface Class {
   id: string;
@@ -39,7 +40,9 @@ const fetchStudentSubjectStats = async (id: string) => {
 };
 
 const fetchStudentSubjectsWithStats = async () => {
-  return api.get(`/subject/student/all`).then((res) => res.data as Class[]);
+  return api
+    .get(`/subject/student/with-metrics`)
+    .then((res) => res.data as Class[]);
 };
 
 export const useGetStudentSubjects = () => {
@@ -76,13 +79,63 @@ export interface TeacherClass {
   subjects: Subject[];
 }
 
+export interface SubjectStudent {
+  student: {
+    id: number;
+    name: string;
+  };
+  average: string;
+  count: string;
+}
+
 const fetchTeacherSubjects = async () => {
   return api.get(`/subject/teacher`).then((res) => res.data as TeacherClass[]);
+};
+
+const fetchTeacherSubjectStats = async (id: string) => {
+  return api.get(`/subject/teacher/${id}/grade-metrics`).then(
+    (res) =>
+      res.data as {
+        average: string;
+        averagecount: string;
+      }
+  );
+};
+
+const fetchFewGrades = async (id: string) => {
+  return api.get(`/subject/teacher/${id}/few-grades/`).then((res) => res.data);
+};
+
+const fetchStudents = async (id: string) => {
+  return api
+    .get(`/subject/teacher/${id}`)
+    .then((res) => res.data as SubjectStudent[]);
 };
 
 export const useGetTeacherSubjects = () => {
   return useQuery({
     queryKey: ['teacherSubjects'],
     queryFn: fetchTeacherSubjects
+  });
+};
+
+export const useGetTeacherSubjectStats = (id: string) => {
+  return useQuery({
+    queryKey: ['teacherSubjectStats', id],
+    queryFn: () => fetchTeacherSubjectStats(id)
+  });
+};
+
+export const useGetFewGrades = (id: string) => {
+  return useQuery({
+    queryKey: ['fewGrades', id],
+    queryFn: () => fetchFewGrades(id)
+  });
+};
+
+export const useGetStudents = (id: string) => {
+  return useQuery({
+    queryKey: ['students', id],
+    queryFn: () => fetchStudents(id)
   });
 };

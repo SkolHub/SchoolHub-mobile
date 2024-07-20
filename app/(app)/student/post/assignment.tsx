@@ -1,7 +1,7 @@
 import { useLocalSearchParams } from 'expo-router';
 import { RefreshControl, ScrollView, Text, View } from 'react-native';
 import {
-  useCreateComment,
+  useCreateStudentComment,
   useDeleteComment,
   useGetStudentPost
 } from '@/api/post';
@@ -17,15 +17,22 @@ import * as yup from 'yup';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useGetAccountID } from '@/api/account';
-import DeleteDropdown from '@/components/delete-dropdown';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import LargeButton from '@/components/large-button';
+import { useTurnInSubmission, useUnsubmitSubmission } from '@/api/submission';
+import { useActionSheet } from '@expo/react-native-action-sheet';
+import CommentCard from '@/components/comment-card';
 
 export default function Assignment() {
   const { postID } = useLocalSearchParams();
   const post = useGetStudentPost(postID as string);
-  const createComment = useCreateComment();
+  const createComment = useCreateStudentComment();
   const deleteComment = useDeleteComment();
+
+  const submit = useTurnInSubmission();
+  const unsubmit = useUnsubmitSubmission();
+
+  const { showActionSheetWithOptions } = useActionSheet();
 
   const accountID = useGetAccountID();
 
@@ -116,13 +123,56 @@ export default function Assignment() {
       </View>
       <Caption text={'Your submission'} />
       <View style={tw`gap-3 rounded-3xl bg-neutral-50 p-4 dark:bg-neutral-700`}>
-        <SmallButton
-          text={'Add attachment'}
-          onPress={() => {}}
-          contentContainerStyle={'bg-neutral-200 dark:bg-neutral-600'}
-          iconName={'add-outline'}
-        />
-        <LargeButton text={'Submit'} onPress={() => {}} />
+        {post.data.submission?.submission_status === 'submitted' ? (
+          <LargeButton
+            text={'Submitted'}
+            contentContainerStyle={'dark:bg-neutral-600 bg-neutral-200'}
+            iconName={'checkmark-circle'}
+            textStyle={'text-green-600 dark:text-green-400'}
+            onPress={() => {
+              showActionSheetWithOptions(
+                {
+                  options: ['Unsubmit', 'Cancel'],
+                  cancelButtonIndex: 1,
+                  destructiveButtonIndex: 0,
+                  title: 'Are you sure you want to unsubmit?'
+                },
+                (buttonIndex) => {
+                  if (buttonIndex === 0) {
+                    unsubmit.mutate(+(postID as string));
+                  }
+                }
+              );
+            }}
+          />
+        ) : (
+          <View style={tw`gap-3`}>
+            <LargeButton
+              text={'Add attachment'}
+              onPress={() => {}}
+              contentContainerStyle={'bg-neutral-200 dark:bg-neutral-600'}
+              textStyle={'text-primary-700 dark:text-primary-100'}
+              iconName={'add-outline'}
+            />
+            <LargeButton
+              text={'Submit'}
+              onPress={() => {
+                showActionSheetWithOptions(
+                  {
+                    options: ['Submit', 'Cancel'],
+                    cancelButtonIndex: 1,
+                    title: 'Are you sure you want to submit your work?'
+                  },
+                  (buttonIndex) => {
+                    if (buttonIndex === 0) {
+                      submit.mutate(+(postID as string));
+                    }
+                  }
+                );
+              }}
+            />
+          </View>
+        )}
       </View>
       <Caption text={'Comments'} />
       <View style={tw`mb-3 flex-1 flex-row gap-2`}>
@@ -146,36 +196,13 @@ export default function Assignment() {
       </View>
       <View style={tw`gap-3`}>
         {post.data.comments.map((comment) => (
-          <View
-            style={tw`rounded-2xl bg-white px-4 py-3 pr-1 dark:bg-neutral-700`}
+          <CommentCard
             key={comment.id}
-          >
-            <View style={tw`flex-row items-center justify-between`}>
-              <View style={tw`w-full flex-row justify-between`}>
-                <Text style={tw`text-base font-semibold dark:text-white`}>
-                  {comment.member.name}
-                </Text>
-                <View style={tw`flex-row items-center`}>
-                  <Text style={tw`text-base font-semibold dark:text-white`}>
-                    {formatShortDate(comment.timestamp)}
-                  </Text>
-                  {comment.member.id === +(accountID.data as string) ? (
-                    <DeleteDropdown
-                      onDelete={() => {
-                        deleteComment.mutate({
-                          id: comment.id,
-                          postID: +(postID as string)
-                        });
-                      }}
-                    />
-                  ) : null}
-                </View>
-              </View>
-            </View>
-            <Text style={tw` text-base dark:text-white`}>
-              {comment.body.trim()}
-            </Text>
-          </View>
+            comment={comment}
+            deleteComment={deleteComment}
+            postID={postID as string}
+            accountID={accountID}
+          />
         ))}
       </View>
     </ScrollView>

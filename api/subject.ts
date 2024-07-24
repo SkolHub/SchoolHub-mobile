@@ -1,6 +1,5 @@
 import api from '@/api/api';
 import { useQuery } from '@tanstack/react-query';
-import { Absence, Grade } from '@/api/grade';
 
 export interface Class {
   id: string;
@@ -137,5 +136,20 @@ export const useGetStudents = (id: string) => {
   return useQuery({
     queryKey: ['students', id],
     queryFn: () => fetchStudents(id)
+  });
+};
+
+// #s #################################################
+//    Parent API
+//    #################################################
+
+const fetchParentSubjects = async () => {
+  return api.get(`/subject/parent`).then((res) => res.data as Class[]);
+};
+
+export const useGetParentSubjects = () => {
+  return useQuery({
+    queryKey: ['parentSubjects'],
+    queryFn: fetchParentSubjects
   });
 };

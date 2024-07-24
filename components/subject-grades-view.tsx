@@ -1,3 +1,6 @@
+import { Grade } from '@/api/grade';
+import { formatShortDate } from '@/lib/utils';
+import tw from '@/lib/tailwind';
 import {
   RefreshControl,
   ScrollView,
@@ -5,34 +8,24 @@ import {
   useWindowDimensions,
   View
 } from 'react-native';
-import LoadingView from '@/components/loading-view';
-import ErrorView from '@/components/error-view';
-import { formatShortDate } from '@/lib/utils';
-import tw from '@/lib/tailwind';
+import React from 'react';
 import { LineChart } from 'react-native-chart-kit';
 import Caption from '@/components/caption';
+import StatsSummaryView from '@/components/stats-summary-view';
 import List from '@/components/list';
 import ListItem from '@/components/list-item';
-import React from 'react';
-import StatsSummaryView from '@/components/stats-summary-view';
-import { useGetStudentSubjectGrades } from '@/api/grade';
 
 export default function SubjectGradesView({
-  subjectID
+  grades
 }: {
-  subjectID: number;
+  grades: {
+    data: Grade[];
+    isError: boolean;
+    isPending: boolean;
+    refetch: () => void;
+  };
 }) {
   const dimensions = useWindowDimensions();
-
-  const grades = useGetStudentSubjectGrades(subjectID);
-
-  if (grades.isPending) {
-    return <LoadingView />;
-  }
-
-  if (grades.isError) {
-    return <ErrorView refetch={grades.refetch} error={grades.error.message} />;
-  }
 
   grades.data = grades.data.sort((a, b) => {
     return new Date(b.date).getTime() - new Date(a.date).getTime();

@@ -32,7 +32,13 @@
     },
     "plugins": [
       "expo-router",
-      "expo-secure-store"
+      "expo-secure-store",
+      [
+        "expo-local-authentication",
+        {
+          "faceIDPermission": "Face ID will be used to add an extra layer of security to certain actions inside the app."
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true

@@ -1,5 +1,5 @@
 import tw from '@/lib/tailwind';
-import { ScrollView, Text, View } from 'react-native';
+import { RefreshControl, ScrollView, Text, View } from 'react-native';
 import { useGetStudents } from '@/api/subject';
 import { router, useGlobalSearchParams } from 'expo-router';
 import LoadingView from '@/components/loading-view';
@@ -26,7 +26,15 @@ export default function Students() {
   }
 
   return (
-    <ScrollView style={tw`bg-secondary-100 px-4 dark:bg-primary-950`}>
+    <ScrollView
+      refreshControl={
+        <RefreshControl
+          refreshing={students.isFetching}
+          onRefresh={students.refetch}
+        />
+      }
+      style={tw`bg-secondary-100 px-4 dark:bg-primary-950`}
+    >
       <List>
         {students.data.map((student) => (
           <ListItem

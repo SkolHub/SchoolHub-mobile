@@ -81,7 +81,7 @@ export default function Account() {
         <Text
           style={tw`text-base font-semibold text-primary-800 dark:text-primary-300`}
         >
-          {role.data}
+          {account.data.role}
         </Text>
       </View>
       <Caption text='Account' />

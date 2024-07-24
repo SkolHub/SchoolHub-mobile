@@ -60,9 +60,11 @@ const FormInput = ({
               <TextInput
                 style={tw.style(
                   'h-14 w-full rounded-2xl bg-white px-3 text-lg leading-tight text-black dark:bg-neutral-700 dark:text-white',
-                  shouldError && !!error && 'border border-red-500',
+                  shouldError &&
+                    !!error &&
+                    'border border-red-500 dark:border-red-400',
                   !editable && 'text-neutral-500 dark:text-neutral-400',
-                  inModal && 'bg-background-50 dark:bg-background-800',
+                  inModal && 'bg-neutral-100 dark:bg-neutral-600',
                   multiline && 'h-40 pt-3'
                 )}
                 defaultValue={defaultValue}
@@ -81,7 +83,11 @@ const FormInput = ({
               />
               {shouldError && (
                 <Text
-                  style={tw.style(error ? `my-1 ml-2 text-red-500` : `hidden`)}
+                  style={tw.style(
+                    error
+                      ? `my-1 ml-2 text-red-500 dark:text-red-400`
+                      : `hidden`
+                  )}
                 >
                   {error ? errorText : ''}
                 </Text>

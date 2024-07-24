@@ -2,8 +2,7 @@ import { Pressable, ScrollView, Text } from 'react-native';
 import ListItem from '@/components/list-item';
 import List from '@/components/list';
 import tw from '@/lib/tailwind';
-import Stepper from '@/components/stepper';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import LargeButton from '@/components/large-button';
 import Caption from '@/components/caption';
 import { router, useLocalSearchParams } from 'expo-router';
@@ -18,28 +17,15 @@ import GradePicker from '@/components/grade-picker';
 import FormInput from '@/components/form-input';
 import DatePicker from 'react-native-date-picker';
 import { BatchGrades, useCreateGrades } from '@/api/grade';
+import { useActionSheet } from '@expo/react-native-action-sheet';
+import * as LocalAuthentication from 'expo-local-authentication';
 
-function getRandomStrings(array: any[], count: number): any[] {
-  const result = [];
-  const tempArray = [...array]; // Create a copy of the array to avoid mutating the original
-  for (let i = 0; i < count; i++) {
-    if (tempArray.length === 0) {
-      break; // Break if there are no more elements to choose from
-    }
-    const randomIndex = Math.floor(Math.random() * tempArray.length);
-    result.push(tempArray[randomIndex]);
-    tempArray.splice(randomIndex, 1); // Remove the chosen element from the array
-  }
-  return result;
-}
-
-export default function Assessment() {
+export default function GradeMode() {
   const { subjectID } = useLocalSearchParams();
 
   const studentsData = useGetStudents(subjectID as string);
   const createGrades = useCreateGrades();
 
-  const [students, setStudents] = useState<number>(1);
   const [studentGrades, setStudentGrades] = useState<
     {
       student: SubjectStudent;
@@ -50,6 +36,8 @@ export default function Assessment() {
   const [visibleID, setVisibleID] = useState(-1);
   const [dateModalVisible, setDateModalVisible] = useState(false);
   const [date, setDate] = useState(new Date());
+
+  const { showActionSheetWithOptions } = useActionSheet();
 
   const schema = yup.object().shape({
     message: yup.string().required("Reason can't be empty")
@@ -67,7 +55,6 @@ export default function Assessment() {
       subjectID: +(subjectID as string)
     };
 
-    // if (values.message) {
     studentGrades?.forEach((student) => {
       if (student.grade) {
         gradesObject.grades.push({
@@ -78,28 +65,24 @@ export default function Assessment() {
         });
       }
     });
-    // } else {
-    //   studentGrades?.forEach((student) => {
-    //     if (student.grade) {
-    //       gradesObject.grades.push({
-    //         studentID: student.student.student.id,
-    //         value: student.grade.toString(),
-    //         date: date.toISOString(),
-    //       });
-    //     }
-    //   });
-    // }
-
     console.log(gradesObject);
 
     if (gradesObject.grades.length > 0) {
       await createGrades.mutateAsync(gradesObject);
       router.back();
     }
-
-    // await createGrades.mutateAsync(gradesObject);
-    // router.back();
   };
+
+  useEffect(() => {
+    if (studentsData.data) {
+      setStudentGrades(
+        studentsData.data.map((student) => ({
+          student,
+          grade: null
+        }))
+      );
+    }
+  }, []);
 
   if (studentsData.isPending) {
     return <LoadingView />;
@@ -115,46 +98,44 @@ export default function Assessment() {
   }
 
   return (
-    <ScrollView style={tw`flex-1 bg-secondary-100 px-4 dark:bg-primary-950`}>
-      {!studentGrades && (
+    <ScrollView
+      style={tw`flex-1 bg-secondary-100 px-4 dark:bg-primary-950`}
+      contentContainerStyle={tw`pb-20`}
+    >
+      {studentGrades && (
         <>
+          <Caption text={'Reason'} style={`pt-0`} />
+          <FormInput
+            control={control}
+            name={'message'}
+            placeholder={'Enter the reason for the grades...'}
+            secureTextEntry={false}
+            inputAccessoryViewID={'accessory-view'}
+            errorText={'Reason is required'}
+            contentType={''}
+            flex1={false}
+          />
+          <Caption text={'Date'} />
           <List>
             <ListItem
-              text='Number of students'
-              shouldPress={false}
+              text={'Date'}
               rightComponent={
-                <Stepper
-                  value={students}
-                  onPressMinus={() => {
-                    if (students > 1) {
-                      setStudents(students - 1);
-                    }
-                  }}
-                  onPressPlus={() => {
-                    setStudents(students + 1);
-                  }}
-                />
+                <Pressable
+                  style={tw`rounded-xl bg-neutral-200 px-4 py-2 dark:bg-neutral-600`}
+                  onPress={() => setDateModalVisible(true)}
+                >
+                  <Text
+                    style={tw`text-base font-medium text-black/70 dark:text-white/90`}
+                  >
+                    {date.toLocaleString('ro-RO', {
+                      dateStyle: 'short'
+                    })}
+                  </Text>
+                </Pressable>
               }
             />
           </List>
-          <LargeButton
-            text={'Get students'}
-            onPress={() => {
-              const studentNames = getRandomStrings(
-                studentsData.data,
-                students
-              );
-              setStudentGrades(
-                studentNames.map((student) => ({ student, grade: null }))
-              );
-            }}
-            style={'mt-4'}
-          />
-        </>
-      )}
-      {studentGrades && (
-        <>
-          <Caption text={'Student grades'} style={`pt-0`} />
+          <Caption text={'Student grades'} />
           <List>
             {studentGrades?.map(({ student, grade }, index) => (
               <ListItem
@@ -188,7 +169,7 @@ export default function Assessment() {
                       onPress={() => setVisibleID(student.student.id)}
                     >
                       <Text
-                        style={tw`text-base font-medium text-black/70 dark:text-white/70`}
+                        style={tw`text-base font-medium text-black/70 dark:text-white/90`}
                       >
                         {grade ?? 'Add grade'}
                       </Text>
@@ -198,40 +179,30 @@ export default function Assessment() {
               />
             )) ?? []}
           </List>
-          <Caption text={'Reason'} />
-          <FormInput
-            control={control}
-            name={'message'}
-            placeholder={'Enter the reason for the grades...'}
-            secureTextEntry={false}
-            inputAccessoryViewID={'accessory-view'}
-            errorText={'Reason is required'}
-            contentType={''}
-            flex1={false}
-          />
-          <Caption text={'Date'} />
-          <List>
-            <ListItem
-              text={'Date'}
-              rightComponent={
-                <Pressable
-                  style={tw`rounded-xl bg-neutral-200 px-4 py-2 dark:bg-neutral-600`}
-                  onPress={() => setDateModalVisible(true)}
-                >
-                  <Text
-                    style={tw`text-base font-medium text-black/70 dark:text-white/70`}
-                  >
-                    {date.toLocaleString('ro-RO', {
-                      dateStyle: 'short'
-                    })}
-                  </Text>
-                </Pressable>
-              }
-            />
-          </List>
           <LargeButton
             text={'Add grades'}
-            onPress={handleSubmit(onSubmit)}
+            symbol={{
+              name: 'faceid',
+              fallback: 'fingerprint'
+            }}
+            onPress={() => {
+              showActionSheetWithOptions(
+                {
+                  options: ['Add', 'Cancel'],
+                  cancelButtonIndex: 1,
+                  title: 'Are you sure you want to add these grades?'
+                },
+                (buttonIndex) => {
+                  if (buttonIndex === 0) {
+                    LocalAuthentication.authenticateAsync({
+                      promptMessage: 'Authenticate to add grades'
+                    }).then(() => {
+                      handleSubmit(onSubmit)();
+                    });
+                  }
+                }
+              );
+            }}
             style={'mt-4'}
           />
           <GeneralModal

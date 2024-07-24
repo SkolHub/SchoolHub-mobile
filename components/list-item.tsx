@@ -11,7 +11,8 @@ export default function ListItem({
   textStyle,
   firstItem,
   lastItem,
-  shouldPress = true
+  shouldPress = true,
+  backgroundColor
 }: {
   text: string;
   onPress?: () => void;
@@ -21,6 +22,7 @@ export default function ListItem({
   firstItem?: boolean;
   lastItem?: boolean;
   shouldPress?: boolean;
+  backgroundColor?: string;
 }) {
   const colorScheme = useColorScheme();
 
@@ -35,7 +37,8 @@ export default function ListItem({
           'flex-row items-center justify-between bg-neutral-50 pl-4 active:bg-neutral-200 dark:bg-neutral-700 dark:active:bg-neutral-600',
           lastItem && 'rounded-b-2xl',
           firstItem && 'rounded-t-2xl',
-          shouldPress && pressed && 'opacity-80'
+          shouldPress && pressed && 'opacity-80',
+          backgroundColor && backgroundColor
         )
       }
     >

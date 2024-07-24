@@ -1,8 +1,10 @@
 import { router, Tabs } from 'expo-router';
-import Ionicons from '@expo/vector-icons/Ionicons';
 import HomeHeader from '@/components/home-header';
-import { useColorScheme } from 'react-native';
+import { Text, useColorScheme } from 'react-native';
+import { SymbolView } from 'expo-symbols';
 import tw from '@/lib/tailwind';
+import { rgbaToHex } from '@/lib/utils';
+import { MaterialIcons } from '@expo/vector-icons';
 
 export default function HomeLayout() {
   const colorScheme = useColorScheme();
@@ -10,44 +12,46 @@ export default function HomeLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarStyle: {
-          backgroundColor:
-            colorScheme === 'light'
-              ? tw.color('secondary-blue-100')
-              : tw.color('primary-blue-950'),
-          elevation: 0,
-          borderTopColor:
-            colorScheme === 'light'
-              ? tw.color('secondary-blue-100')
-              : tw.color('primary-blue-950')
-        }
+        tabBarStyle: tw`bg-secondary-100 dark:bg-primary-950 elevation-0 border-t-0 android:h-[70px] android:pb-[15px]`
       }}
     >
       <Tabs.Screen
         name='index'
         options={{
-          title: 'Grades',
-          tabBarLabel: 'Grades',
-          tabBarLabelStyle: {
-            color:
-              colorScheme === 'light'
-                ? tw.color('primary-blue-800')
-                : tw.color('primary-blue-200')
+          title: 'Classbook',
+          tabBarLabel: ({ focused }) => {
+            return (
+              <Text
+                style={tw`text-primary-800${focused ? '' : '/60'} dark:text-primary-200${focused ? '' : '/60'} text-[10.5px] leading-tight`}
+              >
+                Classbook
+              </Text>
+            );
           },
           tabBarIcon: ({ focused }) => {
-            const color =
-              colorScheme === 'light'
-                ? tw.color('primary-blue-800')
-                : tw.color('primary-blue-300');
-            if (focused) {
-              return <Ionicons name='book' size={24} color={color} />;
+            let color = colorScheme === 'light' ? 'primary-800' : 'primary-300';
+
+            if (!focused) {
+              color += '/50';
+              color = rgbaToHex(tw.color(color) as string);
+            } else {
+              color = tw.color(color) as string;
             }
-            return <Ionicons name='book-outline' size={24} color={color} />;
+
+            return (
+              <SymbolView
+                name='chart.bar.fill'
+                size={28}
+                resizeMode={'scaleAspectFit'}
+                tintColor={color}
+                fallback={<MaterialIcons name='book' size={24} color={color} />}
+              />
+            );
           },
           header: () => {
             return (
               <HomeHeader
-                text='Grades'
+                text='Classbook'
                 onPress={() => {
                   router.push('/modals/account');
                 }}
@@ -57,30 +61,44 @@ export default function HomeLayout() {
         }}
       />
       <Tabs.Screen
-        name='attendance'
+        name='observations'
         options={{
-          title: 'Attendance',
-          tabBarLabel: 'Attendance',
-          tabBarLabelStyle: {
-            color:
-              colorScheme === 'light'
-                ? tw.color('primary-blue-800')
-                : tw.color('primary-blue-200')
+          title: 'Observations',
+          tabBarLabel: ({ focused }) => {
+            return (
+              <Text
+                style={tw`text-primary-800${focused ? '' : '/60'} dark:text-primary-200${focused ? '' : '/60'} text-[10.5px] leading-tight`}
+              >
+                Observations
+              </Text>
+            );
           },
           tabBarIcon: ({ focused }) => {
-            const color =
-              colorScheme === 'light'
-                ? tw.color('primary-blue-800')
-                : tw.color('primary-blue-300');
-            if (focused) {
-              return <Ionicons name='calendar' size={24} color={color} />;
+            let color = colorScheme === 'light' ? 'primary-800' : 'primary-300';
+
+            if (!focused) {
+              color += '/50';
+              color = rgbaToHex(tw.color(color) as string);
+            } else {
+              color = tw.color(color) as string;
             }
-            return <Ionicons name='calendar-outline' size={24} color={color} />;
+
+            return (
+              <SymbolView
+                name='exclamationmark.circle.fill'
+                size={28}
+                resizeMode={'scaleAspectFit'}
+                tintColor={color}
+                fallback={
+                  <MaterialIcons name='bar-chart' size={30} color={color} />
+                }
+              />
+            );
           },
           header: () => {
             return (
               <HomeHeader
-                text='Attendance'
+                text='Observations'
                 onPress={() => {
                   router.push('/modals/account');
                 }}

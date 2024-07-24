@@ -1,3 +1,4 @@
+import tw from '@/lib/tailwind';
 import {
   RefreshControl,
   ScrollView,
@@ -5,37 +6,27 @@ import {
   useWindowDimensions,
   View
 } from 'react-native';
-import LoadingView from '@/components/loading-view';
-import ErrorView from '@/components/error-view';
-import tw from '@/lib/tailwind';
 import { BarChart } from 'react-native-chart-kit';
 import Caption from '@/components/caption';
+import StatsSummaryView from '@/components/stats-summary-view';
 import List from '@/components/list';
 import ListItem from '@/components/list-item';
 import { formatShortDate } from '@/lib/utils';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import React from 'react';
-import StatsSummaryView from '@/components/stats-summary-view';
-import { useGetStudentSubjectAbsences } from '@/api/grade';
+import { Absence } from '@/api/grade';
 
 export default function SubjectAbsencesView({
-  subjectID
+  absences
 }: {
-  subjectID: number;
+  absences: {
+    data: Absence[];
+    isError: boolean;
+    isPending: boolean;
+    refetch: () => void;
+  };
 }) {
   const dimensions = useWindowDimensions();
-
-  let absences = useGetStudentSubjectAbsences(subjectID);
-
-  if (absences.isPending) {
-    return <LoadingView />;
-  }
-
-  if (absences.isError) {
-    return (
-      <ErrorView refetch={absences.refetch} error={absences.error.message} />
-    );
-  }
 
   absences.data = absences.data.sort((a, b) => {
     return new Date(b.date).getTime() - new Date(a.date).getTime();

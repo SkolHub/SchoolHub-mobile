@@ -5,6 +5,34 @@ export default function ModalsLayout() {
   return (
     <Stack>
       <Stack.Screen
+        name='attendance-mode'
+        options={{
+          presentation: 'modal',
+          header: () => (
+            <ModalHeader
+              text='Attendance mode'
+              onPress={() => {
+                router.back();
+              }}
+            />
+          )
+        }}
+      />
+      <Stack.Screen
+        name='grade-mode'
+        options={{
+          presentation: 'modal',
+          header: () => (
+            <ModalHeader
+              text='Grade the class'
+              onPress={() => {
+                router.back();
+              }}
+            />
+          )
+        }}
+      />
+      <Stack.Screen
         name='student-classbook'
         options={{
           presentation: 'modal',

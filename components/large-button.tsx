@@ -2,6 +2,8 @@ import { Pressable, Text, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import tw from '@/lib/tailwind';
 import { Theme } from '@/lib/types';
+import { SymbolView } from 'expo-symbols';
+import { SFSymbols5_0 } from 'sf-symbols-typescript';
 
 export default function LargeButton({
   text,
@@ -11,7 +13,8 @@ export default function LargeButton({
   onPress,
   iconName,
   iconColor = 'white',
-  theme = 'blue'
+  theme = 'blue',
+  symbol
 }: {
   text: string;
   textStyle?: string;
@@ -21,6 +24,10 @@ export default function LargeButton({
   iconName?: string;
   iconColor?: string;
   theme?: Theme;
+  symbol?: {
+    name: SFSymbols5_0;
+    fallback: string;
+  };
 }) {
   return (
     <Pressable
@@ -41,6 +48,16 @@ export default function LargeButton({
           contentContainerStyle
         )}
       >
+        {symbol && (
+          <SymbolView
+            name={symbol.name}
+            fallback={symbol.fallback}
+            size={24}
+            resizeMode={'scaleAspectFill'}
+            tintColor={tw.color('primary-50')}
+            style={tw.style(text ? `mr-2` : ``, textStyle)}
+          />
+        )}
         {iconName && (
           <Ionicons
             name={iconName as any}

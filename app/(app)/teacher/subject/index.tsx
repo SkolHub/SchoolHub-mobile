@@ -260,13 +260,33 @@ export default function Index() {
           <View style={tw`gap-2.5`}>
             <SmallButton
               text={'Grade the class'}
-              onPress={() => {}}
+              onPress={() => {
+                setToolsModalVisible(false);
+                setTimeout(() => {
+                  router.push({
+                    pathname: '/modals/grade-mode',
+                    params: {
+                      subjectID: subjectID as string
+                    }
+                  });
+                }, 400);
+              }}
               contentContainerStyle={'bg-neutral-200/70 dark:bg-neutral-600'}
               iconName={'stats-chart'}
             />
             <SmallButton
               text={'Attendance mode'}
-              onPress={() => {}}
+              onPress={() => {
+                setToolsModalVisible(false);
+                setTimeout(() => {
+                  router.push({
+                    pathname: '/modals/attendance-mode',
+                    params: {
+                      subjectID: subjectID as string
+                    }
+                  });
+                }, 400);
+              }}
               contentContainerStyle={'bg-neutral-200/70 dark:bg-neutral-600'}
               iconName={'calendar'}
             />

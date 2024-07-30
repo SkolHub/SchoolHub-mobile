@@ -1,14 +1,16 @@
 import { router, Tabs } from 'expo-router';
 import HomeHeader from '@/components/home-header';
-import { useEffect } from 'react';
 import { Text, useColorScheme } from 'react-native';
 import { SymbolView } from 'expo-symbols';
 import tw from '@/lib/tailwind';
 import { rgbaToHex } from '@/lib/utils';
 import { MaterialIcons } from '@expo/vector-icons';
+import { useLingui } from '@lingui/react';
+import { t, Trans } from '@lingui/macro';
 
 export default function HomeLayout() {
   const colorScheme = useColorScheme();
+  const { i18n } = useLingui();
 
   return (
     <Tabs
@@ -19,13 +21,13 @@ export default function HomeLayout() {
       <Tabs.Screen
         name='index'
         options={{
-          title: 'Subjects',
+          title: t`Subjects`,
           tabBarLabel: ({ focused }) => {
             return (
               <Text
                 style={tw`text-primary-800${focused ? '' : '/60'} dark:text-primary-200${focused ? '' : '/60'} text-[10.5px] leading-tight`}
               >
-                Subjects
+                <Trans>Subjects</Trans>
               </Text>
             );
           },
@@ -52,7 +54,7 @@ export default function HomeLayout() {
           header: () => {
             return (
               <HomeHeader
-                text='Subjects'
+                text={t`Subjects`}
                 onPress={() => {
                   router.push('/modals/account');
                 }}
@@ -64,13 +66,13 @@ export default function HomeLayout() {
       <Tabs.Screen
         name='grades'
         options={{
-          title: 'Classbook',
+          title: t`Classbook`,
           tabBarLabel: ({ focused }) => {
             return (
               <Text
                 style={tw`text-primary-800${focused ? '' : '/60'} dark:text-primary-200${focused ? '' : '/60'} text-[10.5px] leading-tight`}
               >
-                Classbook
+                <Trans>Classbook</Trans>
               </Text>
             );
           },
@@ -99,7 +101,7 @@ export default function HomeLayout() {
           header: () => {
             return (
               <HomeHeader
-                text='Classbook'
+                text={t`Classbook`}
                 onPress={() => {
                   router.push('/modals/account');
                 }}
@@ -111,13 +113,13 @@ export default function HomeLayout() {
       <Tabs.Screen
         name='assignments'
         options={{
-          title: 'Assignments',
+          title: t`Assignments`,
           tabBarLabel: ({ focused }) => {
             return (
               <Text
                 style={tw`text-primary-800${focused ? '' : '/60'} dark:text-primary-200${focused ? '' : '/60'} text-[10.5px] leading-tight`}
               >
-                Assignments
+                <Trans>Assignments</Trans>
               </Text>
             );
           },
@@ -146,7 +148,7 @@ export default function HomeLayout() {
           header: () => {
             return (
               <HomeHeader
-                text='Assignments'
+                text={t`Assignments`}
                 onPress={() => {
                   router.push('/modals/account');
                 }}

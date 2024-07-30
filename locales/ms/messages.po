@@ -1,0 +1,837 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2024-07-30 00:03+0300\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: ms\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
+
+#: app/(app)/modals/attendance-mode.tsx:86
+msgid "{0} of {1} students"
+msgstr "{0} daripada {1} pelajar"
+
+#: components/subject-absences-view.tsx:121
+msgid "absences"
+msgstr "ketidakhadiran"
+
+#: app/(app)/modals/classbook-subject.tsx:38
+#: app/(app)/modals/student-classbook.tsx:37
+#: app/(app)/teacher/class-master/student-classbook.tsx:79
+#: components/subject-absences-view.tsx:118
+msgid "Absences"
+msgstr "Ketidakhadiran"
+
+#: app/(app)/modals/attendance-mode.tsx:137
+#: app/(app)/modals/attendance-mode.tsx:194
+msgid "Absent"
+msgstr "Tidak Hadir"
+
+#: app/(app)/modals/_layout.tsx:142
+#: app/(app)/modals/account.tsx:62
+msgid "Account"
+msgstr "Akaun"
+
+#: app/(app)/modals/assessment.tsx:241
+#: app/(app)/modals/grade-mode.tsx:194
+#: app/(app)/teacher/post/assignment/student-submission.tsx:392
+#: components/student-absences.tsx:243
+#: components/student-grades.tsx:257
+#: components/student-observations.tsx:196
+msgid "Add"
+msgstr "Tambah"
+
+#: components/student-absences.tsx:206
+#: components/student-absences.tsx:239
+msgid "Add absence"
+msgstr "Tambah ketidakhadiran"
+
+#: components/student-absences.tsx:214
+msgid "Add absence for {studentName}"
+msgstr "Tambah ketidakhadiran untuk {studentName}"
+
+#: app/(app)/modals/attendance-mode.tsx:232
+#: app/(app)/modals/attendance-mode.tsx:240
+msgid "Add absences"
+msgstr "Tambah ketidakhadiran"
+
+#: app/(app)/student/post/assignment.tsx:308
+msgid "Add attachment"
+msgstr "Tambah lampiran"
+
+#: app/(app)/modals/assessment.tsx:170
+#: app/(app)/modals/assessment.tsx:196
+#: app/(app)/modals/grade-mode.tsx:150
+#: app/(app)/modals/grade-mode.tsx:176
+#: app/(app)/teacher/post/assignment/student-submission.tsx:383
+#: components/student-grades.tsx:191
+#: components/student-grades.tsx:248
+msgid "Add grade"
+msgstr "Tambah gred"
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:327
+msgid "Add grade for {0}"
+msgstr "Tambah gred untuk {0}"
+
+#: components/student-grades.tsx:198
+msgid "Add grade for {studentName}"
+msgstr "Tambah gred untuk {studentName}"
+
+#: app/(app)/modals/assessment.tsx:236
+#: app/(app)/modals/grade-mode.tsx:185
+msgid "Add grades"
+msgstr "Tambah gred"
+
+#: app/(app)/student/post/assignment.tsx:478
+msgid "Add link"
+msgstr "Tambah pautan"
+
+#: components/student-observations.tsx:166
+#: components/student-observations.tsx:191
+msgid "Add observation"
+msgstr "Tambah pemerhatian"
+
+#: components/student-observations.tsx:174
+msgid "Add observation for {studentName}"
+msgstr "Tambah pemerhatian untuk {studentName}"
+
+#: app/(app)/teacher/subject/index.tsx:183
+msgid "Announcement"
+msgstr "Pengumuman"
+
+#: components/filter-dropdown.tsx:43
+msgid "Announcements"
+msgstr "Pengumuman"
+
+#: app/(app)/modals/grade-mode.tsx:196
+msgid "Are you sure you want to add these grades?"
+msgstr "Adakah anda pasti anda ingin menambah gred ini?"
+
+#: components/student-absences.tsx:245
+msgid "Are you sure you want to add this absence?"
+msgstr "Adakah anda pasti ingin menambah ketidakhadiran ini?"
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:394
+#: components/student-grades.tsx:259
+msgid "Are you sure you want to add this grade?"
+msgstr "Adakah anda pasti ingin menambah gred ini?"
+
+#: components/student-observations.tsx:198
+msgid "Are you sure you want to add this observation?"
+msgstr "Adakah anda pasti ingin menambah pemerhatian ini?"
+
+#: components/edit-grade-modal.tsx:142
+msgid "Are you sure you want to change this grade?"
+msgstr "Adakah anda pasti ingin menukar gred ini?"
+
+#: components/student-absences.tsx:169
+msgid "Are you sure you want to delete this absence?"
+msgstr "Adakah anda pasti ingin memadamkan ketidakhadiran ini?"
+
+#: app/(app)/student/post/assignment.tsx:267
+msgid "Are you sure you want to delete this attachment?"
+msgstr "Adakah anda pasti ingin memadamkan lampiran ini?"
+
+#: components/student-grades.tsx:154
+msgid "Are you sure you want to delete this grade?"
+msgstr "Adakah anda pasti ingin memadamkan gred ini?"
+
+#: components/student-observations.tsx:131
+msgid "Are you sure you want to delete this observation?"
+msgstr "Adakah anda pasti ingin memadamkan pemerhatian ini?"
+
+#: app/(app)/teacher/class-master/student-classbook.tsx:192
+msgid "Are you sure you want to excuse this absence?"
+msgstr "Adakah anda pasti ingin memaafkan ketidakhadiran ini?"
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:300
+msgid "Are you sure you want to return this submission?"
+msgstr "Adakah anda pasti ingin memulangkan penyerahan ini?"
+
+#: app/(app)/student/post/assignment.tsx:349
+msgid "Are you sure you want to submit your work?"
+msgstr "Adakah anda pasti ingin menghantar kerja anda?"
+
+#: app/(app)/student/post/assignment.tsx:295
+msgid "Are you sure you want to unsubmit?"
+msgstr "Adakah anda pasti anda ingin membatalkan penyerahan?"
+
+#: app/(app)/modals/_layout.tsx:156
+msgid "Assessment"
+msgstr "Penilaian"
+
+#: app/(app)/teacher/subject/index.tsx:302
+msgid "Assessment mode"
+msgstr "Mod Penilaian"
+
+#: app/(app)/teacher/subject/index.tsx:167
+msgid "Assignment"
+msgstr "Tugasan"
+
+#: app/(app)/student/subject/index.tsx:70
+msgid "assignments"
+msgstr "tugasan"
+
+#: app/(app)/student/(home)/_layout.tsx:116
+#: app/(app)/student/(home)/_layout.tsx:122
+#: app/(app)/student/(home)/_layout.tsx:151
+#: app/(app)/teacher/(home)/_layout.tsx:68
+#: app/(app)/teacher/(home)/_layout.tsx:74
+#: app/(app)/teacher/(home)/_layout.tsx:103
+#: components/filter-dropdown.tsx:85
+msgid "Assignments"
+msgstr "Tugasan"
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:160
+msgid "Attachments"
+msgstr "Lampiran"
+
+#: app/(app)/student/subject/_layout.tsx:174
+#: app/(app)/student/subject/_layout.tsx:180
+msgid "Attendance"
+msgstr "Kehadiran"
+
+#: app/(app)/modals/_layout.tsx:16
+#: app/(app)/modals/attendance-mode.tsx:61
+#: app/(app)/teacher/subject/index.tsx:286
+msgid "Attendance mode"
+msgstr "Mod Kehadiran"
+
+#: app/(app)/modals/attendance-mode.tsx:246
+msgid "Authenticate to add absences"
+msgstr "Sahkan untuk menambah ketidakhadiran"
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:399
+#: components/student-absences.tsx:250
+#: components/student-grades.tsx:264
+msgid "Authenticate to add grade"
+msgstr "Sahkan untuk menambah gred"
+
+#: app/(app)/modals/assessment.tsx:247
+#: app/(app)/modals/grade-mode.tsx:201
+msgid "Authenticate to add grades"
+msgstr "Sahkan untuk menambah gred"
+
+#: components/student-observations.tsx:203
+msgid "Authenticate to add observation"
+msgstr "Sahkan untuk menambah pemerhatian"
+
+#: components/edit-grade-modal.tsx:147
+msgid "Authenticate to change grade"
+msgstr "Sahkan untuk menukar gred"
+
+#: components/student-absences.tsx:174
+msgid "Authenticate to delete absence"
+msgstr "Sahkan untuk memadamkan ketidakhadiran"
+
+#: components/student-grades.tsx:159
+msgid "Authenticate to delete grade"
+msgstr "Sahkan untuk memadamkan gred"
+
+#: components/student-observations.tsx:136
+msgid "Authenticate to delete observation"
+msgstr "Sahkan untuk memadamkan pemerhatian"
+
+#: app/(app)/teacher/class-master/student-classbook.tsx:197
+msgid "Authenticate to excuse absence"
+msgstr "Sahkan untuk memaafkan ketidakhadiran"
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:305
+msgid "Authenticate to return submission"
+msgstr "Sahkan untuk memulangkan penyerahan"
+
+#: app/(app)/modals/attendance-mode.tsx:117
+#: app/(app)/parent/(home)/index.tsx:79
+#: app/(app)/student/(home)/grades.tsx:78
+#: app/(app)/teacher/subject/students.tsx:77
+msgid "average"
+msgstr "purata"
+
+#: app/(app)/teacher/subject/index.tsx:77
+msgid "average grades"
+msgstr "gred purata"
+
+#: app/(app)/modals/create-announcement.tsx:64
+#: app/(app)/modals/create-assignment.tsx:63
+#: app/(app)/modals/create-material.tsx:54
+#: app/(app)/modals/create-test.tsx:62
+msgid "Body"
+msgstr "Isi"
+
+#: app/(app)/modals/create-assignment.tsx:68
+#: app/(app)/modals/create-test.tsx:67
+msgid "Body must be completed"
+msgstr "Isi mesti dilengkapkan"
+
+#: app/login.tsx:48
+msgid "Can't sign you in!"
+msgstr "Tidak dapat log masuk!"
+
+#: app/(app)/modals/assessment.tsx:241
+#: app/(app)/modals/attendance-mode.tsx:240
+#: app/(app)/modals/grade-mode.tsx:194
+#: app/(app)/student/post/assignment.tsx:264
+#: app/(app)/student/post/assignment.tsx:292
+#: app/(app)/student/post/assignment.tsx:312
+#: app/(app)/student/post/assignment.tsx:347
+#: app/(app)/teacher/class-master/student-classbook.tsx:190
+#: app/(app)/teacher/post/assignment/student-submission.tsx:298
+#: app/(app)/teacher/post/assignment/student-submission.tsx:392
+#: components/edit-grade-modal.tsx:140
+#: components/student-absences.tsx:166
+#: components/student-absences.tsx:243
+#: components/student-grades.tsx:151
+#: components/student-grades.tsx:257
+#: components/student-observations.tsx:128
+#: components/student-observations.tsx:196
+msgid "Cancel"
+msgstr "Batal"
+
+#: components/edit-grade-modal.tsx:140
+msgid "Change"
+msgstr "Tukar"
+
+#: components/edit-grade-modal.tsx:135
+msgid "Change grade"
+msgstr "Tukar gred"
+
+#: app/(app)/modals/account.tsx:64
+msgid "Change password"
+msgstr "Tukar kata laluan"
+
+#: app/(app)/modals/create-assignment.tsx:109
+msgid "Choose due date"
+msgstr "Pilih tarikh akhir"
+
+#: app/(app)/modals/create-test.tsx:108
+msgid "Choose planned day for the test"
+msgstr "Pilih hari yang dirancang untuk ujian"
+
+#: app/(app)/teacher/subject/index.tsx:81
+msgid "class average"
+msgstr "purata kelas"
+
+#: components/class-card.tsx:52
+msgid "Class Master"
+msgstr "Guru Kelas"
+
+#: app/(app)/parent/(home)/_layout.tsx:22
+#: app/(app)/parent/(home)/_layout.tsx:28
+#: app/(app)/parent/(home)/_layout.tsx:55
+#: app/(app)/student/(home)/_layout.tsx:69
+#: app/(app)/student/(home)/_layout.tsx:75
+#: app/(app)/student/(home)/_layout.tsx:104
+msgid "Classbook"
+msgstr "Buku Kelas"
+
+#: app/(app)/teacher/(home)/_layout.tsx:23
+#: app/(app)/teacher/(home)/_layout.tsx:29
+#: app/(app)/teacher/(home)/_layout.tsx:56
+msgid "Classes"
+msgstr "Kelas"
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:285
+#: app/(app)/teacher/post/assignment/student-submission.tsx:375
+msgid "Comment for the submission..."
+msgstr "Komen untuk penyerahan..."
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:288
+#: app/(app)/teacher/post/assignment/student-submission.tsx:378
+msgid "Comment is required"
+msgstr "Komen diperlukan"
+
+#: app/(app)/student/post/announcement.tsx:113
+#: app/(app)/student/post/assignment.tsx:427
+#: app/(app)/student/post/material.tsx:112
+#: app/(app)/student/post/test.tsx:119
+#: app/(app)/teacher/post/announcement.tsx:113
+#: app/(app)/teacher/post/assignment/index.tsx:173
+#: app/(app)/teacher/post/material.tsx:126
+#: app/(app)/teacher/post/test.tsx:133
+msgid "Comments"
+msgstr "Komen"
+
+#: app/(app)/modals/create-announcement.tsx:73
+#: app/(app)/modals/create-assignment.tsx:90
+#: app/(app)/modals/create-material.tsx:63
+#: app/(app)/modals/create-test.tsx:88
+#: app/(app)/teacher/subject/index.tsx:94
+#: app/(app)/teacher/subject/index.tsx:147
+msgid "Create"
+msgstr "Cipta"
+
+#: app/(app)/modals/_layout.tsx:100
+msgid "Create a new announcement"
+msgstr "Buat pengumuman baru"
+
+#: app/(app)/modals/_layout.tsx:114
+msgid "Create Assignment"
+msgstr "Buat Tugasan"
+
+#: app/(app)/student/subject/index.tsx:86
+msgid "Create post"
+msgstr "Buat catatan"
+
+#: app/(app)/modals/assessment.tsx:218
+#: app/(app)/modals/assessment.tsx:261
+#: app/(app)/modals/grade-mode.tsx:120
+#: app/(app)/modals/grade-mode.tsx:123
+#: app/(app)/modals/grade-mode.tsx:213
+#: components/edit-grade-modal.tsx:93
+#: components/edit-grade-modal.tsx:96
+#: components/student-absences.tsx:218
+#: components/student-grades.tsx:209
+msgid "Date"
+msgstr "Tarikh"
+
+#: app/(app)/student/post/assignment.tsx:264
+#: components/delete-dropdown.tsx:35
+#: components/student-absences.tsx:166
+#: components/student-grades.tsx:151
+#: components/student-observations.tsx:128
+msgid "Delete"
+msgstr "Padam"
+
+#: app/(app)/student/post/assignment.tsx:165
+#: components/small-assignment-card.tsx:39
+msgid "Due {0}"
+msgstr "Tarikh akhir {0}"
+
+#: app/(app)/teacher/post/assignment/index.tsx:127
+msgid "Due {0}, {1}"
+msgstr "Tarikh akhir {0}, {1}"
+
+#: components/assignment-card.tsx:62
+msgid "Due {dueDate}"
+msgstr "Tarikh akhir {dueDate}"
+
+#: app/(app)/modals/create-assignment.tsx:74
+msgid "Due date"
+msgstr "Tarikh akhir"
+
+#: components/edit-grade-modal.tsx:89
+msgid "Edit grade for {studentName}"
+msgstr "Edit gred untuk {studentName}"
+
+#: app/login.tsx:114
+msgid "Email"
+msgstr "Emel"
+
+#: app/login.tsx:117
+msgid "Email is not valid"
+msgstr "Emel tidak sah"
+
+#: app/(app)/modals/account.tsx:90
+#: app/(app)/modals/account.tsx:137
+#~ msgid "English"
+#~ msgstr "Bahasa Inggeris"
+
+#: app/(app)/student/post/assignment.tsx:468
+msgid "Enter the link here..."
+msgstr "Masukkan pautan di sini..."
+
+#: app/(app)/modals/assessment.tsx:208
+#: app/(app)/modals/grade-mode.tsx:113
+msgid "Enter the reason for the grades..."
+msgstr "Masukkan alasan untuk gred..."
+
+#: app/(app)/student/subject/_layout.tsx:30
+#: app/(app)/teacher/subject/_layout.tsx:27
+#: app/(app)/teacher/subject/_layout.tsx:29
+msgid "Error"
+msgstr "Ralat"
+
+#: app/(app)/teacher/class-master/student-classbook.tsx:190
+msgid "Excuse"
+msgstr "Maafkan"
+
+#: app/(app)/teacher/class-master/student-classbook.tsx:159
+#: components/student-absences.tsx:124
+#: components/subject-absences-view.tsx:163
+msgid "Excused"
+msgstr "Dimaafkan"
+
+#: app/(app)/modals/_layout.tsx:128
+#: app/(app)/student/post/assignment.tsx:312
+msgid "File"
+msgstr "Fail"
+
+#: app/(app)/modals/attendance-mode.tsx:157
+msgid "Finish up"
+msgstr "Selesaikan"
+
+#: app/(app)/modals/account.tsx:102
+#: app/(app)/modals/account.tsx:263
+#~ msgid "French"
+#~ msgstr "Bahasa Perancis"
+
+#: app/(app)/modals/account.tsx:100
+#: app/(app)/modals/account.tsx:242
+#~ msgid "German"
+#~ msgstr "Bahasa Jerman"
+
+#: app/(app)/modals/assessment.tsx:144
+msgid "Get students"
+msgstr "Dapatkan pelajar"
+
+#: app/(app)/student/post/assignment.tsx:374
+#: app/(app)/student/post/assignment.tsx:381
+#: app/(app)/teacher/post/assignment/student-submission.tsx:220
+#: app/(app)/teacher/post/assignment/student-submission.tsx:227
+#: app/(app)/teacher/post/assignment/student-submission.tsx:354
+#: app/(app)/teacher/post/assignment/submissions.tsx:124
+#: components/edit-grade-modal.tsx:120
+#: components/student-grades.tsx:229
+msgid "Grade"
+msgstr "Gred"
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:367
+#: components/edit-grade-modal.tsx:131
+#: components/student-grades.tsx:244
+msgid "Grade is required"
+msgstr "Gred diperlukan"
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:254
+msgid "Grade submission"
+msgstr "Penyerahan gred"
+
+#: app/(app)/modals/_layout.tsx:30
+#: app/(app)/teacher/subject/index.tsx:270
+msgid "Grade the class"
+msgstr "Beri gred kepada kelas"
+
+#: app/(app)/teacher/post/assignment/index.tsx:160
+msgid "graded"
+msgstr "dinilai"
+
+#: app/(app)/modals/attendance-mode.tsx:113
+#: app/(app)/parent/(home)/index.tsx:66
+#: app/(app)/student/(home)/grades.tsx:65
+#: app/(app)/teacher/subject/students.tsx:65
+#: components/subject-grades-view.tsx:102
+msgid "grades"
+msgstr "gred"
+
+#: app/(app)/modals/classbook-subject.tsx:38
+#: app/(app)/modals/student-classbook.tsx:37
+#: app/(app)/student/subject/_layout.tsx:125
+#: app/(app)/student/subject/_layout.tsx:131
+#: app/(app)/teacher/class-master/student-classbook.tsx:79
+#: components/subject-grades-view.tsx:98
+msgid "Grades"
+msgstr "Gred"
+
+#: app/(app)/student/post/assignment.tsx:314
+msgid "How would you like to add an attachment?"
+msgstr "Bagaimana anda ingin menambah lampiran?"
+
+#: app/(app)/modals/account.tsx:94
+#: app/(app)/modals/account.tsx:179
+#~ msgid "Hungarian"
+#~ msgstr "Bahasa Hungary"
+
+#: app/(app)/modals/account.tsx:96
+#: app/(app)/modals/account.tsx:200
+#~ msgid "Italian"
+#~ msgstr "Bahasa Itali"
+
+#: app/(app)/modals/account.tsx:77
+#: app/(app)/modals/account.tsx:80
+msgid "Language"
+msgstr "Bahasa"
+
+#: app/(app)/student/(home)/assignments.tsx:65
+msgid "Later"
+msgstr "Kemudian"
+
+#: app/(app)/student/post/assignment.tsx:312
+#: app/(app)/student/post/assignment.tsx:460
+msgid "Link"
+msgstr "Pautan"
+
+#: app/(app)/student/post/assignment.tsx:471
+msgid "Link is required"
+msgstr "Pautan diperlukan"
+
+#: app/(app)/modals/account.tsx:66
+msgid "Log out"
+msgstr "Log keluar"
+
+#: app/(app)/teacher/subject/index.tsx:200
+msgid "Material"
+msgstr "Bahan"
+
+#: components/filter-dropdown.tsx:57
+msgid "Materials"
+msgstr "Bahan"
+
+#: app/(app)/student/(home)/assignments.tsx:77
+#: app/(app)/teacher/post/assignment/submissions.tsx:95
+msgid "Missing"
+msgstr "Hilang"
+
+#: app/(app)/student/(home)/assignments.tsx:71
+#: app/(app)/student/post/assignment.tsx:166
+#: app/(app)/teacher/(home)/assignments.tsx:55
+#: app/(app)/teacher/post/assignment/index.tsx:128
+#: components/assignment-card.tsx:62
+#: components/small-assignment-card.tsx:40
+msgid "No due date"
+msgstr "Tiada tarikh akhir"
+
+#: app/(app)/student/post/assignment.tsx:386
+#: app/(app)/teacher/post/assignment/student-submission.tsx:232
+msgid "No grade"
+msgstr "Tiada gred"
+
+#: app/(app)/teacher/post/assignment/index.tsx:159
+msgid "not submitted"
+msgstr "belum diserahkan"
+
+#: app/(app)/modals/assessment.tsx:126
+msgid "Number of students"
+msgstr "Bilangan pelajar"
+
+#: app/(app)/modals/student-classbook.tsx:37
+#: app/(app)/parent/(home)/_layout.tsx:67
+#: app/(app)/parent/(home)/_layout.tsx:73
+#: app/(app)/parent/(home)/_layout.tsx:102
+msgid "Observations"
+msgstr "Pemerhatian"
+
+#: app/(app)/teacher/(home)/assignments.tsx:49
+msgid "Ongoing assignments"
+msgstr "Tugasan yang sedang berjalan"
+
+#: app/(app)/student/subject/index.tsx:74
+#: components/subject-grades-view.tsx:101
+msgid "overall average"
+msgstr "purata keseluruhan"
+
+#: app/login.tsx:124
+msgid "Password"
+msgstr "Kata Laluan"
+
+#: app/login.tsx:127
+msgid "Password is not valid"
+msgstr "Kata laluan tidak sah"
+
+#: app/(app)/modals/_layout.tsx:86
+msgid "Plan a new test"
+msgstr "Rancang ujian baru"
+
+#: app/(app)/modals/create-test.tsx:73
+msgid "Planned on"
+msgstr "Dirancang pada"
+
+#: app/(app)/student/post/test.tsx:93
+#: app/(app)/teacher/post/test.tsx:107
+msgid "Planned on {0}"
+msgstr "Dirancang pada {0}"
+
+#: components/test-card.tsx:62
+msgid "Planned on {dueDate}"
+msgstr "Dirancang pada {dueDate}"
+
+#: app/(app)/modals/_layout.tsx:72
+msgid "Post a new material"
+msgstr "Siarkan bahan baru"
+
+#: app/(app)/modals/attendance-mode.tsx:128
+#: app/(app)/modals/attendance-mode.tsx:222
+msgid "Present"
+msgstr "Hadir"
+
+#: app/(app)/modals/assessment.tsx:204
+#: app/(app)/modals/grade-mode.tsx:109
+#: app/(app)/teacher/post/assignment/student-submission.tsx:342
+#: components/edit-grade-modal.tsx:108
+#: components/student-grades.tsx:217
+#: components/student-observations.tsx:182
+msgid "Reason"
+msgstr "Alasan"
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:347
+#: components/edit-grade-modal.tsx:113
+#: components/student-grades.tsx:222
+msgid "Reason for the grade..."
+msgstr "Alasan untuk gred..."
+
+#: app/(app)/modals/assessment.tsx:211
+#: app/(app)/teacher/post/assignment/student-submission.tsx:350
+#: components/edit-grade-modal.tsx:116
+#: components/student-grades.tsx:225
+#: components/student-observations.tsx:185
+msgid "Reason is required"
+msgstr "Alasan diperlukan"
+
+#: components/error-view.tsx:32
+msgid "Retry"
+msgstr "Cuba lagi"
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:298
+msgid "Return"
+msgstr "Pulangkan"
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:264
+#: app/(app)/teacher/post/assignment/student-submission.tsx:273
+#: app/(app)/teacher/post/assignment/student-submission.tsx:293
+msgid "Return submission"
+msgstr "Pulangkan penyerahan"
+
+#: app/(app)/modals/account.tsx:92
+#: app/(app)/modals/account.tsx:158
+#~ msgid "Romanian"
+#~ msgstr "Bahasa Romania"
+
+#: app/login.tsx:79
+#: app/login.tsx:132
+msgid "Sign in"
+msgstr "Log masuk"
+
+#: app/(app)/modals/account.tsx:98
+#: app/(app)/modals/account.tsx:221
+#~ msgid "Spanish"
+#~ msgstr "Bahasa Sepanyol"
+
+#: app/(app)/student/subject/_layout.tsx:71
+#: app/(app)/student/subject/_layout.tsx:77
+#: app/(app)/teacher/subject/_layout.tsx:63
+#: app/(app)/teacher/subject/_layout.tsx:69
+msgid "Stream"
+msgstr "Strim"
+
+#: app/(app)/modals/assessment.tsx:160
+#: app/(app)/modals/grade-mode.tsx:140
+msgid "Student grades"
+msgstr "Gred pelajar"
+
+#: app/(app)/teacher/post/assignment/_layout.tsx:43
+msgid "Student submission"
+msgstr "Penyerahan pelajar"
+
+#: app/(app)/teacher/post/assignment/_layout.tsx:30
+#: app/(app)/teacher/post/assignment/index.tsx:154
+msgid "Student submissions"
+msgstr "Penyerahan pelajar"
+
+#: app/(app)/teacher/subject/_layout.tsx:115
+#: app/(app)/teacher/subject/_layout.tsx:121
+msgid "Students"
+msgstr "Pelajar"
+
+#: app/(app)/teacher/subject/index.tsx:85
+msgid "students with few grades"
+msgstr "pelajar dengan sedikit gred"
+
+#: app/(app)/student/(home)/_layout.tsx:24
+#: app/(app)/student/(home)/_layout.tsx:30
+#: app/(app)/student/(home)/_layout.tsx:57
+msgid "Subjects"
+msgstr "Subjek"
+
+#: app/(app)/student/post/assignment.tsx:396
+#: app/(app)/teacher/post/assignment/student-submission.tsx:239
+#: app/(app)/teacher/post/assignment/student-submission.tsx:280
+#: app/(app)/teacher/post/assignment/student-submission.tsx:370
+msgid "Submission comment"
+msgstr "Komen penyerahan"
+
+#: app/(app)/student/post/assignment.tsx:343
+#: app/(app)/student/post/assignment.tsx:347
+msgid "Submit"
+msgstr "Hantar"
+
+#: app/(app)/teacher/post/assignment/index.tsx:158
+msgid "submitted"
+msgstr "diserahkan"
+
+#: app/(app)/student/post/assignment.tsx:285
+#: app/(app)/teacher/post/assignment/submissions.tsx:94
+msgid "Submitted"
+msgstr "Diserahkan"
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:151
+msgid "Submitted at {0}"
+msgstr "Diserahkan pada {0}"
+
+#: app/(app)/teacher/subject/index.tsx:216
+msgid "Test"
+msgstr "Ujian"
+
+#: components/filter-dropdown.tsx:71
+msgid "Tests"
+msgstr "Ujian"
+
+#: components/error-view.tsx:28
+msgid "There was a problem while loading."
+msgstr "Terdapat masalah semasa memuatkan."
+
+#: app/(app)/student/(home)/assignments.tsx:59
+msgid "This week"
+msgstr "Minggu ini"
+
+#: app/(app)/modals/create-announcement.tsx:54
+#: app/(app)/modals/create-assignment.tsx:53
+#: app/(app)/modals/create-material.tsx:44
+#: app/(app)/modals/create-test.tsx:52
+msgid "Title"
+msgstr "Tajuk"
+
+#: app/(app)/modals/create-assignment.tsx:56
+#: app/(app)/modals/create-test.tsx:55
+msgid "Title must be completed"
+msgstr "Tajuk mesti dilengkapkan"
+
+#: app/(app)/teacher/subject/index.tsx:101
+#: app/(app)/teacher/subject/index.tsx:250
+msgid "Tools"
+msgstr "Alat"
+
+#: app/(app)/teacher/class-master/student-classbook.tsx:176
+#: components/student-absences.tsx:141
+#: components/subject-absences-view.tsx:180
+msgid "Unexcused"
+msgstr "Tidak Dimaafkan"
+
+#: app/(app)/student/subject/index.tsx:78
+#: components/subject-absences-view.tsx:123
+msgid "unexcused absences"
+msgstr "ketidakhadiran tidak dimaafkan"
+
+#: app/(app)/student/post/assignment.tsx:292
+msgid "Unsubmit"
+msgstr "Batalkan penyerahan"
+
+#: app/(app)/teacher/post/assignment/index.tsx:164
+msgid "View student submissions"
+msgstr "Lihat penyerahan pelajar"
+
+#: app/(app)/student/post/announcement.tsx:118
+#: app/(app)/student/post/assignment.tsx:432
+#: app/(app)/student/post/material.tsx:117
+#: app/(app)/student/post/test.tsx:124
+#: app/(app)/teacher/post/announcement.tsx:118
+#: app/(app)/teacher/post/assignment/index.tsx:178
+#: app/(app)/teacher/post/material.tsx:131
+#: app/(app)/teacher/post/test.tsx:138
+msgid "Write your comment here..."
+msgstr "Tulis komen anda di sini..."
+
+#: app/(app)/student/post/assignment.tsx:192
+msgid "Your submission"
+msgstr "Penyerahan anda"
+
+#: app/(app)/student/post/assignment.tsx:369
+msgid "Your submission has been graded"
+msgstr "Penyerahan anda telah dinilai"
+
+#: app/(app)/student/post/assignment.tsx:411
+msgid "Your submission has been returned"
+msgstr "Penyerahan anda telah dipulangkan"

@@ -5,6 +5,7 @@ import { SymbolView } from 'expo-symbols';
 import tw from '@/lib/tailwind';
 import { rgbaToHex } from '@/lib/utils';
 import { MaterialIcons } from '@expo/vector-icons';
+import { t, Trans } from '@lingui/macro';
 
 export default function HomeLayout() {
   const colorScheme = useColorScheme();
@@ -18,13 +19,13 @@ export default function HomeLayout() {
       <Tabs.Screen
         name='index'
         options={{
-          title: 'Classbook',
+          title: t`Classbook`,
           tabBarLabel: ({ focused }) => {
             return (
               <Text
                 style={tw`text-primary-800${focused ? '' : '/60'} dark:text-primary-200${focused ? '' : '/60'} text-[10.5px] leading-tight`}
               >
-                Classbook
+                <Trans>Classbook</Trans>
               </Text>
             );
           },
@@ -51,7 +52,7 @@ export default function HomeLayout() {
           header: () => {
             return (
               <HomeHeader
-                text='Classbook'
+                text={t`Classbook`}
                 onPress={() => {
                   router.push('/modals/account');
                 }}
@@ -63,13 +64,13 @@ export default function HomeLayout() {
       <Tabs.Screen
         name='observations'
         options={{
-          title: 'Observations',
+          title: t`Observations`,
           tabBarLabel: ({ focused }) => {
             return (
               <Text
                 style={tw`text-primary-800${focused ? '' : '/60'} dark:text-primary-200${focused ? '' : '/60'} text-[10.5px] leading-tight`}
               >
-                Observations
+                <Trans>Observations</Trans>
               </Text>
             );
           },
@@ -98,7 +99,7 @@ export default function HomeLayout() {
           header: () => {
             return (
               <HomeHeader
-                text='Observations'
+                text={t`Observations`}
                 onPress={() => {
                   router.push('/modals/account');
                 }}

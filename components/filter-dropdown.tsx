@@ -2,6 +2,7 @@ import React from 'react';
 import * as DropdownMenu from 'zeego/dropdown-menu';
 import tw from '@/lib/tailwind';
 import SmallButton from '@/components/small-button';
+import { t } from '@lingui/macro';
 
 export default function FilterDropdown({
   filter,
@@ -39,7 +40,7 @@ export default function FilterDropdown({
             }}
           >
             <DropdownMenu.ItemIndicator />
-            <DropdownMenu.ItemTitle children={'Announcements'} />
+            <DropdownMenu.ItemTitle children={t`Announcements`} />
           </DropdownMenu.CheckboxItem>
           <DropdownMenu.CheckboxItem
             value={filter.includes('material') ? 'on' : 'off'}
@@ -53,7 +54,7 @@ export default function FilterDropdown({
             }}
           >
             <DropdownMenu.ItemIndicator />
-            <DropdownMenu.ItemTitle children={'Materials'} />
+            <DropdownMenu.ItemTitle children={t`Materials`} />
           </DropdownMenu.CheckboxItem>
           <DropdownMenu.CheckboxItem
             value={filter.includes('test') ? 'on' : 'off'}
@@ -67,7 +68,7 @@ export default function FilterDropdown({
             }}
           >
             <DropdownMenu.ItemIndicator />
-            <DropdownMenu.ItemTitle children={'Tests'} />
+            <DropdownMenu.ItemTitle children={t`Tests`} />
           </DropdownMenu.CheckboxItem>
           <DropdownMenu.CheckboxItem
             value={filter.includes('assignment') ? 'on' : 'off'}
@@ -81,7 +82,7 @@ export default function FilterDropdown({
             }}
           >
             <DropdownMenu.ItemIndicator />
-            <DropdownMenu.ItemTitle children={'Assignments'} />
+            <DropdownMenu.ItemTitle children={t`Assignments`} />
           </DropdownMenu.CheckboxItem>
         </DropdownMenu.Group>
       </DropdownMenu.Content>

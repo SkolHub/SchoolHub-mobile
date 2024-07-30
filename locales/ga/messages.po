@@ -1,0 +1,837 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2024-07-30 00:03+0300\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: ga\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
+
+#: app/(app)/modals/attendance-mode.tsx:86
+msgid "{0} of {1} students"
+msgstr "{0} de {1} scoláire"
+
+#: components/subject-absences-view.tsx:121
+msgid "absences"
+msgstr "neamhláithreachtaí"
+
+#: app/(app)/modals/classbook-subject.tsx:38
+#: app/(app)/modals/student-classbook.tsx:37
+#: app/(app)/teacher/class-master/student-classbook.tsx:79
+#: components/subject-absences-view.tsx:118
+msgid "Absences"
+msgstr "Neamhláithreachtaí"
+
+#: app/(app)/modals/attendance-mode.tsx:137
+#: app/(app)/modals/attendance-mode.tsx:194
+msgid "Absent"
+msgstr "As Láthair"
+
+#: app/(app)/modals/_layout.tsx:142
+#: app/(app)/modals/account.tsx:62
+msgid "Account"
+msgstr "Cuntas"
+
+#: app/(app)/modals/assessment.tsx:241
+#: app/(app)/modals/grade-mode.tsx:194
+#: app/(app)/teacher/post/assignment/student-submission.tsx:392
+#: components/student-absences.tsx:243
+#: components/student-grades.tsx:257
+#: components/student-observations.tsx:196
+msgid "Add"
+msgstr "Cuir leis"
+
+#: components/student-absences.tsx:206
+#: components/student-absences.tsx:239
+msgid "Add absence"
+msgstr "Cuir neamhláithreacht leis"
+
+#: components/student-absences.tsx:214
+msgid "Add absence for {studentName}"
+msgstr "Cuir neamhláithreacht leis le haghaidh {studentName}"
+
+#: app/(app)/modals/attendance-mode.tsx:232
+#: app/(app)/modals/attendance-mode.tsx:240
+msgid "Add absences"
+msgstr "Cuir neamhláithreachtaí leis"
+
+#: app/(app)/student/post/assignment.tsx:308
+msgid "Add attachment"
+msgstr "Cuir ceangaltán leis"
+
+#: app/(app)/modals/assessment.tsx:170
+#: app/(app)/modals/assessment.tsx:196
+#: app/(app)/modals/grade-mode.tsx:150
+#: app/(app)/modals/grade-mode.tsx:176
+#: app/(app)/teacher/post/assignment/student-submission.tsx:383
+#: components/student-grades.tsx:191
+#: components/student-grades.tsx:248
+msgid "Add grade"
+msgstr "Cuir gráid leis"
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:327
+msgid "Add grade for {0}"
+msgstr "Cuir gráid le haghaidh {0}"
+
+#: components/student-grades.tsx:198
+msgid "Add grade for {studentName}"
+msgstr "Cuir gráid le haghaidh {studentName}"
+
+#: app/(app)/modals/assessment.tsx:236
+#: app/(app)/modals/grade-mode.tsx:185
+msgid "Add grades"
+msgstr "Cuir gráid leis"
+
+#: app/(app)/student/post/assignment.tsx:478
+msgid "Add link"
+msgstr "Cuir nasc leis"
+
+#: components/student-observations.tsx:166
+#: components/student-observations.tsx:191
+msgid "Add observation"
+msgstr "Cuir breathnadóireacht leis"
+
+#: components/student-observations.tsx:174
+msgid "Add observation for {studentName}"
+msgstr "Cuir breathnadóireacht leis le haghaidh {studentName}"
+
+#: app/(app)/teacher/subject/index.tsx:183
+msgid "Announcement"
+msgstr "Fógra"
+
+#: components/filter-dropdown.tsx:43
+msgid "Announcements"
+msgstr "Fógraí"
+
+#: app/(app)/modals/grade-mode.tsx:196
+msgid "Are you sure you want to add these grades?"
+msgstr "An bhfuil tú cinnte gur mian leat na gráid seo a chur leis?"
+
+#: components/student-absences.tsx:245
+msgid "Are you sure you want to add this absence?"
+msgstr "An bhfuil tú cinnte gur mian leat an neamhláithreacht seo a chur leis?"
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:394
+#: components/student-grades.tsx:259
+msgid "Are you sure you want to add this grade?"
+msgstr "An bhfuil tú cinnte gur mian leat an gráid seo a chur leis?"
+
+#: components/student-observations.tsx:198
+msgid "Are you sure you want to add this observation?"
+msgstr "An bhfuil tú cinnte gur mian leat an breathnadóireacht seo a chur leis?"
+
+#: components/edit-grade-modal.tsx:142
+msgid "Are you sure you want to change this grade?"
+msgstr "An bhfuil tú cinnte gur mian leat an gráid seo a athrú?"
+
+#: components/student-absences.tsx:169
+msgid "Are you sure you want to delete this absence?"
+msgstr "An bhfuil tú cinnte gur mian leat an neamhláithreacht seo a scriosadh?"
+
+#: app/(app)/student/post/assignment.tsx:267
+msgid "Are you sure you want to delete this attachment?"
+msgstr "An bhfuil tú cinnte gur mian leat an ceangaltán seo a scriosadh?"
+
+#: components/student-grades.tsx:154
+msgid "Are you sure you want to delete this grade?"
+msgstr "An bhfuil tú cinnte gur mian leat an gráid seo a scriosadh?"
+
+#: components/student-observations.tsx:131
+msgid "Are you sure you want to delete this observation?"
+msgstr "An bhfuil tú cinnte gur mian leat an breathnadóireacht seo a scriosadh?"
+
+#: app/(app)/teacher/class-master/student-classbook.tsx:192
+msgid "Are you sure you want to excuse this absence?"
+msgstr "An bhfuil tú cinnte gur mian leat an neamhláithreacht seo a leithscéal?"
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:300
+msgid "Are you sure you want to return this submission?"
+msgstr "An bhfuil tú cinnte gur mian leat an aighneacht seo a thabhairt ar ais?"
+
+#: app/(app)/student/post/assignment.tsx:349
+msgid "Are you sure you want to submit your work?"
+msgstr "An bhfuil tú cinnte gur mian leat d'obair a chur isteach?"
+
+#: app/(app)/student/post/assignment.tsx:295
+msgid "Are you sure you want to unsubmit?"
+msgstr "An bhfuil tú cinnte gur mian leat é a chur ar ais?"
+
+#: app/(app)/modals/_layout.tsx:156
+msgid "Assessment"
+msgstr "Measúnú"
+
+#: app/(app)/teacher/subject/index.tsx:302
+msgid "Assessment mode"
+msgstr "Mód measúnaithe"
+
+#: app/(app)/teacher/subject/index.tsx:167
+msgid "Assignment"
+msgstr "Obair Bhaile"
+
+#: app/(app)/student/subject/index.tsx:70
+msgid "assignments"
+msgstr "obair bhaile"
+
+#: app/(app)/student/(home)/_layout.tsx:116
+#: app/(app)/student/(home)/_layout.tsx:122
+#: app/(app)/student/(home)/_layout.tsx:151
+#: app/(app)/teacher/(home)/_layout.tsx:68
+#: app/(app)/teacher/(home)/_layout.tsx:74
+#: app/(app)/teacher/(home)/_layout.tsx:103
+#: components/filter-dropdown.tsx:85
+msgid "Assignments"
+msgstr "Obair Bhaile"
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:160
+msgid "Attachments"
+msgstr "Ceangaltáin"
+
+#: app/(app)/student/subject/_layout.tsx:174
+#: app/(app)/student/subject/_layout.tsx:180
+msgid "Attendance"
+msgstr "Tinreamh"
+
+#: app/(app)/modals/_layout.tsx:16
+#: app/(app)/modals/attendance-mode.tsx:61
+#: app/(app)/teacher/subject/index.tsx:286
+msgid "Attendance mode"
+msgstr "Mód tinrimh"
+
+#: app/(app)/modals/attendance-mode.tsx:246
+msgid "Authenticate to add absences"
+msgstr "Fíoraigh chun neamhláithreachtaí a chur leis"
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:399
+#: components/student-absences.tsx:250
+#: components/student-grades.tsx:264
+msgid "Authenticate to add grade"
+msgstr "Fíoraigh chun gráid a chur leis"
+
+#: app/(app)/modals/assessment.tsx:247
+#: app/(app)/modals/grade-mode.tsx:201
+msgid "Authenticate to add grades"
+msgstr "Fíoraigh chun gráid a chur leis"
+
+#: components/student-observations.tsx:203
+msgid "Authenticate to add observation"
+msgstr "Fíoraigh chun breathnadóireacht a chur leis"
+
+#: components/edit-grade-modal.tsx:147
+msgid "Authenticate to change grade"
+msgstr "Fíoraigh chun gráid a athrú"
+
+#: components/student-absences.tsx:174
+msgid "Authenticate to delete absence"
+msgstr "Fíoraigh chun neamhláithreacht a scriosadh"
+
+#: components/student-grades.tsx:159
+msgid "Authenticate to delete grade"
+msgstr "Fíoraigh chun gráid a scriosadh"
+
+#: components/student-observations.tsx:136
+msgid "Authenticate to delete observation"
+msgstr "Fíoraigh chun breathnadóireacht a scriosadh"
+
+#: app/(app)/teacher/class-master/student-classbook.tsx:197
+msgid "Authenticate to excuse absence"
+msgstr "Fíoraigh chun neamhláithreacht a leithscéal"
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:305
+msgid "Authenticate to return submission"
+msgstr "Fíoraigh chun aighneacht a thabhairt ar ais"
+
+#: app/(app)/modals/attendance-mode.tsx:117
+#: app/(app)/parent/(home)/index.tsx:79
+#: app/(app)/student/(home)/grades.tsx:78
+#: app/(app)/teacher/subject/students.tsx:77
+msgid "average"
+msgstr "meán"
+
+#: app/(app)/teacher/subject/index.tsx:77
+msgid "average grades"
+msgstr "gráid mheán"
+
+#: app/(app)/modals/create-announcement.tsx:64
+#: app/(app)/modals/create-assignment.tsx:63
+#: app/(app)/modals/create-material.tsx:54
+#: app/(app)/modals/create-test.tsx:62
+msgid "Body"
+msgstr "Comhlacht"
+
+#: app/(app)/modals/create-assignment.tsx:68
+#: app/(app)/modals/create-test.tsx:67
+msgid "Body must be completed"
+msgstr "Ní mór an comhlacht a chomhlánú"
+
+#: app/login.tsx:48
+msgid "Can't sign you in!"
+msgstr "Ní féidir síniú isteach!"
+
+#: app/(app)/modals/assessment.tsx:241
+#: app/(app)/modals/attendance-mode.tsx:240
+#: app/(app)/modals/grade-mode.tsx:194
+#: app/(app)/student/post/assignment.tsx:264
+#: app/(app)/student/post/assignment.tsx:292
+#: app/(app)/student/post/assignment.tsx:312
+#: app/(app)/student/post/assignment.tsx:347
+#: app/(app)/teacher/class-master/student-classbook.tsx:190
+#: app/(app)/teacher/post/assignment/student-submission.tsx:298
+#: app/(app)/teacher/post/assignment/student-submission.tsx:392
+#: components/edit-grade-modal.tsx:140
+#: components/student-absences.tsx:166
+#: components/student-absences.tsx:243
+#: components/student-grades.tsx:151
+#: components/student-grades.tsx:257
+#: components/student-observations.tsx:128
+#: components/student-observations.tsx:196
+msgid "Cancel"
+msgstr "Cealaigh"
+
+#: components/edit-grade-modal.tsx:140
+msgid "Change"
+msgstr "Athraigh"
+
+#: components/edit-grade-modal.tsx:135
+msgid "Change grade"
+msgstr "Athraigh gráid"
+
+#: app/(app)/modals/account.tsx:64
+msgid "Change password"
+msgstr "Athraigh pasfhocal"
+
+#: app/(app)/modals/create-assignment.tsx:109
+msgid "Choose due date"
+msgstr "Roghnaigh dáta dlite"
+
+#: app/(app)/modals/create-test.tsx:108
+msgid "Choose planned day for the test"
+msgstr "Roghnaigh lá pleanáilte don tástáil"
+
+#: app/(app)/teacher/subject/index.tsx:81
+msgid "class average"
+msgstr "meán an ranga"
+
+#: components/class-card.tsx:52
+msgid "Class Master"
+msgstr "Máistir Ranga"
+
+#: app/(app)/parent/(home)/_layout.tsx:22
+#: app/(app)/parent/(home)/_layout.tsx:28
+#: app/(app)/parent/(home)/_layout.tsx:55
+#: app/(app)/student/(home)/_layout.tsx:69
+#: app/(app)/student/(home)/_layout.tsx:75
+#: app/(app)/student/(home)/_layout.tsx:104
+msgid "Classbook"
+msgstr "Leabhar Ranga"
+
+#: app/(app)/teacher/(home)/_layout.tsx:23
+#: app/(app)/teacher/(home)/_layout.tsx:29
+#: app/(app)/teacher/(home)/_layout.tsx:56
+msgid "Classes"
+msgstr "Ranganna"
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:285
+#: app/(app)/teacher/post/assignment/student-submission.tsx:375
+msgid "Comment for the submission..."
+msgstr "Trácht don aighneacht..."
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:288
+#: app/(app)/teacher/post/assignment/student-submission.tsx:378
+msgid "Comment is required"
+msgstr "Tá trácht ag teastáil"
+
+#: app/(app)/student/post/announcement.tsx:113
+#: app/(app)/student/post/assignment.tsx:427
+#: app/(app)/student/post/material.tsx:112
+#: app/(app)/student/post/test.tsx:119
+#: app/(app)/teacher/post/announcement.tsx:113
+#: app/(app)/teacher/post/assignment/index.tsx:173
+#: app/(app)/teacher/post/material.tsx:126
+#: app/(app)/teacher/post/test.tsx:133
+msgid "Comments"
+msgstr "Tráchtanna"
+
+#: app/(app)/modals/create-announcement.tsx:73
+#: app/(app)/modals/create-assignment.tsx:90
+#: app/(app)/modals/create-material.tsx:63
+#: app/(app)/modals/create-test.tsx:88
+#: app/(app)/teacher/subject/index.tsx:94
+#: app/(app)/teacher/subject/index.tsx:147
+msgid "Create"
+msgstr "Cruthaigh"
+
+#: app/(app)/modals/_layout.tsx:100
+msgid "Create a new announcement"
+msgstr "Cruthaigh fógra nua"
+
+#: app/(app)/modals/_layout.tsx:114
+msgid "Create Assignment"
+msgstr "Cruthaigh Obair Bhaile"
+
+#: app/(app)/student/subject/index.tsx:86
+msgid "Create post"
+msgstr "Cruthaigh post"
+
+#: app/(app)/modals/assessment.tsx:218
+#: app/(app)/modals/assessment.tsx:261
+#: app/(app)/modals/grade-mode.tsx:120
+#: app/(app)/modals/grade-mode.tsx:123
+#: app/(app)/modals/grade-mode.tsx:213
+#: components/edit-grade-modal.tsx:93
+#: components/edit-grade-modal.tsx:96
+#: components/student-absences.tsx:218
+#: components/student-grades.tsx:209
+msgid "Date"
+msgstr "Dáta"
+
+#: app/(app)/student/post/assignment.tsx:264
+#: components/delete-dropdown.tsx:35
+#: components/student-absences.tsx:166
+#: components/student-grades.tsx:151
+#: components/student-observations.tsx:128
+msgid "Delete"
+msgstr "Scrios"
+
+#: app/(app)/student/post/assignment.tsx:165
+#: components/small-assignment-card.tsx:39
+msgid "Due {0}"
+msgstr "Dlite {0}"
+
+#: app/(app)/teacher/post/assignment/index.tsx:127
+msgid "Due {0}, {1}"
+msgstr "Dlite {0}, {1}"
+
+#: components/assignment-card.tsx:62
+msgid "Due {dueDate}"
+msgstr "Dlite {dueDate}"
+
+#: app/(app)/modals/create-assignment.tsx:74
+msgid "Due date"
+msgstr "Dáta dlite"
+
+#: components/edit-grade-modal.tsx:89
+msgid "Edit grade for {studentName}"
+msgstr "Eagraigh gráid le haghaidh {studentName}"
+
+#: app/login.tsx:114
+msgid "Email"
+msgstr "Ríomhphost"
+
+#: app/login.tsx:117
+msgid "Email is not valid"
+msgstr "Níl an ríomhphost bailí"
+
+#: app/(app)/modals/account.tsx:90
+#: app/(app)/modals/account.tsx:137
+#~ msgid "English"
+#~ msgstr "Béarla"
+
+#: app/(app)/student/post/assignment.tsx:468
+msgid "Enter the link here..."
+msgstr "Cuir isteach an nasc anseo..."
+
+#: app/(app)/modals/assessment.tsx:208
+#: app/(app)/modals/grade-mode.tsx:113
+msgid "Enter the reason for the grades..."
+msgstr "Cuir isteach an chúis leis na gráid..."
+
+#: app/(app)/student/subject/_layout.tsx:30
+#: app/(app)/teacher/subject/_layout.tsx:27
+#: app/(app)/teacher/subject/_layout.tsx:29
+msgid "Error"
+msgstr "Earráid"
+
+#: app/(app)/teacher/class-master/student-classbook.tsx:190
+msgid "Excuse"
+msgstr "Leithscéal"
+
+#: app/(app)/teacher/class-master/student-classbook.tsx:159
+#: components/student-absences.tsx:124
+#: components/subject-absences-view.tsx:163
+msgid "Excused"
+msgstr "Leithscéalta"
+
+#: app/(app)/modals/_layout.tsx:128
+#: app/(app)/student/post/assignment.tsx:312
+msgid "File"
+msgstr "Comhad"
+
+#: app/(app)/modals/attendance-mode.tsx:157
+msgid "Finish up"
+msgstr "Críochnaigh"
+
+#: app/(app)/modals/account.tsx:102
+#: app/(app)/modals/account.tsx:263
+#~ msgid "French"
+#~ msgstr "Fraincis"
+
+#: app/(app)/modals/account.tsx:100
+#: app/(app)/modals/account.tsx:242
+#~ msgid "German"
+#~ msgstr "Gearmáinis"
+
+#: app/(app)/modals/assessment.tsx:144
+msgid "Get students"
+msgstr "Faigh scoláirí"
+
+#: app/(app)/student/post/assignment.tsx:374
+#: app/(app)/student/post/assignment.tsx:381
+#: app/(app)/teacher/post/assignment/student-submission.tsx:220
+#: app/(app)/teacher/post/assignment/student-submission.tsx:227
+#: app/(app)/teacher/post/assignment/student-submission.tsx:354
+#: app/(app)/teacher/post/assignment/submissions.tsx:124
+#: components/edit-grade-modal.tsx:120
+#: components/student-grades.tsx:229
+msgid "Grade"
+msgstr "Gráid"
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:367
+#: components/edit-grade-modal.tsx:131
+#: components/student-grades.tsx:244
+msgid "Grade is required"
+msgstr "Tá gráid ag teastáil"
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:254
+msgid "Grade submission"
+msgstr "Aighneacht gráid"
+
+#: app/(app)/modals/_layout.tsx:30
+#: app/(app)/teacher/subject/index.tsx:270
+msgid "Grade the class"
+msgstr "Grádaigh an rang"
+
+#: app/(app)/teacher/post/assignment/index.tsx:160
+msgid "graded"
+msgstr "grádaithe"
+
+#: app/(app)/modals/attendance-mode.tsx:113
+#: app/(app)/parent/(home)/index.tsx:66
+#: app/(app)/student/(home)/grades.tsx:65
+#: app/(app)/teacher/subject/students.tsx:65
+#: components/subject-grades-view.tsx:102
+msgid "grades"
+msgstr "gráid"
+
+#: app/(app)/modals/classbook-subject.tsx:38
+#: app/(app)/modals/student-classbook.tsx:37
+#: app/(app)/student/subject/_layout.tsx:125
+#: app/(app)/student/subject/_layout.tsx:131
+#: app/(app)/teacher/class-master/student-classbook.tsx:79
+#: components/subject-grades-view.tsx:98
+msgid "Grades"
+msgstr "Gráid"
+
+#: app/(app)/student/post/assignment.tsx:314
+msgid "How would you like to add an attachment?"
+msgstr "Cén chaoi ar mhaith leat ceangaltán a chur leis?"
+
+#: app/(app)/modals/account.tsx:94
+#: app/(app)/modals/account.tsx:179
+#~ msgid "Hungarian"
+#~ msgstr "Ungáiris"
+
+#: app/(app)/modals/account.tsx:96
+#: app/(app)/modals/account.tsx:200
+#~ msgid "Italian"
+#~ msgstr "Iodáilis"
+
+#: app/(app)/modals/account.tsx:77
+#: app/(app)/modals/account.tsx:80
+msgid "Language"
+msgstr "Teanga"
+
+#: app/(app)/student/(home)/assignments.tsx:65
+msgid "Later"
+msgstr "Níos déanaí"
+
+#: app/(app)/student/post/assignment.tsx:312
+#: app/(app)/student/post/assignment.tsx:460
+msgid "Link"
+msgstr "Nasc"
+
+#: app/(app)/student/post/assignment.tsx:471
+msgid "Link is required"
+msgstr "Tá nasc ag teastáil"
+
+#: app/(app)/modals/account.tsx:66
+msgid "Log out"
+msgstr "Logáil amach"
+
+#: app/(app)/teacher/subject/index.tsx:200
+msgid "Material"
+msgstr "Ábhar"
+
+#: components/filter-dropdown.tsx:57
+msgid "Materials"
+msgstr "Ábhair"
+
+#: app/(app)/student/(home)/assignments.tsx:77
+#: app/(app)/teacher/post/assignment/submissions.tsx:95
+msgid "Missing"
+msgstr "Ar Iarraidh"
+
+#: app/(app)/student/(home)/assignments.tsx:71
+#: app/(app)/student/post/assignment.tsx:166
+#: app/(app)/teacher/(home)/assignments.tsx:55
+#: app/(app)/teacher/post/assignment/index.tsx:128
+#: components/assignment-card.tsx:62
+#: components/small-assignment-card.tsx:40
+msgid "No due date"
+msgstr "Gan dáta dlite"
+
+#: app/(app)/student/post/assignment.tsx:386
+#: app/(app)/teacher/post/assignment/student-submission.tsx:232
+msgid "No grade"
+msgstr "Gan gráid"
+
+#: app/(app)/teacher/post/assignment/index.tsx:159
+msgid "not submitted"
+msgstr "níor cuireadh isteach"
+
+#: app/(app)/modals/assessment.tsx:126
+msgid "Number of students"
+msgstr "Líon na scoláirí"
+
+#: app/(app)/modals/student-classbook.tsx:37
+#: app/(app)/parent/(home)/_layout.tsx:67
+#: app/(app)/parent/(home)/_layout.tsx:73
+#: app/(app)/parent/(home)/_layout.tsx:102
+msgid "Observations"
+msgstr "Breathnadóireachtaí"
+
+#: app/(app)/teacher/(home)/assignments.tsx:49
+msgid "Ongoing assignments"
+msgstr "Obair bhaile leanúnach"
+
+#: app/(app)/student/subject/index.tsx:74
+#: components/subject-grades-view.tsx:101
+msgid "overall average"
+msgstr "meán foriomlán"
+
+#: app/login.tsx:124
+msgid "Password"
+msgstr "Pasfhocal"
+
+#: app/login.tsx:127
+msgid "Password is not valid"
+msgstr "Níl an pasfhocal bailí"
+
+#: app/(app)/modals/_layout.tsx:86
+msgid "Plan a new test"
+msgstr "Pleanáil tástáil nua"
+
+#: app/(app)/modals/create-test.tsx:73
+msgid "Planned on"
+msgstr "Pleanáilte ar"
+
+#: app/(app)/student/post/test.tsx:93
+#: app/(app)/teacher/post/test.tsx:107
+msgid "Planned on {0}"
+msgstr "Pleanáilte ar {0}"
+
+#: components/test-card.tsx:62
+msgid "Planned on {dueDate}"
+msgstr "Pleanáilte ar {dueDate}"
+
+#: app/(app)/modals/_layout.tsx:72
+msgid "Post a new material"
+msgstr "Post ábhar nua"
+
+#: app/(app)/modals/attendance-mode.tsx:128
+#: app/(app)/modals/attendance-mode.tsx:222
+msgid "Present"
+msgstr "I Láthair"
+
+#: app/(app)/modals/assessment.tsx:204
+#: app/(app)/modals/grade-mode.tsx:109
+#: app/(app)/teacher/post/assignment/student-submission.tsx:342
+#: components/edit-grade-modal.tsx:108
+#: components/student-grades.tsx:217
+#: components/student-observations.tsx:182
+msgid "Reason"
+msgstr "Cúis"
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:347
+#: components/edit-grade-modal.tsx:113
+#: components/student-grades.tsx:222
+msgid "Reason for the grade..."
+msgstr "Cúis leis an ngrád..."
+
+#: app/(app)/modals/assessment.tsx:211
+#: app/(app)/teacher/post/assignment/student-submission.tsx:350
+#: components/edit-grade-modal.tsx:116
+#: components/student-grades.tsx:225
+#: components/student-observations.tsx:185
+msgid "Reason is required"
+msgstr "Tá cúis ag teastáil"
+
+#: components/error-view.tsx:32
+msgid "Retry"
+msgstr "Déan Iarracht Arís"
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:298
+msgid "Return"
+msgstr "Fill ar ais"
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:264
+#: app/(app)/teacher/post/assignment/student-submission.tsx:273
+#: app/(app)/teacher/post/assignment/student-submission.tsx:293
+msgid "Return submission"
+msgstr "Aighneacht a thabhairt ar ais"
+
+#: app/(app)/modals/account.tsx:92
+#: app/(app)/modals/account.tsx:158
+#~ msgid "Romanian"
+#~ msgstr "Rómáinis"
+
+#: app/login.tsx:79
+#: app/login.tsx:132
+msgid "Sign in"
+msgstr "Sínigh isteach"
+
+#: app/(app)/modals/account.tsx:98
+#: app/(app)/modals/account.tsx:221
+#~ msgid "Spanish"
+#~ msgstr "Spáinnis"
+
+#: app/(app)/student/subject/_layout.tsx:71
+#: app/(app)/student/subject/_layout.tsx:77
+#: app/(app)/teacher/subject/_layout.tsx:63
+#: app/(app)/teacher/subject/_layout.tsx:69
+msgid "Stream"
+msgstr "Sruth"
+
+#: app/(app)/modals/assessment.tsx:160
+#: app/(app)/modals/grade-mode.tsx:140
+msgid "Student grades"
+msgstr "Gráid mac léinn"
+
+#: app/(app)/teacher/post/assignment/_layout.tsx:43
+msgid "Student submission"
+msgstr "Aighneacht mac léinn"
+
+#: app/(app)/teacher/post/assignment/_layout.tsx:30
+#: app/(app)/teacher/post/assignment/index.tsx:154
+msgid "Student submissions"
+msgstr "Aighneachtaí mac léinn"
+
+#: app/(app)/teacher/subject/_layout.tsx:115
+#: app/(app)/teacher/subject/_layout.tsx:121
+msgid "Students"
+msgstr "Scoláirí"
+
+#: app/(app)/teacher/subject/index.tsx:85
+msgid "students with few grades"
+msgstr "scoláirí le cúpla gráid"
+
+#: app/(app)/student/(home)/_layout.tsx:24
+#: app/(app)/student/(home)/_layout.tsx:30
+#: app/(app)/student/(home)/_layout.tsx:57
+msgid "Subjects"
+msgstr "Ábhair"
+
+#: app/(app)/student/post/assignment.tsx:396
+#: app/(app)/teacher/post/assignment/student-submission.tsx:239
+#: app/(app)/teacher/post/assignment/student-submission.tsx:280
+#: app/(app)/teacher/post/assignment/student-submission.tsx:370
+msgid "Submission comment"
+msgstr "Trácht aighneachta"
+
+#: app/(app)/student/post/assignment.tsx:343
+#: app/(app)/student/post/assignment.tsx:347
+msgid "Submit"
+msgstr "Cuir isteach"
+
+#: app/(app)/teacher/post/assignment/index.tsx:158
+msgid "submitted"
+msgstr "curtha isteach"
+
+#: app/(app)/student/post/assignment.tsx:285
+#: app/(app)/teacher/post/assignment/submissions.tsx:94
+msgid "Submitted"
+msgstr "Curtha Isteach"
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:151
+msgid "Submitted at {0}"
+msgstr "Curtha isteach ag {0}"
+
+#: app/(app)/teacher/subject/index.tsx:216
+msgid "Test"
+msgstr "Tástáil"
+
+#: components/filter-dropdown.tsx:71
+msgid "Tests"
+msgstr "Tástálacha"
+
+#: components/error-view.tsx:28
+msgid "There was a problem while loading."
+msgstr "Bhí fadhb ann agus á luchtú."
+
+#: app/(app)/student/(home)/assignments.tsx:59
+msgid "This week"
+msgstr "An tseachtain seo"
+
+#: app/(app)/modals/create-announcement.tsx:54
+#: app/(app)/modals/create-assignment.tsx:53
+#: app/(app)/modals/create-material.tsx:44
+#: app/(app)/modals/create-test.tsx:52
+msgid "Title"
+msgstr "Teideal"
+
+#: app/(app)/modals/create-assignment.tsx:56
+#: app/(app)/modals/create-test.tsx:55
+msgid "Title must be completed"
+msgstr "Ní mór an teideal a chomhlánú"
+
+#: app/(app)/teacher/subject/index.tsx:101
+#: app/(app)/teacher/subject/index.tsx:250
+msgid "Tools"
+msgstr "Uirlisí"
+
+#: app/(app)/teacher/class-master/student-classbook.tsx:176
+#: components/student-absences.tsx:141
+#: components/subject-absences-view.tsx:180
+msgid "Unexcused"
+msgstr "Gan Leithscéal"
+
+#: app/(app)/student/subject/index.tsx:78
+#: components/subject-absences-view.tsx:123
+msgid "unexcused absences"
+msgstr "neamhláithreachtaí gan leithscéal"
+
+#: app/(app)/student/post/assignment.tsx:292
+msgid "Unsubmit"
+msgstr "Cuir ar Ais"
+
+#: app/(app)/teacher/post/assignment/index.tsx:164
+msgid "View student submissions"
+msgstr "Féach ar aighneachtaí mac léinn"
+
+#: app/(app)/student/post/announcement.tsx:118
+#: app/(app)/student/post/assignment.tsx:432
+#: app/(app)/student/post/material.tsx:117
+#: app/(app)/student/post/test.tsx:124
+#: app/(app)/teacher/post/announcement.tsx:118
+#: app/(app)/teacher/post/assignment/index.tsx:178
+#: app/(app)/teacher/post/material.tsx:131
+#: app/(app)/teacher/post/test.tsx:138
+msgid "Write your comment here..."
+msgstr "Scríobh do thrácht anseo..."
+
+#: app/(app)/student/post/assignment.tsx:192
+msgid "Your submission"
+msgstr "D'aighneacht"
+
+#: app/(app)/student/post/assignment.tsx:369
+msgid "Your submission has been graded"
+msgstr "Tá d'aighneacht grádáilte"
+
+#: app/(app)/student/post/assignment.tsx:411
+msgid "Your submission has been returned"
+msgstr "Tá d'aighneacht tugtha ar ais"

@@ -1,0 +1,837 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2024-07-30 00:03+0300\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: zh\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
+
+#: app/(app)/modals/attendance-mode.tsx:86
+msgid "{0} of {1} students"
+msgstr "{1} 名学生中的 {0} 名"
+
+#: components/subject-absences-view.tsx:121
+msgid "absences"
+msgstr "缺勤"
+
+#: app/(app)/modals/classbook-subject.tsx:38
+#: app/(app)/modals/student-classbook.tsx:37
+#: app/(app)/teacher/class-master/student-classbook.tsx:79
+#: components/subject-absences-view.tsx:118
+msgid "Absences"
+msgstr "缺勤"
+
+#: app/(app)/modals/attendance-mode.tsx:137
+#: app/(app)/modals/attendance-mode.tsx:194
+msgid "Absent"
+msgstr "缺勤"
+
+#: app/(app)/modals/_layout.tsx:142
+#: app/(app)/modals/account.tsx:62
+msgid "Account"
+msgstr "账户"
+
+#: app/(app)/modals/assessment.tsx:241
+#: app/(app)/modals/grade-mode.tsx:194
+#: app/(app)/teacher/post/assignment/student-submission.tsx:392
+#: components/student-absences.tsx:243
+#: components/student-grades.tsx:257
+#: components/student-observations.tsx:196
+msgid "Add"
+msgstr "添加"
+
+#: components/student-absences.tsx:206
+#: components/student-absences.tsx:239
+msgid "Add absence"
+msgstr "添加缺勤"
+
+#: components/student-absences.tsx:214
+msgid "Add absence for {studentName}"
+msgstr "为 {studentName} 添加缺勤"
+
+#: app/(app)/modals/attendance-mode.tsx:232
+#: app/(app)/modals/attendance-mode.tsx:240
+msgid "Add absences"
+msgstr "添加缺勤"
+
+#: app/(app)/student/post/assignment.tsx:308
+msgid "Add attachment"
+msgstr "添加附件"
+
+#: app/(app)/modals/assessment.tsx:170
+#: app/(app)/modals/assessment.tsx:196
+#: app/(app)/modals/grade-mode.tsx:150
+#: app/(app)/modals/grade-mode.tsx:176
+#: app/(app)/teacher/post/assignment/student-submission.tsx:383
+#: components/student-grades.tsx:191
+#: components/student-grades.tsx:248
+msgid "Add grade"
+msgstr "添加成绩"
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:327
+msgid "Add grade for {0}"
+msgstr "为 {0} 添加成绩"
+
+#: components/student-grades.tsx:198
+msgid "Add grade for {studentName}"
+msgstr "为 {studentName} 添加成绩"
+
+#: app/(app)/modals/assessment.tsx:236
+#: app/(app)/modals/grade-mode.tsx:185
+msgid "Add grades"
+msgstr "添加成绩"
+
+#: app/(app)/student/post/assignment.tsx:478
+msgid "Add link"
+msgstr "添加链接"
+
+#: components/student-observations.tsx:166
+#: components/student-observations.tsx:191
+msgid "Add observation"
+msgstr "添加观察"
+
+#: components/student-observations.tsx:174
+msgid "Add observation for {studentName}"
+msgstr "为 {studentName} 添加观察"
+
+#: app/(app)/teacher/subject/index.tsx:183
+msgid "Announcement"
+msgstr "公告"
+
+#: components/filter-dropdown.tsx:43
+msgid "Announcements"
+msgstr "公告"
+
+#: app/(app)/modals/grade-mode.tsx:196
+msgid "Are you sure you want to add these grades?"
+msgstr "您确定要添加这些成绩吗？"
+
+#: components/student-absences.tsx:245
+msgid "Are you sure you want to add this absence?"
+msgstr "您确定要添加此缺勤吗？"
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:394
+#: components/student-grades.tsx:259
+msgid "Are you sure you want to add this grade?"
+msgstr "您确定要添加此成绩吗？"
+
+#: components/student-observations.tsx:198
+msgid "Are you sure you want to add this observation?"
+msgstr "您确定要添加此观察吗？"
+
+#: components/edit-grade-modal.tsx:142
+msgid "Are you sure you want to change this grade?"
+msgstr "您确定要更改此成绩吗？"
+
+#: components/student-absences.tsx:169
+msgid "Are you sure you want to delete this absence?"
+msgstr "您确定要删除此缺勤吗？"
+
+#: app/(app)/student/post/assignment.tsx:267
+msgid "Are you sure you want to delete this attachment?"
+msgstr "您确定要删除此附件吗？"
+
+#: components/student-grades.tsx:154
+msgid "Are you sure you want to delete this grade?"
+msgstr "您确定要删除此成绩吗？"
+
+#: components/student-observations.tsx:131
+msgid "Are you sure you want to delete this observation?"
+msgstr "您确定要删除此观察吗？"
+
+#: app/(app)/teacher/class-master/student-classbook.tsx:192
+msgid "Are you sure you want to excuse this absence?"
+msgstr "您确定要批准此缺勤吗？"
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:300
+msgid "Are you sure you want to return this submission?"
+msgstr "您确定要退回此提交吗？"
+
+#: app/(app)/student/post/assignment.tsx:349
+msgid "Are you sure you want to submit your work?"
+msgstr "您确定要提交您的作业吗？"
+
+#: app/(app)/student/post/assignment.tsx:295
+msgid "Are you sure you want to unsubmit?"
+msgstr "您确定要取消提交吗？"
+
+#: app/(app)/modals/_layout.tsx:156
+msgid "Assessment"
+msgstr "评估"
+
+#: app/(app)/teacher/subject/index.tsx:302
+msgid "Assessment mode"
+msgstr "评估模式"
+
+#: app/(app)/teacher/subject/index.tsx:167
+msgid "Assignment"
+msgstr "作业"
+
+#: app/(app)/student/subject/index.tsx:70
+msgid "assignments"
+msgstr "作业"
+
+#: app/(app)/student/(home)/_layout.tsx:116
+#: app/(app)/student/(home)/_layout.tsx:122
+#: app/(app)/student/(home)/_layout.tsx:151
+#: app/(app)/teacher/(home)/_layout.tsx:68
+#: app/(app)/teacher/(home)/_layout.tsx:74
+#: app/(app)/teacher/(home)/_layout.tsx:103
+#: components/filter-dropdown.tsx:85
+msgid "Assignments"
+msgstr "作业"
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:160
+msgid "Attachments"
+msgstr "附件"
+
+#: app/(app)/student/subject/_layout.tsx:174
+#: app/(app)/student/subject/_layout.tsx:180
+msgid "Attendance"
+msgstr "出勤"
+
+#: app/(app)/modals/_layout.tsx:16
+#: app/(app)/modals/attendance-mode.tsx:61
+#: app/(app)/teacher/subject/index.tsx:286
+msgid "Attendance mode"
+msgstr "出勤模式"
+
+#: app/(app)/modals/attendance-mode.tsx:246
+msgid "Authenticate to add absences"
+msgstr "验证身份以添加缺勤"
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:399
+#: components/student-absences.tsx:250
+#: components/student-grades.tsx:264
+msgid "Authenticate to add grade"
+msgstr "验证身份以添加成绩"
+
+#: app/(app)/modals/assessment.tsx:247
+#: app/(app)/modals/grade-mode.tsx:201
+msgid "Authenticate to add grades"
+msgstr "验证身份以添加成绩"
+
+#: components/student-observations.tsx:203
+msgid "Authenticate to add observation"
+msgstr "验证身份以添加观察"
+
+#: components/edit-grade-modal.tsx:147
+msgid "Authenticate to change grade"
+msgstr "验证身份以更改成绩"
+
+#: components/student-absences.tsx:174
+msgid "Authenticate to delete absence"
+msgstr "验证身份以删除缺勤"
+
+#: components/student-grades.tsx:159
+msgid "Authenticate to delete grade"
+msgstr "验证身份以删除成绩"
+
+#: components/student-observations.tsx:136
+msgid "Authenticate to delete observation"
+msgstr "验证身份以删除观察"
+
+#: app/(app)/teacher/class-master/student-classbook.tsx:197
+msgid "Authenticate to excuse absence"
+msgstr "验证身份以批准缺勤"
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:305
+msgid "Authenticate to return submission"
+msgstr "验证身份以退回提交"
+
+#: app/(app)/modals/attendance-mode.tsx:117
+#: app/(app)/parent/(home)/index.tsx:79
+#: app/(app)/student/(home)/grades.tsx:78
+#: app/(app)/teacher/subject/students.tsx:77
+msgid "average"
+msgstr "平均分"
+
+#: app/(app)/teacher/subject/index.tsx:77
+msgid "average grades"
+msgstr "平均成绩"
+
+#: app/(app)/modals/create-announcement.tsx:64
+#: app/(app)/modals/create-assignment.tsx:63
+#: app/(app)/modals/create-material.tsx:54
+#: app/(app)/modals/create-test.tsx:62
+msgid "Body"
+msgstr "正文"
+
+#: app/(app)/modals/create-assignment.tsx:68
+#: app/(app)/modals/create-test.tsx:67
+msgid "Body must be completed"
+msgstr "必须填写正文"
+
+#: app/login.tsx:48
+msgid "Can't sign you in!"
+msgstr "无法登录！"
+
+#: app/(app)/modals/assessment.tsx:241
+#: app/(app)/modals/attendance-mode.tsx:240
+#: app/(app)/modals/grade-mode.tsx:194
+#: app/(app)/student/post/assignment.tsx:264
+#: app/(app)/student/post/assignment.tsx:292
+#: app/(app)/student/post/assignment.tsx:312
+#: app/(app)/student/post/assignment.tsx:347
+#: app/(app)/teacher/class-master/student-classbook.tsx:190
+#: app/(app)/teacher/post/assignment/student-submission.tsx:298
+#: app/(app)/teacher/post/assignment/student-submission.tsx:392
+#: components/edit-grade-modal.tsx:140
+#: components/student-absences.tsx:166
+#: components/student-absences.tsx:243
+#: components/student-grades.tsx:151
+#: components/student-grades.tsx:257
+#: components/student-observations.tsx:128
+#: components/student-observations.tsx:196
+msgid "Cancel"
+msgstr "取消"
+
+#: components/edit-grade-modal.tsx:140
+msgid "Change"
+msgstr "更改"
+
+#: components/edit-grade-modal.tsx:135
+msgid "Change grade"
+msgstr "更改成绩"
+
+#: app/(app)/modals/account.tsx:64
+msgid "Change password"
+msgstr "更改密码"
+
+#: app/(app)/modals/create-assignment.tsx:109
+msgid "Choose due date"
+msgstr "选择截止日期"
+
+#: app/(app)/modals/create-test.tsx:108
+msgid "Choose planned day for the test"
+msgstr "选择测试的计划日期"
+
+#: app/(app)/teacher/subject/index.tsx:81
+msgid "class average"
+msgstr "班级平均分"
+
+#: components/class-card.tsx:52
+msgid "Class Master"
+msgstr "班主任"
+
+#: app/(app)/parent/(home)/_layout.tsx:22
+#: app/(app)/parent/(home)/_layout.tsx:28
+#: app/(app)/parent/(home)/_layout.tsx:55
+#: app/(app)/student/(home)/_layout.tsx:69
+#: app/(app)/student/(home)/_layout.tsx:75
+#: app/(app)/student/(home)/_layout.tsx:104
+msgid "Classbook"
+msgstr "班级簿"
+
+#: app/(app)/teacher/(home)/_layout.tsx:23
+#: app/(app)/teacher/(home)/_layout.tsx:29
+#: app/(app)/teacher/(home)/_layout.tsx:56
+msgid "Classes"
+msgstr "班级"
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:285
+#: app/(app)/teacher/post/assignment/student-submission.tsx:375
+msgid "Comment for the submission..."
+msgstr "提交的评论..."
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:288
+#: app/(app)/teacher/post/assignment/student-submission.tsx:378
+msgid "Comment is required"
+msgstr "评论必填"
+
+#: app/(app)/student/post/announcement.tsx:113
+#: app/(app)/student/post/assignment.tsx:427
+#: app/(app)/student/post/material.tsx:112
+#: app/(app)/student/post/test.tsx:119
+#: app/(app)/teacher/post/announcement.tsx:113
+#: app/(app)/teacher/post/assignment/index.tsx:173
+#: app/(app)/teacher/post/material.tsx:126
+#: app/(app)/teacher/post/test.tsx:133
+msgid "Comments"
+msgstr "评论"
+
+#: app/(app)/modals/create-announcement.tsx:73
+#: app/(app)/modals/create-assignment.tsx:90
+#: app/(app)/modals/create-material.tsx:63
+#: app/(app)/modals/create-test.tsx:88
+#: app/(app)/teacher/subject/index.tsx:94
+#: app/(app)/teacher/subject/index.tsx:147
+msgid "Create"
+msgstr "创建"
+
+#: app/(app)/modals/_layout.tsx:100
+msgid "Create a new announcement"
+msgstr "创建新公告"
+
+#: app/(app)/modals/_layout.tsx:114
+msgid "Create Assignment"
+msgstr "创建作业"
+
+#: app/(app)/student/subject/index.tsx:86
+msgid "Create post"
+msgstr "创建帖子"
+
+#: app/(app)/modals/assessment.tsx:218
+#: app/(app)/modals/assessment.tsx:261
+#: app/(app)/modals/grade-mode.tsx:120
+#: app/(app)/modals/grade-mode.tsx:123
+#: app/(app)/modals/grade-mode.tsx:213
+#: components/edit-grade-modal.tsx:93
+#: components/edit-grade-modal.tsx:96
+#: components/student-absences.tsx:218
+#: components/student-grades.tsx:209
+msgid "Date"
+msgstr "日期"
+
+#: app/(app)/student/post/assignment.tsx:264
+#: components/delete-dropdown.tsx:35
+#: components/student-absences.tsx:166
+#: components/student-grades.tsx:151
+#: components/student-observations.tsx:128
+msgid "Delete"
+msgstr "删除"
+
+#: app/(app)/student/post/assignment.tsx:165
+#: components/small-assignment-card.tsx:39
+msgid "Due {0}"
+msgstr "截止日期 {0}"
+
+#: app/(app)/teacher/post/assignment/index.tsx:127
+msgid "Due {0}, {1}"
+msgstr "截止日期 {0}，{1}"
+
+#: components/assignment-card.tsx:62
+msgid "Due {dueDate}"
+msgstr "截止日期 {dueDate}"
+
+#: app/(app)/modals/create-assignment.tsx:74
+msgid "Due date"
+msgstr "截止日期"
+
+#: components/edit-grade-modal.tsx:89
+msgid "Edit grade for {studentName}"
+msgstr "编辑 {studentName} 的成绩"
+
+#: app/login.tsx:114
+msgid "Email"
+msgstr "电子邮件"
+
+#: app/login.tsx:117
+msgid "Email is not valid"
+msgstr "电子邮件无效"
+
+#: app/(app)/modals/account.tsx:90
+#: app/(app)/modals/account.tsx:137
+#~ msgid "English"
+#~ msgstr "英语"
+
+#: app/(app)/student/post/assignment.tsx:468
+msgid "Enter the link here..."
+msgstr "在此处输入链接..."
+
+#: app/(app)/modals/assessment.tsx:208
+#: app/(app)/modals/grade-mode.tsx:113
+msgid "Enter the reason for the grades..."
+msgstr "输入成绩的原因..."
+
+#: app/(app)/student/subject/_layout.tsx:30
+#: app/(app)/teacher/subject/_layout.tsx:27
+#: app/(app)/teacher/subject/_layout.tsx:29
+msgid "Error"
+msgstr "错误"
+
+#: app/(app)/teacher/class-master/student-classbook.tsx:190
+msgid "Excuse"
+msgstr "批准"
+
+#: app/(app)/teacher/class-master/student-classbook.tsx:159
+#: components/student-absences.tsx:124
+#: components/subject-absences-view.tsx:163
+msgid "Excused"
+msgstr "已批准"
+
+#: app/(app)/modals/_layout.tsx:128
+#: app/(app)/student/post/assignment.tsx:312
+msgid "File"
+msgstr "文件"
+
+#: app/(app)/modals/attendance-mode.tsx:157
+msgid "Finish up"
+msgstr "完成"
+
+#: app/(app)/modals/account.tsx:102
+#: app/(app)/modals/account.tsx:263
+#~ msgid "French"
+#~ msgstr "法语"
+
+#: app/(app)/modals/account.tsx:100
+#: app/(app)/modals/account.tsx:242
+#~ msgid "German"
+#~ msgstr "德语"
+
+#: app/(app)/modals/assessment.tsx:144
+msgid "Get students"
+msgstr "获取学生"
+
+#: app/(app)/student/post/assignment.tsx:374
+#: app/(app)/student/post/assignment.tsx:381
+#: app/(app)/teacher/post/assignment/student-submission.tsx:220
+#: app/(app)/teacher/post/assignment/student-submission.tsx:227
+#: app/(app)/teacher/post/assignment/student-submission.tsx:354
+#: app/(app)/teacher/post/assignment/submissions.tsx:124
+#: components/edit-grade-modal.tsx:120
+#: components/student-grades.tsx:229
+msgid "Grade"
+msgstr "成绩"
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:367
+#: components/edit-grade-modal.tsx:131
+#: components/student-grades.tsx:244
+msgid "Grade is required"
+msgstr "成绩必填"
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:254
+msgid "Grade submission"
+msgstr "评分提交"
+
+#: app/(app)/modals/_layout.tsx:30
+#: app/(app)/teacher/subject/index.tsx:270
+msgid "Grade the class"
+msgstr "为班级评分"
+
+#: app/(app)/teacher/post/assignment/index.tsx:160
+msgid "graded"
+msgstr "已评分"
+
+#: app/(app)/modals/attendance-mode.tsx:113
+#: app/(app)/parent/(home)/index.tsx:66
+#: app/(app)/student/(home)/grades.tsx:65
+#: app/(app)/teacher/subject/students.tsx:65
+#: components/subject-grades-view.tsx:102
+msgid "grades"
+msgstr "成绩"
+
+#: app/(app)/modals/classbook-subject.tsx:38
+#: app/(app)/modals/student-classbook.tsx:37
+#: app/(app)/student/subject/_layout.tsx:125
+#: app/(app)/student/subject/_layout.tsx:131
+#: app/(app)/teacher/class-master/student-classbook.tsx:79
+#: components/subject-grades-view.tsx:98
+msgid "Grades"
+msgstr "成绩"
+
+#: app/(app)/student/post/assignment.tsx:314
+msgid "How would you like to add an attachment?"
+msgstr "您想如何添加附件？"
+
+#: app/(app)/modals/account.tsx:94
+#: app/(app)/modals/account.tsx:179
+#~ msgid "Hungarian"
+#~ msgstr "匈牙利语"
+
+#: app/(app)/modals/account.tsx:96
+#: app/(app)/modals/account.tsx:200
+#~ msgid "Italian"
+#~ msgstr "意大利语"
+
+#: app/(app)/modals/account.tsx:77
+#: app/(app)/modals/account.tsx:80
+msgid "Language"
+msgstr "语言"
+
+#: app/(app)/student/(home)/assignments.tsx:65
+msgid "Later"
+msgstr "稍后"
+
+#: app/(app)/student/post/assignment.tsx:312
+#: app/(app)/student/post/assignment.tsx:460
+msgid "Link"
+msgstr "链接"
+
+#: app/(app)/student/post/assignment.tsx:471
+msgid "Link is required"
+msgstr "链接必填"
+
+#: app/(app)/modals/account.tsx:66
+msgid "Log out"
+msgstr "登出"
+
+#: app/(app)/teacher/subject/index.tsx:200
+msgid "Material"
+msgstr "资料"
+
+#: components/filter-dropdown.tsx:57
+msgid "Materials"
+msgstr "资料"
+
+#: app/(app)/student/(home)/assignments.tsx:77
+#: app/(app)/teacher/post/assignment/submissions.tsx:95
+msgid "Missing"
+msgstr "缺失"
+
+#: app/(app)/student/(home)/assignments.tsx:71
+#: app/(app)/student/post/assignment.tsx:166
+#: app/(app)/teacher/(home)/assignments.tsx:55
+#: app/(app)/teacher/post/assignment/index.tsx:128
+#: components/assignment-card.tsx:62
+#: components/small-assignment-card.tsx:40
+msgid "No due date"
+msgstr "无截止日期"
+
+#: app/(app)/student/post/assignment.tsx:386
+#: app/(app)/teacher/post/assignment/student-submission.tsx:232
+msgid "No grade"
+msgstr "无成绩"
+
+#: app/(app)/teacher/post/assignment/index.tsx:159
+msgid "not submitted"
+msgstr "未提交"
+
+#: app/(app)/modals/assessment.tsx:126
+msgid "Number of students"
+msgstr "学生人数"
+
+#: app/(app)/modals/student-classbook.tsx:37
+#: app/(app)/parent/(home)/_layout.tsx:67
+#: app/(app)/parent/(home)/_layout.tsx:73
+#: app/(app)/parent/(home)/_layout.tsx:102
+msgid "Observations"
+msgstr "观察"
+
+#: app/(app)/teacher/(home)/assignments.tsx:49
+msgid "Ongoing assignments"
+msgstr "进行中的作业"
+
+#: app/(app)/student/subject/index.tsx:74
+#: components/subject-grades-view.tsx:101
+msgid "overall average"
+msgstr "总平均分"
+
+#: app/login.tsx:124
+msgid "Password"
+msgstr "密码"
+
+#: app/login.tsx:127
+msgid "Password is not valid"
+msgstr "密码无效"
+
+#: app/(app)/modals/_layout.tsx:86
+msgid "Plan a new test"
+msgstr "计划新测试"
+
+#: app/(app)/modals/create-test.tsx:73
+msgid "Planned on"
+msgstr "计划日期"
+
+#: app/(app)/student/post/test.tsx:93
+#: app/(app)/teacher/post/test.tsx:107
+msgid "Planned on {0}"
+msgstr "计划日期 {0}"
+
+#: components/test-card.tsx:62
+msgid "Planned on {dueDate}"
+msgstr "计划日期 {dueDate}"
+
+#: app/(app)/modals/_layout.tsx:72
+msgid "Post a new material"
+msgstr "发布新资料"
+
+#: app/(app)/modals/attendance-mode.tsx:128
+#: app/(app)/modals/attendance-mode.tsx:222
+msgid "Present"
+msgstr "出席"
+
+#: app/(app)/modals/assessment.tsx:204
+#: app/(app)/modals/grade-mode.tsx:109
+#: app/(app)/teacher/post/assignment/student-submission.tsx:342
+#: components/edit-grade-modal.tsx:108
+#: components/student-grades.tsx:217
+#: components/student-observations.tsx:182
+msgid "Reason"
+msgstr "原因"
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:347
+#: components/edit-grade-modal.tsx:113
+#: components/student-grades.tsx:222
+msgid "Reason for the grade..."
+msgstr "成绩的原因..."
+
+#: app/(app)/modals/assessment.tsx:211
+#: app/(app)/teacher/post/assignment/student-submission.tsx:350
+#: components/edit-grade-modal.tsx:116
+#: components/student-grades.tsx:225
+#: components/student-observations.tsx:185
+msgid "Reason is required"
+msgstr "原因必填"
+
+#: components/error-view.tsx:32
+msgid "Retry"
+msgstr "重试"
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:298
+msgid "Return"
+msgstr "退回"
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:264
+#: app/(app)/teacher/post/assignment/student-submission.tsx:273
+#: app/(app)/teacher/post/assignment/student-submission.tsx:293
+msgid "Return submission"
+msgstr "退回提交"
+
+#: app/(app)/modals/account.tsx:92
+#: app/(app)/modals/account.tsx:158
+#~ msgid "Romanian"
+#~ msgstr "罗马尼亚语"
+
+#: app/login.tsx:79
+#: app/login.tsx:132
+msgid "Sign in"
+msgstr "登录"
+
+#: app/(app)/modals/account.tsx:98
+#: app/(app)/modals/account.tsx:221
+#~ msgid "Spanish"
+#~ msgstr "西班牙语"
+
+#: app/(app)/student/subject/_layout.tsx:71
+#: app/(app)/student/subject/_layout.tsx:77
+#: app/(app)/teacher/subject/_layout.tsx:63
+#: app/(app)/teacher/subject/_layout.tsx:69
+msgid "Stream"
+msgstr "动态"
+
+#: app/(app)/modals/assessment.tsx:160
+#: app/(app)/modals/grade-mode.tsx:140
+msgid "Student grades"
+msgstr "学生成绩"
+
+#: app/(app)/teacher/post/assignment/_layout.tsx:43
+msgid "Student submission"
+msgstr "学生提交"
+
+#: app/(app)/teacher/post/assignment/_layout.tsx:30
+#: app/(app)/teacher/post/assignment/index.tsx:154
+msgid "Student submissions"
+msgstr "学生提交"
+
+#: app/(app)/teacher/subject/_layout.tsx:115
+#: app/(app)/teacher/subject/_layout.tsx:121
+msgid "Students"
+msgstr "学生"
+
+#: app/(app)/teacher/subject/index.tsx:85
+msgid "students with few grades"
+msgstr "成绩较少的学生"
+
+#: app/(app)/student/(home)/_layout.tsx:24
+#: app/(app)/student/(home)/_layout.tsx:30
+#: app/(app)/student/(home)/_layout.tsx:57
+msgid "Subjects"
+msgstr "科目"
+
+#: app/(app)/student/post/assignment.tsx:396
+#: app/(app)/teacher/post/assignment/student-submission.tsx:239
+#: app/(app)/teacher/post/assignment/student-submission.tsx:280
+#: app/(app)/teacher/post/assignment/student-submission.tsx:370
+msgid "Submission comment"
+msgstr "提交评论"
+
+#: app/(app)/student/post/assignment.tsx:343
+#: app/(app)/student/post/assignment.tsx:347
+msgid "Submit"
+msgstr "提交"
+
+#: app/(app)/teacher/post/assignment/index.tsx:158
+msgid "submitted"
+msgstr "已提交"
+
+#: app/(app)/student/post/assignment.tsx:285
+#: app/(app)/teacher/post/assignment/submissions.tsx:94
+msgid "Submitted"
+msgstr "已提交"
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:151
+msgid "Submitted at {0}"
+msgstr "提交于 {0}"
+
+#: app/(app)/teacher/subject/index.tsx:216
+msgid "Test"
+msgstr "测试"
+
+#: components/filter-dropdown.tsx:71
+msgid "Tests"
+msgstr "测试"
+
+#: components/error-view.tsx:28
+msgid "There was a problem while loading."
+msgstr "加载时出现问题。"
+
+#: app/(app)/student/(home)/assignments.tsx:59
+msgid "This week"
+msgstr "本周"
+
+#: app/(app)/modals/create-announcement.tsx:54
+#: app/(app)/modals/create-assignment.tsx:53
+#: app/(app)/modals/create-material.tsx:44
+#: app/(app)/modals/create-test.tsx:52
+msgid "Title"
+msgstr "标题"
+
+#: app/(app)/modals/create-assignment.tsx:56
+#: app/(app)/modals/create-test.tsx:55
+msgid "Title must be completed"
+msgstr "必须填写标题"
+
+#: app/(app)/teacher/subject/index.tsx:101
+#: app/(app)/teacher/subject/index.tsx:250
+msgid "Tools"
+msgstr "工具"
+
+#: app/(app)/teacher/class-master/student-classbook.tsx:176
+#: components/student-absences.tsx:141
+#: components/subject-absences-view.tsx:180
+msgid "Unexcused"
+msgstr "未经批准"
+
+#: app/(app)/student/subject/index.tsx:78
+#: components/subject-absences-view.tsx:123
+msgid "unexcused absences"
+msgstr "未经批准的缺勤"
+
+#: app/(app)/student/post/assignment.tsx:292
+msgid "Unsubmit"
+msgstr "取消提交"
+
+#: app/(app)/teacher/post/assignment/index.tsx:164
+msgid "View student submissions"
+msgstr "查看学生提交"
+
+#: app/(app)/student/post/announcement.tsx:118
+#: app/(app)/student/post/assignment.tsx:432
+#: app/(app)/student/post/material.tsx:117
+#: app/(app)/student/post/test.tsx:124
+#: app/(app)/teacher/post/announcement.tsx:118
+#: app/(app)/teacher/post/assignment/index.tsx:178
+#: app/(app)/teacher/post/material.tsx:131
+#: app/(app)/teacher/post/test.tsx:138
+msgid "Write your comment here..."
+msgstr "在此处写下您的评论..."
+
+#: app/(app)/student/post/assignment.tsx:192
+msgid "Your submission"
+msgstr "您的提交"
+
+#: app/(app)/student/post/assignment.tsx:369
+msgid "Your submission has been graded"
+msgstr "您的提交已评分"
+
+#: app/(app)/student/post/assignment.tsx:411
+msgid "Your submission has been returned"
+msgstr "您的提交已退回"

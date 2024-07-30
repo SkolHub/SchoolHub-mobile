@@ -14,6 +14,7 @@ import Caption from '@/components/caption';
 import StatsSummaryView from '@/components/stats-summary-view';
 import List from '@/components/list';
 import ListItem from '@/components/list-item';
+import { t } from '@lingui/macro';
 
 export default function SubjectGradesView({
   grades
@@ -94,11 +95,11 @@ export default function SubjectGradesView({
           verticalLabelRotation={30}
         />
       </View>
-      <Caption text='Grades' />
+      <Caption text={t`Grades`} />
       <StatsSummaryView
         data={[
-          { 'overall average': average.toFixed(2).toString() },
-          { grades: gradesNum.toString() }
+          { label: t`overall average`, value: average.toFixed(2).toString() },
+          { label: t`grades`, value: gradesNum.toString() }
         ]}
         style={'mb-6'}
       />
@@ -117,7 +118,7 @@ export default function SubjectGradesView({
                 </Text>
                 {grade?.reason ? (
                   <Text
-                    style={tw`shrink text-base font-bold leading-tight text-primary-500 dark:text-primary-300`}
+                    style={tw`shrink text-sm font-bold leading-tight text-primary-500 dark:text-primary-300`}
                   >
                     {grade.reason}
                   </Text>
@@ -134,7 +135,7 @@ export default function SubjectGradesView({
                   {formatShortDate(grade.date)}
                 </Text>
                 <Text
-                  style={tw`text-right text-base font-bold leading-tight text-primary-500 dark:text-primary-300`}
+                  style={tw`text-right text-sm font-bold leading-tight text-primary-500 dark:text-primary-300`}
                 >
                   {grade.teacher.name}
                 </Text>

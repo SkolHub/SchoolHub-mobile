@@ -5,6 +5,7 @@ import React from 'react';
 import LoadingView from '@/components/loading-view';
 import ErrorView from '@/components/error-view';
 import KanbanColumn from '@/components/kanban-column';
+import { t } from '@lingui/macro';
 
 export default function Assignments() {
   const assignments = useGetStudentOrganizationAssignments();
@@ -55,25 +56,25 @@ export default function Assignments() {
         }
       >
         <KanbanColumn
-          title={'This week'}
+          title={t`This week`}
           posts={thisWeekAssignments}
           key={1}
           type={'student'}
         />
         <KanbanColumn
-          title={'Later'}
+          title={t`Later`}
           posts={laterAssignments}
           key={2}
           type={'student'}
         />
         <KanbanColumn
-          title={'No due date'}
+          title={t`No due date`}
           posts={noDueDateAssignments}
           key={3}
           type={'student'}
         />
         <KanbanColumn
-          title={'Missing'}
+          title={t`Missing`}
           posts={missingAssignments}
           key={4}
           type={'student'}

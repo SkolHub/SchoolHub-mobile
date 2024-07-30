@@ -16,6 +16,7 @@ import Caption from '@/components/caption';
 import { useActionSheet } from '@expo/react-native-action-sheet';
 import * as LocalAuthentication from 'expo-local-authentication';
 import { useCreateAbsences } from '@/api/grade';
+import { t, Trans } from '@lingui/macro';
 
 export default function AttendanceMode() {
   const { subjectID } = useLocalSearchParams();
@@ -57,7 +58,7 @@ export default function AttendanceMode() {
           presentation: 'modal',
           header: () => (
             <ModalHeader
-              text='Attendance mode'
+              text={t`Attendance mode`}
               onPress={() => {
                 router.back();
               }}
@@ -82,7 +83,9 @@ export default function AttendanceMode() {
               <Text
                 style={tw`mt-0.5 text-lg font-medium text-primary-900 dark:text-primary-50`}
               >
-                {currentIdx + 1} of {studentsData.data.length} students
+                <Trans>
+                  {currentIdx + 1} of {studentsData.data.length} students
+                </Trans>
               </Text>
               <Progress.Bar
                 progress={(currentIdx + 1) / studentsData.data.length}
@@ -107,10 +110,12 @@ export default function AttendanceMode() {
               style={'w-full'}
               data={[
                 {
-                  grades: studentsData.data[currentIdx].count
+                  label: t`grades`,
+                  value: studentsData.data[currentIdx].count
                 },
                 {
-                  average: (+studentsData.data[currentIdx].average)
+                  label: t`average`,
+                  value: (+studentsData.data[currentIdx].average)
                     .toFixed(2)
                     .toString()
                 }
@@ -120,7 +125,7 @@ export default function AttendanceMode() {
               style={tw`mt-4 items-stretch gap-3 rounded-3xl bg-neutral-50 px-4 py-6 dark:bg-neutral-700`}
             >
               <LargeButton
-                text={'Present'}
+                text={t`Present`}
                 contentContainerStyle={'bg-green-500/40 dark:bg-green-400/60'}
                 textStyle={'text-neutral-900 dark:text-neutral-50'}
                 style={'w-full'}
@@ -129,7 +134,7 @@ export default function AttendanceMode() {
                 }}
               />
               <LargeButton
-                text={'Absent'}
+                text={t`Absent`}
                 contentContainerStyle={'bg-red-500/40 dark:bg-red-400/70'}
                 textStyle={'text-neutral-900 dark:text-neutral-50'}
                 style={'w-full'}
@@ -149,7 +154,7 @@ export default function AttendanceMode() {
         )}
         {currentIdx >= studentsData.data.length && (
           <>
-            <Caption text={'Finish up'} style={'pt-0'} />
+            <Caption text={t`Finish up`} style={'pt-0'} />
             <List>
               {studentsData.data.map((student) => (
                 <ListItem
@@ -186,7 +191,7 @@ export default function AttendanceMode() {
                           <Text
                             style={tw`text-base font-bold leading-tight text-red-500 dark:text-red-400`}
                           >
-                            Absent
+                            <Trans>Absent</Trans>
                           </Text>
                         </Pressable>
                       ) : (
@@ -214,7 +219,7 @@ export default function AttendanceMode() {
                           <Text
                             style={tw`text-base font-bold leading-tight text-green-500 dark:text-green-400`}
                           >
-                            Present
+                            <Trans>Present</Trans>
                           </Text>
                         </Pressable>
                       )}
@@ -224,7 +229,7 @@ export default function AttendanceMode() {
               ))}
             </List>
             <LargeButton
-              text={'Add absences'}
+              text={t`Add absences`}
               symbol={{
                 name: 'faceid',
                 fallback: 'fingerprint'
@@ -232,25 +237,27 @@ export default function AttendanceMode() {
               onPress={() => {
                 showActionSheetWithOptions(
                   {
-                    options: ['Cancel', 'Add absences'],
+                    options: [t`Cancel`, t`Add absences`],
                     cancelButtonIndex: 0
                   },
                   async (buttonIndex) => {
                     if (buttonIndex === 1) {
                       await LocalAuthentication.authenticateAsync({
-                        promptMessage: 'Authenticate to add absences'
-                      }).then(async () => {
-                        await createAbsences.mutateAsync(
-                          {
-                            subjectID: +(subjectID as string),
-                            absences: absenceData
-                          },
-                          {
-                            onSuccess: () => {
-                              router.back();
+                        promptMessage: t`Authenticate to add absences`
+                      }).then(async (res) => {
+                        if (res.success) {
+                          await createAbsences.mutateAsync(
+                            {
+                              subjectID: +(subjectID as string),
+                              absences: absenceData
+                            },
+                            {
+                              onSuccess: () => {
+                                router.back();
+                              }
                             }
-                          }
-                        );
+                          );
+                        }
                       });
                     }
                   }

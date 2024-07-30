@@ -5,7 +5,6 @@ import LoadingView from '@/components/loading-view';
 import ErrorView from '@/components/error-view';
 import { formatShortDate } from '@/lib/utils';
 import Caption from '@/components/caption';
-import V35 from 'expo-modules-core/src/uuid/lib/v35';
 import ObservationCard from '@/components/observation-card';
 
 export default function Observations() {
@@ -42,8 +41,6 @@ export default function Observations() {
     })
   );
 
-  console.log(JSON.stringify(groupedObservationsArray));
-
   return (
     <ScrollView
       style={tw`bg-secondary-100 px-4 dark:bg-primary-950`}
@@ -54,6 +51,7 @@ export default function Observations() {
           <Caption text={group.day} />
           {group.observations.map((observation: Observation) => (
             <ObservationCard
+              key={observation.id}
               title={observation.subject.name}
               date={formatShortDate(observation.timestamp)}
               teacher={observation.teacher.name}

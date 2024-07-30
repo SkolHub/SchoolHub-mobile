@@ -2,6 +2,7 @@ import { Pressable, Text, useColorScheme, View } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import tw from '@/lib/tailwind';
 import { Theme } from '@/lib/types';
+import { t } from '@lingui/macro';
 
 export default function AssignmentCard({
   title,
@@ -58,8 +59,7 @@ export default function AssignmentCard({
         <Text
           style={tw`text-sm font-semibold text-primary-700 dark:text-primary-300`}
         >
-          {dueDate ? 'Due ' : 'No due date'}
-          {dueDate}
+          {dueDate ? t`Due ${dueDate}` : t`No due date`}
         </Text>
       </View>
     </Pressable>

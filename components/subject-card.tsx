@@ -34,16 +34,16 @@ export default function SubjectCard({
         <Image
           contentFit='contain'
           source={Icons.find((i) => i.name === icon)?.icon ?? Icons[0].icon}
-          style={{ width: 32, height: 50 }}
+          style={{ width: 28, height: 42 }}
         />
         <View style={tw`justify-center px-4`}>
           <Text
-            style={tw`text-lg font-bold leading-tight text-primary-800 dark:text-neutral-200`}
+            style={tw`text-base font-bold leading-tight text-primary-800 dark:text-neutral-200`}
           >
             {name}
           </Text>
           <Text
-            style={tw`text-base font-semibold leading-tight text-primary-700 dark:text-neutral-200`}
+            style={tw`text-sm font-semibold leading-tight text-primary-700 dark:text-neutral-200`}
           >
             {secondaryText}
           </Text>

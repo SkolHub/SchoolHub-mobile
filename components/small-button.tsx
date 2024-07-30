@@ -41,7 +41,7 @@ export default function SmallButton({
           {iconName && (
             <Ionicons
               name={iconName as any}
-              size={22}
+              size={20}
               color={
                 tw.prefixMatch('dark')
                   ? tw.color(`primary-200`)
@@ -52,7 +52,7 @@ export default function SmallButton({
           )}
           <Text
             style={tw.style(
-              `text-base font-semibold text-primary-800 dark:text-primary-50`,
+              `text-sm font-semibold text-primary-800 dark:text-primary-50`,
               textStyle
             )}
           >

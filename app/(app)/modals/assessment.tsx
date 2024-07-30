@@ -18,6 +18,9 @@ import GradePicker from '@/components/grade-picker';
 import FormInput from '@/components/form-input';
 import DatePicker from 'react-native-date-picker';
 import { BatchGrades, useCreateGrades } from '@/api/grade';
+import { t } from '@lingui/macro';
+import { useActionSheet } from '@expo/react-native-action-sheet';
+import * as LocalAuthentication from 'expo-local-authentication';
 
 function getRandomStrings(array: any[], count: number): any[] {
   const result = [];
@@ -50,6 +53,8 @@ export default function Assessment() {
   const [visibleID, setVisibleID] = useState(-1);
   const [dateModalVisible, setDateModalVisible] = useState(false);
   const [date, setDate] = useState(new Date());
+
+  const { showActionSheetWithOptions } = useActionSheet();
 
   const schema = yup.object().shape({
     message: yup.string().required("Reason can't be empty")
@@ -90,8 +95,6 @@ export default function Assessment() {
     //   });
     // }
 
-    console.log(gradesObject);
-
     if (gradesObject.grades.length > 0) {
       await createGrades.mutateAsync(gradesObject);
       router.back();
@@ -120,7 +123,7 @@ export default function Assessment() {
         <>
           <List>
             <ListItem
-              text='Number of students'
+              text={t`Number of students`}
               shouldPress={false}
               rightComponent={
                 <Stepper
@@ -138,7 +141,7 @@ export default function Assessment() {
             />
           </List>
           <LargeButton
-            text={'Get students'}
+            text={t`Get students`}
             onPress={() => {
               const studentNames = getRandomStrings(
                 studentsData.data,
@@ -154,7 +157,7 @@ export default function Assessment() {
       )}
       {studentGrades && (
         <>
-          <Caption text={'Student grades'} style={`pt-0`} />
+          <Caption text={t`Student grades`} style={`pt-0`} />
           <List>
             {studentGrades?.map(({ student, grade }, index) => (
               <ListItem
@@ -164,7 +167,7 @@ export default function Assessment() {
                 rightComponent={
                   <>
                     <GeneralModal
-                      title={'Add grade'}
+                      title={t`Add grade`}
                       visible={visibleID === student.student.id}
                       setVisible={() => setVisibleID(-1)}
                       children={
@@ -190,7 +193,7 @@ export default function Assessment() {
                       <Text
                         style={tw`text-base font-medium text-black/70 dark:text-white/70`}
                       >
-                        {grade ?? 'Add grade'}
+                        {grade ?? t`Add grade`}
                       </Text>
                     </Pressable>
                   </>
@@ -198,21 +201,21 @@ export default function Assessment() {
               />
             )) ?? []}
           </List>
-          <Caption text={'Reason'} />
+          <Caption text={t`Reason`} />
           <FormInput
             control={control}
             name={'message'}
-            placeholder={'Enter the reason for the grades...'}
+            placeholder={t`Enter the reason for the grades...`}
             secureTextEntry={false}
             inputAccessoryViewID={'accessory-view'}
-            errorText={'Reason is required'}
+            errorText={t`Reason is required`}
             contentType={''}
             flex1={false}
           />
           <Caption text={'Date'} />
           <List>
             <ListItem
-              text={'Date'}
+              text={t`Date`}
               rightComponent={
                 <Pressable
                   style={tw`rounded-xl bg-neutral-200 px-4 py-2 dark:bg-neutral-600`}
@@ -230,12 +233,32 @@ export default function Assessment() {
             />
           </List>
           <LargeButton
-            text={'Add grades'}
-            onPress={handleSubmit(onSubmit)}
+            text={t`Add grades`}
+            onPress={() => {
+              handleSubmit(() =>
+                showActionSheetWithOptions(
+                  {
+                    options: [t`Add`, t`Cancel`],
+                    cancelButtonIndex: 1
+                  },
+                  (index) => {
+                    if (index === 0) {
+                      LocalAuthentication.authenticateAsync({
+                        promptMessage: t`Authenticate to add grades`
+                      }).then(async (res) => {
+                        if (res.success) {
+                          await handleSubmit(onSubmit)();
+                        }
+                      });
+                    }
+                  }
+                )
+              )();
+            }}
             style={'mt-4'}
           />
           <GeneralModal
-            title={'Date'}
+            title={t`Date`}
             visible={dateModalVisible}
             setVisible={setDateModalVisible}
           >

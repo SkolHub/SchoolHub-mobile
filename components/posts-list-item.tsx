@@ -1,4 +1,4 @@
-import { Post } from '@/api/post';
+import { Post, TeacherPost } from '@/api/post';
 import MaterialCard from '@/components/material-card';
 import { router } from 'expo-router';
 import AssignmentCard from '@/components/assignment-card';
@@ -8,10 +8,12 @@ import { formatShortDate, formatTime } from '@/lib/utils';
 
 export function PostsListItem({
   post,
-  userType
+  userType,
+  subjectID
 }: {
-  post: Post;
+  post: Post | TeacherPost;
   userType: 'student' | 'teacher';
+  subjectID: string;
 }) {
   if (post.type === 'material') {
     return (
@@ -36,7 +38,8 @@ export function PostsListItem({
           router.push({
             pathname: `/${userType}/post/assignment`,
             params: {
-              postID: post.id
+              postID: post.id,
+              subjectID: subjectID
             }
           });
         }}

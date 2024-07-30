@@ -3,7 +3,7 @@ import { router, useLocalSearchParams } from 'expo-router';
 import React, { useEffect, useState } from 'react';
 import tw from '@/lib/tailwind';
 import { useGetFewGrades, useGetTeacherSubjectStats } from '@/api/subject';
-import { Post, useGetTeacherSubjectPosts } from '@/api/post';
+import { TeacherPost, useGetTeacherSubjectPosts } from '@/api/post';
 import LoadingView from '@/components/loading-view';
 import ErrorView from '@/components/error-view';
 import StatsSummaryView from '@/components/stats-summary-view';
@@ -13,6 +13,7 @@ import { PostsListItem } from '@/components/posts-list-item';
 import Modal from 'react-native-modal';
 import Caption from '@/components/caption';
 import Ionicons from '@expo/vector-icons/Ionicons';
+import { t } from '@lingui/macro';
 
 export default function Index() {
   const { subjectID } = useLocalSearchParams();
@@ -21,7 +22,7 @@ export default function Index() {
 
   const posts = useGetTeacherSubjectPosts(subjectID as string);
 
-  const [shownPosts, setShownPosts] = useState<Post[]>([]);
+  const [shownPosts, setShownPosts] = useState<TeacherPost[]>([]);
   const [filter, setFilter] = useState<string[]>([
     'announcement',
     'assignment',
@@ -73,15 +74,16 @@ export default function Index() {
             <StatsSummaryView
               data={[
                 {
-                  'average grades': (+stats.data.averagecount)
-                    .toFixed(1)
-                    .toString()
+                  label: t`average grades`,
+                  value: (+stats.data.averagecount).toFixed(1).toString()
                 },
                 {
-                  'class average': (+stats.data.average).toFixed(2).toString()
+                  label: t`class average`,
+                  value: (+stats.data.average).toFixed(2).toString()
                 },
                 {
-                  'students with few grades': fewGrades.data.count
+                  label: t`students with few grades`,
+                  value: fewGrades.data.count
                 }
               ]}
               style={`mb-4`}
@@ -89,14 +91,14 @@ export default function Index() {
             <View style={tw`flex-row items-start justify-between pb-4`}>
               <View style={tw`flex-row gap-2`}>
                 <SmallButton
-                  text={'Create'}
+                  text={t`Create`}
                   iconName={'add-outline'}
                   onPress={() => {
                     setCreateModalVisible(true);
                   }}
                 />
                 <SmallButton
-                  text={'Tools'}
+                  text={t`Tools`}
                   iconName={'hammer'}
                   onPress={() => {
                     setToolsModalVisible(true);
@@ -117,7 +119,13 @@ export default function Index() {
         }
         data={shownPosts}
         renderItem={({ item }) => {
-          return <PostsListItem post={item} userType={'teacher'} />;
+          return (
+            <PostsListItem
+              subjectID={subjectID as string}
+              post={item}
+              userType={'teacher'}
+            />
+          );
         }}
       />
       <Modal
@@ -136,7 +144,7 @@ export default function Index() {
       >
         <View style={tw`rounded-[8] bg-white p-6 dark:bg-neutral-700`}>
           <View style={tw`flex-row items-start justify-between`}>
-            <Caption text={'Create'} style={'pb-6 pt-0'} />
+            <Caption text={t`Create`} style={'pb-6 pt-0'} />
             <Pressable
               onPress={() => {
                 setCreateModalVisible(false);
@@ -156,7 +164,7 @@ export default function Index() {
           </View>
           <View style={tw`gap-2.5`}>
             <SmallButton
-              text={'Assignment'}
+              text={t`Assignment`}
               onPress={() => {
                 setCreateModalVisible(false);
                 setTimeout(() => {
@@ -172,7 +180,7 @@ export default function Index() {
               iconName={'document-attach'}
             />
             <SmallButton
-              text={'Announcement'}
+              text={t`Announcement`}
               onPress={() => {
                 setCreateModalVisible(false);
                 setTimeout(() => {
@@ -189,7 +197,7 @@ export default function Index() {
               iconName={'chatbubbles'}
             />
             <SmallButton
-              text={'Material'}
+              text={t`Material`}
               onPress={() => {
                 setCreateModalVisible(false);
                 setTimeout(() => {
@@ -205,7 +213,7 @@ export default function Index() {
               iconName={'document-text'}
             />
             <SmallButton
-              text={'Test'}
+              text={t`Test`}
               onPress={() => {
                 setCreateModalVisible(false);
                 setTimeout(() => {
@@ -239,7 +247,7 @@ export default function Index() {
       >
         <View style={tw`rounded-[8] bg-white p-6 dark:bg-neutral-700`}>
           <View style={tw`flex-row items-start justify-between`}>
-            <Caption text={'Tools'} style={'pb-6 pt-0'} />
+            <Caption text={t`Tools`} style={'pb-6 pt-0'} />
             <Pressable
               onPress={() => {
                 setToolsModalVisible(false);
@@ -259,7 +267,7 @@ export default function Index() {
           </View>
           <View style={tw`gap-2.5`}>
             <SmallButton
-              text={'Grade the class'}
+              text={t`Grade the class`}
               onPress={() => {
                 setToolsModalVisible(false);
                 setTimeout(() => {
@@ -275,7 +283,7 @@ export default function Index() {
               iconName={'stats-chart'}
             />
             <SmallButton
-              text={'Attendance mode'}
+              text={t`Attendance mode`}
               onPress={() => {
                 setToolsModalVisible(false);
                 setTimeout(() => {
@@ -291,7 +299,7 @@ export default function Index() {
               iconName={'calendar'}
             />
             <SmallButton
-              text={'Assessment mode'}
+              text={t`Assessment mode`}
               onPress={() => {
                 setToolsModalVisible(false);
                 setTimeout(() => {

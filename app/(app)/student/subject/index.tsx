@@ -10,6 +10,7 @@ import SmallButton from '@/components/small-button';
 import FilterDropdown from '@/components/filter-dropdown';
 import StatsSummaryView from '@/components/stats-summary-view';
 import { PostsListItem } from '@/components/posts-list-item';
+import { t } from '@lingui/macro';
 
 export default function Index() {
   const { subjectID } = useLocalSearchParams();
@@ -65,17 +66,24 @@ export default function Index() {
             <View style={tw`pb-4`}>
               <StatsSummaryView
                 data={[
-                  { assignments: subjectStats.data.assignments.toString() },
-                  { 'overall average': subjectStats.data.average.toFixed(2) },
                   {
-                    'unexcused absences': subjectStats.data.absences.toString()
+                    label: t`assignments`,
+                    value: subjectStats.data.assignments.toString()
+                  },
+                  {
+                    label: t`overall average`,
+                    value: subjectStats.data.average.toFixed(2)
+                  },
+                  {
+                    label: t`unexcused absences`,
+                    value: subjectStats.data.absences.toString()
                   }
                 ]}
               />
             </View>
             <View style={tw`flex-row items-start justify-between pb-4`}>
               <SmallButton
-                text={'Create post'}
+                text={t`Create post`}
                 iconName={'add-outline'}
                 onPress={() => {
                   router.push({
@@ -101,7 +109,13 @@ export default function Index() {
         }
         data={shownPosts}
         renderItem={({ item }) => {
-          return <PostsListItem post={item} userType={'student'} />;
+          return (
+            <PostsListItem
+              post={item}
+              userType={'student'}
+              subjectID={subjectID as string}
+            />
+          );
         }}
       />
     </View>

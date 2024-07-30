@@ -1,4 +1,4 @@
-import { Post } from '@/api/post';
+import { Post, TeacherPost } from '@/api/post';
 import { ScrollView, Text, View } from 'react-native';
 import tw from '@/lib/tailwind';
 import SmallAssignmentCard from '@/components/small-assignment-card';
@@ -11,7 +11,7 @@ export default function KanbanColumn({
   type
 }: {
   title: string;
-  posts: Post[];
+  posts: Post[] | TeacherPost[];
   type: 'student' | 'teacher';
 }) {
   return (

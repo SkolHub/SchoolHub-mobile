@@ -17,6 +17,16 @@ export interface Post {
   };
   comments: Comment[];
   submission?: Submission;
+  subjectName?: string;
+  classes?: string[];
+  submissions: {
+    id: number;
+    source: string;
+  }[];
+  attachments: {
+    id: number;
+    source: string;
+  }[];
 }
 
 export interface Comment {
@@ -164,7 +174,6 @@ export const useCreateStudentComment = () => {
       await queryClient.invalidateQueries({
         queryKey: ['post', variables.postID.toString()]
       });
-      console.log(['post', variables.postID.toString()]);
     }
   });
 };
@@ -205,20 +214,40 @@ export const useDeleteComment = () => {
 //    Teacher API
 //    #################################################
 
+export interface TeacherSubmission {
+  status: string;
+  comment: string;
+  grade?: {
+    id: number | null;
+    value: number | null;
+    timestamp: string | null;
+    date: string | null;
+    reason: string | null;
+  };
+  studentID: number;
+  timestamp: string;
+  studentName: string;
+}
+
+export interface TeacherPost extends Omit<Post, 'submissions'> {
+  submissions: TeacherSubmission[];
+  studentCount: number;
+}
+
 const fetchTeacherOrganizationAssignments = async () => {
   return api
     .get(`/post/teacher/organization`)
-    .then((res) => res.data as Post[]);
+    .then((res) => res.data as TeacherPost[]);
 };
 
 const fetchTeacherSubjectPosts = async (id: string) => {
   return api
     .get(`/post/teacher/subject/${id}`)
-    .then((res) => res.data as Post[]);
+    .then((res) => res.data as TeacherPost[]);
 };
 
 const fetchTeacherPost = async (id: string) => {
-  return api.get(`/post/teacher/${id}`).then((res) => res.data as Post);
+  return api.get(`/post/teacher/${id}`).then((res) => res.data as TeacherPost);
 };
 
 const createTeacherPost = async (data: {
@@ -287,9 +316,6 @@ export const useCreateTeacherPost = () => {
       await queryClient.invalidateQueries({
         queryKey: ['posts', variables.subjectID.toString()]
       });
-    },
-    onSettled: () => {
-      console.log('sugi pl');
     }
   });
 };

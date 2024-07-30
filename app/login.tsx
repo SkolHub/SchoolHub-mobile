@@ -12,12 +12,12 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import React from 'react';
 import FormInput from '@/components/form-input';
 import LargeButton from '@/components/large-button';
-import LinkButton from '@/components/link-button';
 import KeyboardAccessory from '@/components/keyboard-accessory';
 import tw from '@/lib/tailwind';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { useSession } from '@/context/AuthContext';
 import Toast from 'react-native-toast-message';
+import { t } from '@lingui/macro';
 
 export default function SignIn() {
   const inputAccessoryViewID = 'keyboard-accessory';
@@ -41,16 +41,14 @@ export default function SignIn() {
     resolver: yupResolver(schema)
   });
   const onSubmit = async (data: { email: string; password: string }) => {
-    console.log(data);
     const err = await signIn(data);
     if (err) {
       Toast.show({
         type: 'customToast',
-        text1: "Can't sign you in!",
+        text1: t`Can't sign you in!`,
         text2: err,
         position: 'bottom'
       });
-      console.log(JSON.stringify(err));
     } else {
       router.replace('/');
     }
@@ -78,7 +76,7 @@ export default function SignIn() {
       <Stack.Screen
         options={{
           headerShown: true,
-          headerTitle: 'Sign in',
+          headerTitle: t`Sign in`,
           headerLargeTitle: true,
           headerTransparent: true,
           headerTitleStyle:
@@ -113,34 +111,34 @@ export default function SignIn() {
           <FormInput
             control={control}
             name={'email'}
-            placeholder={'Email'}
+            placeholder={t`Email`}
             secureTextEntry={false}
             inputAccessoryViewID={inputAccessoryViewID}
-            errorText={'Email is not valid'}
+            errorText={t`Email is not valid`}
             contentType={'emailAddress'}
             flex1={false}
           />
           <FormInput
             control={control}
             name={'password'}
-            placeholder={'Password'}
+            placeholder={t`Password`}
             secureTextEntry={true}
             inputAccessoryViewID={inputAccessoryViewID}
-            errorText={'Password is not valid'}
+            errorText={t`Password is not valid`}
             contentType={'password'}
             flex1={false}
           />
           <LargeButton
-            text='Sign in'
+            text={t`Sign in`}
             style='my-2'
             onPress={handleSubmit(onSubmit)}
           />
-          <LinkButton
-            text={`Don't have an account? Sign up`}
-            onPress={() => {
-              router.replace('/create-organization');
-            }}
-          />
+          {/*<LinkButton*/}
+          {/*  text={t`Don't have an account? Sign up`}*/}
+          {/*  onPress={() => {*/}
+          {/*    router.replace('/create-organization');*/}
+          {/*  }}*/}
+          {/*/>*/}
         </ScrollView>
       </SafeAreaView>
       <KeyboardAccessory inputAccessoryViewID={inputAccessoryViewID} />

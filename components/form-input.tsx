@@ -59,7 +59,7 @@ const FormInput = ({
               )}
               <TextInput
                 style={tw.style(
-                  'h-14 w-full rounded-2xl bg-white px-3 text-lg leading-tight text-black dark:bg-neutral-700 dark:text-white',
+                  'h-12 w-full rounded-2xl bg-white px-3 text-base leading-tight text-black dark:bg-neutral-700 dark:text-white',
                   shouldError &&
                     !!error &&
                     'border border-red-500 dark:border-red-400',

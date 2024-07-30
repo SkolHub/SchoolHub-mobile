@@ -8,7 +8,8 @@ export default function CommentCard({
   comment,
   deleteComment,
   postID,
-  accountID
+  accountID,
+  refetch
 }: {
   comment: {
     id: number;
@@ -22,6 +23,7 @@ export default function CommentCard({
   deleteComment: any;
   postID: string;
   accountID: any;
+  refetch: () => void;
 }) {
   return (
     <View style={tw`rounded-2xl bg-white px-4 py-3 pr-1 dark:bg-neutral-700`}>
@@ -34,17 +36,23 @@ export default function CommentCard({
           </Text>
           <View style={tw`flex-row items-center`}>
             <Text
-              style={tw`text-base font-semibold text-primary-700 dark:text-primary-200`}
+              style={tw.style(
+                `text-sm font-semibold text-primary-700 dark:text-primary-200`,
+                comment.member.id !== +(accountID.data as string)
+                  ? tw`mr-2`
+                  : tw`mr-0`
+              )}
             >
               {formatShortDate(comment.timestamp)}
             </Text>
             {comment.member.id === +(accountID.data as string) ? (
               <DeleteDropdown
-                onDelete={() => {
-                  deleteComment.mutate({
+                onDelete={async () => {
+                  await deleteComment.mutateAsync({
                     id: comment.id,
                     postID: +(postID as string)
                   });
+                  refetch();
                 }}
               />
             ) : null}

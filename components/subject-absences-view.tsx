@@ -15,6 +15,7 @@ import { formatShortDate } from '@/lib/utils';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import React from 'react';
 import { Absence } from '@/api/grade';
+import { t, Trans } from '@lingui/macro';
 
 export default function SubjectAbsencesView({
   absences
@@ -114,11 +115,14 @@ export default function SubjectAbsencesView({
           showValuesOnTopOfBars={true}
         />
       </View>
-      <Caption text='Absences' />
+      <Caption text={t`Absences`} />
       <StatsSummaryView
         data={[
-          { absences: absencesNum.toString() },
-          { 'unexcused absences': unexcusedAbsencesNum.toString() }
+          { label: t`absences`, value: absencesNum.toString() },
+          {
+            label: t`unexcused absences`,
+            value: unexcusedAbsencesNum.toString()
+          }
         ]}
         style={'mb-6'}
       />
@@ -129,12 +133,12 @@ export default function SubjectAbsencesView({
             leftComponent={
               <View>
                 <Text
-                  style={tw`text-lg font-bold leading-tight text-primary-800 dark:text-primary-50`}
+                  style={tw`text-base font-bold leading-tight text-primary-800 dark:text-primary-50`}
                 >
                   {formatShortDate(item.date)}
                 </Text>
                 <Text
-                  style={tw`text-base font-bold leading-tight text-primary-500 dark:text-primary-300`}
+                  style={tw`text-sm font-bold leading-tight text-primary-500 dark:text-primary-300`}
                 >
                   {item.reason}
                 </Text>
@@ -146,7 +150,7 @@ export default function SubjectAbsencesView({
                   <View style={tw`flex-row items-center justify-end gap-1`}>
                     <Ionicons
                       name={'checkmark-circle'}
-                      size={20}
+                      size={18}
                       color={
                         tw.prefixMatch('dark')
                           ? tw.color('green-400')
@@ -154,16 +158,16 @@ export default function SubjectAbsencesView({
                       }
                     />
                     <Text
-                      style={tw`text-base font-bold leading-tight text-green-500 dark:text-green-400`}
+                      style={tw`text-sm font-bold leading-tight text-green-500 dark:text-green-400`}
                     >
-                      Excused
+                      <Trans>Excused</Trans>
                     </Text>
                   </View>
                 ) : (
                   <View style={tw`flex-row items-center justify-end gap-1`}>
                     <Ionicons
                       name={'close-circle'}
-                      size={20}
+                      size={18}
                       color={
                         tw.prefixMatch('dark')
                           ? tw.color('red-400')
@@ -171,14 +175,14 @@ export default function SubjectAbsencesView({
                       }
                     />
                     <Text
-                      style={tw`text-base font-bold leading-tight text-red-500 dark:text-red-400`}
+                      style={tw`text-sm font-bold leading-tight text-red-500 dark:text-red-400`}
                     >
-                      Unexcused
+                      <Trans>Unexcused</Trans>
                     </Text>
                   </View>
                 )}
                 <Text
-                  style={tw`text-right text-base font-bold leading-tight text-primary-500 dark:text-primary-300`}
+                  style={tw`text-right text-sm font-bold leading-tight text-primary-500 dark:text-primary-300`}
                 >
                   {item.teacher.name}
                 </Text>

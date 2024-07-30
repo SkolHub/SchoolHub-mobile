@@ -15,6 +15,7 @@ import { useActionSheet } from '@expo/react-native-action-sheet';
 import List from '@/components/list';
 import ListItem from '@/components/list-item';
 import { formatShortDate } from '@/lib/utils';
+import { t, Trans } from '@lingui/macro';
 
 export default function EditGradeModal({
   subjectID,
@@ -85,14 +86,14 @@ export default function EditGradeModal({
 
   return (
     <GeneralModal
-      title={`Edit grade for ${studentName}`}
+      title={t`Edit grade for ${studentName}`}
       visible={visible}
       setVisible={setVisible}
     >
-      <Caption text={'Date'} />
+      <Caption text={t`Date`} />
       <List>
         <ListItem
-          text={'Date'}
+          text={t`Date`}
           backgroundColor={'bg-neutral-100 dark:bg-neutral-600'}
           shouldPress={false}
           rightComponent={
@@ -104,19 +105,19 @@ export default function EditGradeModal({
           }
         />
       </List>
-      <Caption text={'Reason'} />
+      <Caption text={t`Reason`} />
       <FormInput
         inModal={true}
         control={control}
         name={'message'}
-        placeholder={'Reason for the grade...'}
+        placeholder={t`Reason for the grade...`}
         secureTextEntry={false}
         inputAccessoryViewID={''}
-        errorText={'Reason is required'}
+        errorText={t`Reason is required`}
         contentType={''}
         flex1={false}
       />
-      <Caption text={'Grade'} />
+      <Caption text={t`Grade`} />
       <GradePicker
         value={editGrade}
         onSelect={(value) => {
@@ -127,25 +128,27 @@ export default function EditGradeModal({
       />
       {gradeErr && (
         <Text style={tw`text-red-500 dark:text-red-400`}>
-          Grade is required
+          <Trans>Grade is required</Trans>
         </Text>
       )}
       <LargeButton
-        text={'Change grade'}
+        text={t`Change grade`}
         onPress={() => {
           handleSubmit(() => {
             showActionSheetWithOptions(
               {
-                options: ['Change', 'Cancel'],
+                options: [t`Change`, t`Cancel`],
                 cancelButtonIndex: 1,
-                title: 'Are you sure you want to change this grade?'
+                title: t`Are you sure you want to change this grade?`
               },
               (buttonIndex) => {
                 if (buttonIndex === 0) {
                   LocalAuthentication.authenticateAsync({
-                    promptMessage: 'Authenticate to change grade'
-                  }).then(() => {
-                    handleSubmit(onSubmit)();
+                    promptMessage: t`Authenticate to change grade`
+                  }).then((res) => {
+                    if (res.success) {
+                      handleSubmit(onSubmit)();
+                    }
                   });
                 }
               }

@@ -8,6 +8,7 @@ import { Text } from 'react-native';
 import { rgbaToHex } from '@/lib/utils';
 import { SymbolView } from 'expo-symbols';
 import { MaterialIcons } from '@expo/vector-icons';
+import { t, Trans } from '@lingui/macro';
 
 function findSubject(
   classes: Class[],
@@ -26,7 +27,7 @@ function findSubject(
   }
 
   return {
-    name: 'Error',
+    name: t`Error`,
     icon: 'book',
     teachers: []
   };
@@ -67,13 +68,13 @@ export default function SubjectLayout() {
         <Tabs.Screen
           name='index'
           options={{
-            title: 'Stream',
+            title: t`Stream`,
             tabBarLabel: ({ focused }) => {
               return (
                 <Text
                   style={tw`text-primary-800${focused ? '' : '/60'} dark:text-primary-200${focused ? '' : '/60'} text-[10.5px] leading-tight`}
                 >
-                  Stream
+                  <Trans>Stream</Trans>
                 </Text>
               );
             },
@@ -121,13 +122,13 @@ export default function SubjectLayout() {
         <Tabs.Screen
           name='grades'
           options={{
-            title: 'Grades',
+            title: t`Grades`,
             tabBarLabel: ({ focused }) => {
               return (
                 <Text
                   style={tw`text-primary-800${focused ? '' : '/60'} dark:text-primary-200${focused ? '' : '/60'} text-[10.5px] leading-tight`}
                 >
-                  Grades
+                  <Trans>Grades</Trans>
                 </Text>
               );
             },
@@ -170,13 +171,13 @@ export default function SubjectLayout() {
         <Tabs.Screen
           name='absences'
           options={{
-            title: 'Attendance',
+            title: t`Attendance`,
             tabBarLabel: ({ focused }) => {
               return (
                 <Text
                   style={tw`text-primary-800${focused ? '' : '/60'} dark:text-primary-200${focused ? '' : '/60'} text-[10.5px] leading-tight`}
                 >
-                  Attendance
+                  <Trans>Attendance</Trans>
                 </Text>
               );
             },

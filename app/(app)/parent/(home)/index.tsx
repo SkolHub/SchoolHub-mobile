@@ -8,6 +8,7 @@ import Caption from '@/components/caption';
 import List from '@/components/list';
 import ListItem from '@/components/list-item';
 import { router } from 'expo-router';
+import { Trans } from '@lingui/macro';
 
 export default function Index() {
   const subjects = useGetParentSubjects();
@@ -62,7 +63,7 @@ export default function Index() {
                       <Text
                         style={tw`text-xs font-bold leading-tight text-primary-500 dark:text-primary-300`}
                       >
-                        grades
+                        <Trans>grades</Trans>
                       </Text>
                     </View>
                     {subject.average && (
@@ -75,7 +76,7 @@ export default function Index() {
                         <Text
                           style={tw`text-xs font-bold leading-tight text-primary-500 dark:text-primary-300`}
                         >
-                          average
+                          <Trans>average</Trans>
                         </Text>
                       </View>
                     )}

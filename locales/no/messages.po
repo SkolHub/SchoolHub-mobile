@@ -1,0 +1,837 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2024-07-30 00:03+0300\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: no\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
+
+#: app/(app)/modals/attendance-mode.tsx:86
+msgid "{0} of {1} students"
+msgstr "{0} av {1} elever"
+
+#: components/subject-absences-view.tsx:121
+msgid "absences"
+msgstr "fravær"
+
+#: app/(app)/modals/classbook-subject.tsx:38
+#: app/(app)/modals/student-classbook.tsx:37
+#: app/(app)/teacher/class-master/student-classbook.tsx:79
+#: components/subject-absences-view.tsx:118
+msgid "Absences"
+msgstr "Fravær"
+
+#: app/(app)/modals/attendance-mode.tsx:137
+#: app/(app)/modals/attendance-mode.tsx:194
+msgid "Absent"
+msgstr "Fraværende"
+
+#: app/(app)/modals/_layout.tsx:142
+#: app/(app)/modals/account.tsx:62
+msgid "Account"
+msgstr "Konto"
+
+#: app/(app)/modals/assessment.tsx:241
+#: app/(app)/modals/grade-mode.tsx:194
+#: app/(app)/teacher/post/assignment/student-submission.tsx:392
+#: components/student-absences.tsx:243
+#: components/student-grades.tsx:257
+#: components/student-observations.tsx:196
+msgid "Add"
+msgstr "Legg til"
+
+#: components/student-absences.tsx:206
+#: components/student-absences.tsx:239
+msgid "Add absence"
+msgstr "Legg til fravær"
+
+#: components/student-absences.tsx:214
+msgid "Add absence for {studentName}"
+msgstr "Legg til fravær for {studentName}"
+
+#: app/(app)/modals/attendance-mode.tsx:232
+#: app/(app)/modals/attendance-mode.tsx:240
+msgid "Add absences"
+msgstr "Legg til fravær"
+
+#: app/(app)/student/post/assignment.tsx:308
+msgid "Add attachment"
+msgstr "Legg til vedlegg"
+
+#: app/(app)/modals/assessment.tsx:170
+#: app/(app)/modals/assessment.tsx:196
+#: app/(app)/modals/grade-mode.tsx:150
+#: app/(app)/modals/grade-mode.tsx:176
+#: app/(app)/teacher/post/assignment/student-submission.tsx:383
+#: components/student-grades.tsx:191
+#: components/student-grades.tsx:248
+msgid "Add grade"
+msgstr "Legg til karakter"
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:327
+msgid "Add grade for {0}"
+msgstr "Legg til karakter for {0}"
+
+#: components/student-grades.tsx:198
+msgid "Add grade for {studentName}"
+msgstr "Legg til karakter for {studentName}"
+
+#: app/(app)/modals/assessment.tsx:236
+#: app/(app)/modals/grade-mode.tsx:185
+msgid "Add grades"
+msgstr "Legg til karakterer"
+
+#: app/(app)/student/post/assignment.tsx:478
+msgid "Add link"
+msgstr "Legg til lenke"
+
+#: components/student-observations.tsx:166
+#: components/student-observations.tsx:191
+msgid "Add observation"
+msgstr "Legg til observasjon"
+
+#: components/student-observations.tsx:174
+msgid "Add observation for {studentName}"
+msgstr "Legg til observasjon for {studentName}"
+
+#: app/(app)/teacher/subject/index.tsx:183
+msgid "Announcement"
+msgstr "Kunngjøring"
+
+#: components/filter-dropdown.tsx:43
+msgid "Announcements"
+msgstr "Kunngjøringer"
+
+#: app/(app)/modals/grade-mode.tsx:196
+msgid "Are you sure you want to add these grades?"
+msgstr "Er du sikker på at du vil legge til disse karakterene?"
+
+#: components/student-absences.tsx:245
+msgid "Are you sure you want to add this absence?"
+msgstr "Er du sikker på at du vil legge til dette fraværet?"
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:394
+#: components/student-grades.tsx:259
+msgid "Are you sure you want to add this grade?"
+msgstr "Er du sikker på at du vil legge til denne karakteren?"
+
+#: components/student-observations.tsx:198
+msgid "Are you sure you want to add this observation?"
+msgstr "Er du sikker på at du vil legge til denne observasjonen?"
+
+#: components/edit-grade-modal.tsx:142
+msgid "Are you sure you want to change this grade?"
+msgstr "Er du sikker på at du vil endre denne karakteren?"
+
+#: components/student-absences.tsx:169
+msgid "Are you sure you want to delete this absence?"
+msgstr "Er du sikker på at du vil slette dette fraværet?"
+
+#: app/(app)/student/post/assignment.tsx:267
+msgid "Are you sure you want to delete this attachment?"
+msgstr "Er du sikker på at du vil slette dette vedlegget?"
+
+#: components/student-grades.tsx:154
+msgid "Are you sure you want to delete this grade?"
+msgstr "Er du sikker på at du vil slette denne karakteren?"
+
+#: components/student-observations.tsx:131
+msgid "Are you sure you want to delete this observation?"
+msgstr "Er du sikker på at du vil slette denne observasjonen?"
+
+#: app/(app)/teacher/class-master/student-classbook.tsx:192
+msgid "Are you sure you want to excuse this absence?"
+msgstr "Er du sikker på at du vil gi gyldig fravær?"
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:300
+msgid "Are you sure you want to return this submission?"
+msgstr "Er du sikker på at du vil returnere denne innleveringen?"
+
+#: app/(app)/student/post/assignment.tsx:349
+msgid "Are you sure you want to submit your work?"
+msgstr "Er du sikker på at du vil levere inn arbeidet ditt?"
+
+#: app/(app)/student/post/assignment.tsx:295
+msgid "Are you sure you want to unsubmit?"
+msgstr "Er du sikker på at du vil trekke tilbake innleveringen?"
+
+#: app/(app)/modals/_layout.tsx:156
+msgid "Assessment"
+msgstr "Vurdering"
+
+#: app/(app)/teacher/subject/index.tsx:302
+msgid "Assessment mode"
+msgstr "Vurderingsmodus"
+
+#: app/(app)/teacher/subject/index.tsx:167
+msgid "Assignment"
+msgstr "Oppgave"
+
+#: app/(app)/student/subject/index.tsx:70
+msgid "assignments"
+msgstr "oppgaver"
+
+#: app/(app)/student/(home)/_layout.tsx:116
+#: app/(app)/student/(home)/_layout.tsx:122
+#: app/(app)/student/(home)/_layout.tsx:151
+#: app/(app)/teacher/(home)/_layout.tsx:68
+#: app/(app)/teacher/(home)/_layout.tsx:74
+#: app/(app)/teacher/(home)/_layout.tsx:103
+#: components/filter-dropdown.tsx:85
+msgid "Assignments"
+msgstr "Oppgaver"
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:160
+msgid "Attachments"
+msgstr "Vedlegg"
+
+#: app/(app)/student/subject/_layout.tsx:174
+#: app/(app)/student/subject/_layout.tsx:180
+msgid "Attendance"
+msgstr "Oppmøte"
+
+#: app/(app)/modals/_layout.tsx:16
+#: app/(app)/modals/attendance-mode.tsx:61
+#: app/(app)/teacher/subject/index.tsx:286
+msgid "Attendance mode"
+msgstr "Oppmøtemodus"
+
+#: app/(app)/modals/attendance-mode.tsx:246
+msgid "Authenticate to add absences"
+msgstr "Logg inn for å legge til fravær"
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:399
+#: components/student-absences.tsx:250
+#: components/student-grades.tsx:264
+msgid "Authenticate to add grade"
+msgstr "Logg inn for å legge til karakter"
+
+#: app/(app)/modals/assessment.tsx:247
+#: app/(app)/modals/grade-mode.tsx:201
+msgid "Authenticate to add grades"
+msgstr "Logg inn for å legge til karakterer"
+
+#: components/student-observations.tsx:203
+msgid "Authenticate to add observation"
+msgstr "Logg inn for å legge til observasjon"
+
+#: components/edit-grade-modal.tsx:147
+msgid "Authenticate to change grade"
+msgstr "Logg inn for å endre karakter"
+
+#: components/student-absences.tsx:174
+msgid "Authenticate to delete absence"
+msgstr "Logg inn for å slette fravær"
+
+#: components/student-grades.tsx:159
+msgid "Authenticate to delete grade"
+msgstr "Logg inn for å slette karakter"
+
+#: components/student-observations.tsx:136
+msgid "Authenticate to delete observation"
+msgstr "Logg inn for å slette observasjon"
+
+#: app/(app)/teacher/class-master/student-classbook.tsx:197
+msgid "Authenticate to excuse absence"
+msgstr "Logg inn for å gi gyldig fravær"
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:305
+msgid "Authenticate to return submission"
+msgstr "Logg inn for å returnere innlevering"
+
+#: app/(app)/modals/attendance-mode.tsx:117
+#: app/(app)/parent/(home)/index.tsx:79
+#: app/(app)/student/(home)/grades.tsx:78
+#: app/(app)/teacher/subject/students.tsx:77
+msgid "average"
+msgstr "gjennomsnitt"
+
+#: app/(app)/teacher/subject/index.tsx:77
+msgid "average grades"
+msgstr "gjennomsnittskarakterer"
+
+#: app/(app)/modals/create-announcement.tsx:64
+#: app/(app)/modals/create-assignment.tsx:63
+#: app/(app)/modals/create-material.tsx:54
+#: app/(app)/modals/create-test.tsx:62
+msgid "Body"
+msgstr "Innhold"
+
+#: app/(app)/modals/create-assignment.tsx:68
+#: app/(app)/modals/create-test.tsx:67
+msgid "Body must be completed"
+msgstr "Innhold må fylles ut"
+
+#: app/login.tsx:48
+msgid "Can't sign you in!"
+msgstr "Kan ikke logge deg inn!"
+
+#: app/(app)/modals/assessment.tsx:241
+#: app/(app)/modals/attendance-mode.tsx:240
+#: app/(app)/modals/grade-mode.tsx:194
+#: app/(app)/student/post/assignment.tsx:264
+#: app/(app)/student/post/assignment.tsx:292
+#: app/(app)/student/post/assignment.tsx:312
+#: app/(app)/student/post/assignment.tsx:347
+#: app/(app)/teacher/class-master/student-classbook.tsx:190
+#: app/(app)/teacher/post/assignment/student-submission.tsx:298
+#: app/(app)/teacher/post/assignment/student-submission.tsx:392
+#: components/edit-grade-modal.tsx:140
+#: components/student-absences.tsx:166
+#: components/student-absences.tsx:243
+#: components/student-grades.tsx:151
+#: components/student-grades.tsx:257
+#: components/student-observations.tsx:128
+#: components/student-observations.tsx:196
+msgid "Cancel"
+msgstr "Avbryt"
+
+#: components/edit-grade-modal.tsx:140
+msgid "Change"
+msgstr "Endre"
+
+#: components/edit-grade-modal.tsx:135
+msgid "Change grade"
+msgstr "Endre karakter"
+
+#: app/(app)/modals/account.tsx:64
+msgid "Change password"
+msgstr "Endre passord"
+
+#: app/(app)/modals/create-assignment.tsx:109
+msgid "Choose due date"
+msgstr "Velg forfallsdato"
+
+#: app/(app)/modals/create-test.tsx:108
+msgid "Choose planned day for the test"
+msgstr "Velg planlagt dag for testen"
+
+#: app/(app)/teacher/subject/index.tsx:81
+msgid "class average"
+msgstr "klassesnitt"
+
+#: components/class-card.tsx:52
+msgid "Class Master"
+msgstr "Klassekontakt"
+
+#: app/(app)/parent/(home)/_layout.tsx:22
+#: app/(app)/parent/(home)/_layout.tsx:28
+#: app/(app)/parent/(home)/_layout.tsx:55
+#: app/(app)/student/(home)/_layout.tsx:69
+#: app/(app)/student/(home)/_layout.tsx:75
+#: app/(app)/student/(home)/_layout.tsx:104
+msgid "Classbook"
+msgstr "Klassebok"
+
+#: app/(app)/teacher/(home)/_layout.tsx:23
+#: app/(app)/teacher/(home)/_layout.tsx:29
+#: app/(app)/teacher/(home)/_layout.tsx:56
+msgid "Classes"
+msgstr "Klasser"
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:285
+#: app/(app)/teacher/post/assignment/student-submission.tsx:375
+msgid "Comment for the submission..."
+msgstr "Kommentar til innleveringen..."
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:288
+#: app/(app)/teacher/post/assignment/student-submission.tsx:378
+msgid "Comment is required"
+msgstr "Kommentar er påkrevd"
+
+#: app/(app)/student/post/announcement.tsx:113
+#: app/(app)/student/post/assignment.tsx:427
+#: app/(app)/student/post/material.tsx:112
+#: app/(app)/student/post/test.tsx:119
+#: app/(app)/teacher/post/announcement.tsx:113
+#: app/(app)/teacher/post/assignment/index.tsx:173
+#: app/(app)/teacher/post/material.tsx:126
+#: app/(app)/teacher/post/test.tsx:133
+msgid "Comments"
+msgstr "Kommentarer"
+
+#: app/(app)/modals/create-announcement.tsx:73
+#: app/(app)/modals/create-assignment.tsx:90
+#: app/(app)/modals/create-material.tsx:63
+#: app/(app)/modals/create-test.tsx:88
+#: app/(app)/teacher/subject/index.tsx:94
+#: app/(app)/teacher/subject/index.tsx:147
+msgid "Create"
+msgstr "Opprett"
+
+#: app/(app)/modals/_layout.tsx:100
+msgid "Create a new announcement"
+msgstr "Opprett en ny kunngjøring"
+
+#: app/(app)/modals/_layout.tsx:114
+msgid "Create Assignment"
+msgstr "Opprett oppgave"
+
+#: app/(app)/student/subject/index.tsx:86
+msgid "Create post"
+msgstr "Opprett innlegg"
+
+#: app/(app)/modals/assessment.tsx:218
+#: app/(app)/modals/assessment.tsx:261
+#: app/(app)/modals/grade-mode.tsx:120
+#: app/(app)/modals/grade-mode.tsx:123
+#: app/(app)/modals/grade-mode.tsx:213
+#: components/edit-grade-modal.tsx:93
+#: components/edit-grade-modal.tsx:96
+#: components/student-absences.tsx:218
+#: components/student-grades.tsx:209
+msgid "Date"
+msgstr "Dato"
+
+#: app/(app)/student/post/assignment.tsx:264
+#: components/delete-dropdown.tsx:35
+#: components/student-absences.tsx:166
+#: components/student-grades.tsx:151
+#: components/student-observations.tsx:128
+msgid "Delete"
+msgstr "Slett"
+
+#: app/(app)/student/post/assignment.tsx:165
+#: components/small-assignment-card.tsx:39
+msgid "Due {0}"
+msgstr "Forfaller {0}"
+
+#: app/(app)/teacher/post/assignment/index.tsx:127
+msgid "Due {0}, {1}"
+msgstr "Forfaller {0}, {1}"
+
+#: components/assignment-card.tsx:62
+msgid "Due {dueDate}"
+msgstr "Forfaller {dueDate}"
+
+#: app/(app)/modals/create-assignment.tsx:74
+msgid "Due date"
+msgstr "Forfallsdato"
+
+#: components/edit-grade-modal.tsx:89
+msgid "Edit grade for {studentName}"
+msgstr "Rediger karakter for {studentName}"
+
+#: app/login.tsx:114
+msgid "Email"
+msgstr "E-post"
+
+#: app/login.tsx:117
+msgid "Email is not valid"
+msgstr "Ugyldig e-postadresse"
+
+#: app/(app)/modals/account.tsx:90
+#: app/(app)/modals/account.tsx:137
+#~ msgid "English"
+#~ msgstr "Engelsk"
+
+#: app/(app)/student/post/assignment.tsx:468
+msgid "Enter the link here..."
+msgstr "Skriv inn lenken her..."
+
+#: app/(app)/modals/assessment.tsx:208
+#: app/(app)/modals/grade-mode.tsx:113
+msgid "Enter the reason for the grades..."
+msgstr "Skriv inn begrunnelsen for karakterene..."
+
+#: app/(app)/student/subject/_layout.tsx:30
+#: app/(app)/teacher/subject/_layout.tsx:27
+#: app/(app)/teacher/subject/_layout.tsx:29
+msgid "Error"
+msgstr "Feil"
+
+#: app/(app)/teacher/class-master/student-classbook.tsx:190
+msgid "Excuse"
+msgstr "Gyldig fravær"
+
+#: app/(app)/teacher/class-master/student-classbook.tsx:159
+#: components/student-absences.tsx:124
+#: components/subject-absences-view.tsx:163
+msgid "Excused"
+msgstr "Gyldig fravær"
+
+#: app/(app)/modals/_layout.tsx:128
+#: app/(app)/student/post/assignment.tsx:312
+msgid "File"
+msgstr "Fil"
+
+#: app/(app)/modals/attendance-mode.tsx:157
+msgid "Finish up"
+msgstr "Fullfør"
+
+#: app/(app)/modals/account.tsx:102
+#: app/(app)/modals/account.tsx:263
+#~ msgid "French"
+#~ msgstr "Fransk"
+
+#: app/(app)/modals/account.tsx:100
+#: app/(app)/modals/account.tsx:242
+#~ msgid "German"
+#~ msgstr "Tysk"
+
+#: app/(app)/modals/assessment.tsx:144
+msgid "Get students"
+msgstr "Hent elever"
+
+#: app/(app)/student/post/assignment.tsx:374
+#: app/(app)/student/post/assignment.tsx:381
+#: app/(app)/teacher/post/assignment/student-submission.tsx:220
+#: app/(app)/teacher/post/assignment/student-submission.tsx:227
+#: app/(app)/teacher/post/assignment/student-submission.tsx:354
+#: app/(app)/teacher/post/assignment/submissions.tsx:124
+#: components/edit-grade-modal.tsx:120
+#: components/student-grades.tsx:229
+msgid "Grade"
+msgstr "Karakter"
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:367
+#: components/edit-grade-modal.tsx:131
+#: components/student-grades.tsx:244
+msgid "Grade is required"
+msgstr "Karakter er påkrevd"
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:254
+msgid "Grade submission"
+msgstr "Karaktersett innlevering"
+
+#: app/(app)/modals/_layout.tsx:30
+#: app/(app)/teacher/subject/index.tsx:270
+msgid "Grade the class"
+msgstr "Karaktersett klassen"
+
+#: app/(app)/teacher/post/assignment/index.tsx:160
+msgid "graded"
+msgstr "karaktergitt"
+
+#: app/(app)/modals/attendance-mode.tsx:113
+#: app/(app)/parent/(home)/index.tsx:66
+#: app/(app)/student/(home)/grades.tsx:65
+#: app/(app)/teacher/subject/students.tsx:65
+#: components/subject-grades-view.tsx:102
+msgid "grades"
+msgstr "karakterer"
+
+#: app/(app)/modals/classbook-subject.tsx:38
+#: app/(app)/modals/student-classbook.tsx:37
+#: app/(app)/student/subject/_layout.tsx:125
+#: app/(app)/student/subject/_layout.tsx:131
+#: app/(app)/teacher/class-master/student-classbook.tsx:79
+#: components/subject-grades-view.tsx:98
+msgid "Grades"
+msgstr "Karakterer"
+
+#: app/(app)/student/post/assignment.tsx:314
+msgid "How would you like to add an attachment?"
+msgstr "Hvordan vil du legge til et vedlegg?"
+
+#: app/(app)/modals/account.tsx:94
+#: app/(app)/modals/account.tsx:179
+#~ msgid "Hungarian"
+#~ msgstr "Ungarsk"
+
+#: app/(app)/modals/account.tsx:96
+#: app/(app)/modals/account.tsx:200
+#~ msgid "Italian"
+#~ msgstr "Italiensk"
+
+#: app/(app)/modals/account.tsx:77
+#: app/(app)/modals/account.tsx:80
+msgid "Language"
+msgstr "Språk"
+
+#: app/(app)/student/(home)/assignments.tsx:65
+msgid "Later"
+msgstr "Senere"
+
+#: app/(app)/student/post/assignment.tsx:312
+#: app/(app)/student/post/assignment.tsx:460
+msgid "Link"
+msgstr "Lenke"
+
+#: app/(app)/student/post/assignment.tsx:471
+msgid "Link is required"
+msgstr "Lenke er påkrevd"
+
+#: app/(app)/modals/account.tsx:66
+msgid "Log out"
+msgstr "Logg ut"
+
+#: app/(app)/teacher/subject/index.tsx:200
+msgid "Material"
+msgstr "Læremateriell"
+
+#: components/filter-dropdown.tsx:57
+msgid "Materials"
+msgstr "Læremateriell"
+
+#: app/(app)/student/(home)/assignments.tsx:77
+#: app/(app)/teacher/post/assignment/submissions.tsx:95
+msgid "Missing"
+msgstr "Mangler"
+
+#: app/(app)/student/(home)/assignments.tsx:71
+#: app/(app)/student/post/assignment.tsx:166
+#: app/(app)/teacher/(home)/assignments.tsx:55
+#: app/(app)/teacher/post/assignment/index.tsx:128
+#: components/assignment-card.tsx:62
+#: components/small-assignment-card.tsx:40
+msgid "No due date"
+msgstr "Ingen forfallsdato"
+
+#: app/(app)/student/post/assignment.tsx:386
+#: app/(app)/teacher/post/assignment/student-submission.tsx:232
+msgid "No grade"
+msgstr "Ingen karakter"
+
+#: app/(app)/teacher/post/assignment/index.tsx:159
+msgid "not submitted"
+msgstr "ikke levert"
+
+#: app/(app)/modals/assessment.tsx:126
+msgid "Number of students"
+msgstr "Antall elever"
+
+#: app/(app)/modals/student-classbook.tsx:37
+#: app/(app)/parent/(home)/_layout.tsx:67
+#: app/(app)/parent/(home)/_layout.tsx:73
+#: app/(app)/parent/(home)/_layout.tsx:102
+msgid "Observations"
+msgstr "Observasjoner"
+
+#: app/(app)/teacher/(home)/assignments.tsx:49
+msgid "Ongoing assignments"
+msgstr "Pågående oppgaver"
+
+#: app/(app)/student/subject/index.tsx:74
+#: components/subject-grades-view.tsx:101
+msgid "overall average"
+msgstr "totalt gjennomsnitt"
+
+#: app/login.tsx:124
+msgid "Password"
+msgstr "Passord"
+
+#: app/login.tsx:127
+msgid "Password is not valid"
+msgstr "Ugyldig passord"
+
+#: app/(app)/modals/_layout.tsx:86
+msgid "Plan a new test"
+msgstr "Planlegg en ny prøve"
+
+#: app/(app)/modals/create-test.tsx:73
+msgid "Planned on"
+msgstr "Planlagt den"
+
+#: app/(app)/student/post/test.tsx:93
+#: app/(app)/teacher/post/test.tsx:107
+msgid "Planned on {0}"
+msgstr "Planlagt den {0}"
+
+#: components/test-card.tsx:62
+msgid "Planned on {dueDate}"
+msgstr "Planlagt den {dueDate}"
+
+#: app/(app)/modals/_layout.tsx:72
+msgid "Post a new material"
+msgstr "Legg ut nytt læremateriell"
+
+#: app/(app)/modals/attendance-mode.tsx:128
+#: app/(app)/modals/attendance-mode.tsx:222
+msgid "Present"
+msgstr "Tilstede"
+
+#: app/(app)/modals/assessment.tsx:204
+#: app/(app)/modals/grade-mode.tsx:109
+#: app/(app)/teacher/post/assignment/student-submission.tsx:342
+#: components/edit-grade-modal.tsx:108
+#: components/student-grades.tsx:217
+#: components/student-observations.tsx:182
+msgid "Reason"
+msgstr "Begrunnelse"
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:347
+#: components/edit-grade-modal.tsx:113
+#: components/student-grades.tsx:222
+msgid "Reason for the grade..."
+msgstr "Begrunnelse for karakteren..."
+
+#: app/(app)/modals/assessment.tsx:211
+#: app/(app)/teacher/post/assignment/student-submission.tsx:350
+#: components/edit-grade-modal.tsx:116
+#: components/student-grades.tsx:225
+#: components/student-observations.tsx:185
+msgid "Reason is required"
+msgstr "Begrunnelse er påkrevd"
+
+#: components/error-view.tsx:32
+msgid "Retry"
+msgstr "Prøv igjen"
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:298
+msgid "Return"
+msgstr "Returner"
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:264
+#: app/(app)/teacher/post/assignment/student-submission.tsx:273
+#: app/(app)/teacher/post/assignment/student-submission.tsx:293
+msgid "Return submission"
+msgstr "Returner innlevering"
+
+#: app/(app)/modals/account.tsx:92
+#: app/(app)/modals/account.tsx:158
+#~ msgid "Romanian"
+#~ msgstr "Rumensk"
+
+#: app/login.tsx:79
+#: app/login.tsx:132
+msgid "Sign in"
+msgstr "Logg inn"
+
+#: app/(app)/modals/account.tsx:98
+#: app/(app)/modals/account.tsx:221
+#~ msgid "Spanish"
+#~ msgstr "Spansk"
+
+#: app/(app)/student/subject/_layout.tsx:71
+#: app/(app)/student/subject/_layout.tsx:77
+#: app/(app)/teacher/subject/_layout.tsx:63
+#: app/(app)/teacher/subject/_layout.tsx:69
+msgid "Stream"
+msgstr "Strøm"
+
+#: app/(app)/modals/assessment.tsx:160
+#: app/(app)/modals/grade-mode.tsx:140
+msgid "Student grades"
+msgstr "Elevkarakterer"
+
+#: app/(app)/teacher/post/assignment/_layout.tsx:43
+msgid "Student submission"
+msgstr "Elevinnlevering"
+
+#: app/(app)/teacher/post/assignment/_layout.tsx:30
+#: app/(app)/teacher/post/assignment/index.tsx:154
+msgid "Student submissions"
+msgstr "Elevinnleveringer"
+
+#: app/(app)/teacher/subject/_layout.tsx:115
+#: app/(app)/teacher/subject/_layout.tsx:121
+msgid "Students"
+msgstr "Elever"
+
+#: app/(app)/teacher/subject/index.tsx:85
+msgid "students with few grades"
+msgstr "elever med få karakterer"
+
+#: app/(app)/student/(home)/_layout.tsx:24
+#: app/(app)/student/(home)/_layout.tsx:30
+#: app/(app)/student/(home)/_layout.tsx:57
+msgid "Subjects"
+msgstr "Fag"
+
+#: app/(app)/student/post/assignment.tsx:396
+#: app/(app)/teacher/post/assignment/student-submission.tsx:239
+#: app/(app)/teacher/post/assignment/student-submission.tsx:280
+#: app/(app)/teacher/post/assignment/student-submission.tsx:370
+msgid "Submission comment"
+msgstr "Innleveringskommentar"
+
+#: app/(app)/student/post/assignment.tsx:343
+#: app/(app)/student/post/assignment.tsx:347
+msgid "Submit"
+msgstr "Lever"
+
+#: app/(app)/teacher/post/assignment/index.tsx:158
+msgid "submitted"
+msgstr "levert"
+
+#: app/(app)/student/post/assignment.tsx:285
+#: app/(app)/teacher/post/assignment/submissions.tsx:94
+msgid "Submitted"
+msgstr "Levert"
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:151
+msgid "Submitted at {0}"
+msgstr "Levert {0}"
+
+#: app/(app)/teacher/subject/index.tsx:216
+msgid "Test"
+msgstr "Prøve"
+
+#: components/filter-dropdown.tsx:71
+msgid "Tests"
+msgstr "Prøver"
+
+#: components/error-view.tsx:28
+msgid "There was a problem while loading."
+msgstr "Det oppstod et problem under lasting."
+
+#: app/(app)/student/(home)/assignments.tsx:59
+msgid "This week"
+msgstr "Denne uken"
+
+#: app/(app)/modals/create-announcement.tsx:54
+#: app/(app)/modals/create-assignment.tsx:53
+#: app/(app)/modals/create-material.tsx:44
+#: app/(app)/modals/create-test.tsx:52
+msgid "Title"
+msgstr "Tittel"
+
+#: app/(app)/modals/create-assignment.tsx:56
+#: app/(app)/modals/create-test.tsx:55
+msgid "Title must be completed"
+msgstr "Tittel må fylles ut"
+
+#: app/(app)/teacher/subject/index.tsx:101
+#: app/(app)/teacher/subject/index.tsx:250
+msgid "Tools"
+msgstr "Verktøy"
+
+#: app/(app)/teacher/class-master/student-classbook.tsx:176
+#: components/student-absences.tsx:141
+#: components/subject-absences-view.tsx:180
+msgid "Unexcused"
+msgstr "Ugyldig fravær"
+
+#: app/(app)/student/subject/index.tsx:78
+#: components/subject-absences-view.tsx:123
+msgid "unexcused absences"
+msgstr "ugyldige fravær"
+
+#: app/(app)/student/post/assignment.tsx:292
+msgid "Unsubmit"
+msgstr "Trekk tilbake"
+
+#: app/(app)/teacher/post/assignment/index.tsx:164
+msgid "View student submissions"
+msgstr "Vis elevinnleveringer"
+
+#: app/(app)/student/post/announcement.tsx:118
+#: app/(app)/student/post/assignment.tsx:432
+#: app/(app)/student/post/material.tsx:117
+#: app/(app)/student/post/test.tsx:124
+#: app/(app)/teacher/post/announcement.tsx:118
+#: app/(app)/teacher/post/assignment/index.tsx:178
+#: app/(app)/teacher/post/material.tsx:131
+#: app/(app)/teacher/post/test.tsx:138
+msgid "Write your comment here..."
+msgstr "Skriv kommentaren din her..."
+
+#: app/(app)/student/post/assignment.tsx:192
+msgid "Your submission"
+msgstr "Din innlevering"
+
+#: app/(app)/student/post/assignment.tsx:369
+msgid "Your submission has been graded"
+msgstr "Innleveringen din er vurdert"
+
+#: app/(app)/student/post/assignment.tsx:411
+msgid "Your submission has been returned"
+msgstr "Innleveringen din er returnert"

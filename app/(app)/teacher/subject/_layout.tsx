@@ -9,6 +9,7 @@ import { TeacherClass, useGetTeacherSubjects } from '@/api/subject';
 import React from 'react';
 import LoadingView from '@/components/loading-view';
 import ErrorView from '@/components/error-view';
+import { t, Trans } from '@lingui/macro';
 
 function findSubject(classes: TeacherClass[], subjectID: string) {
   for (const class_ of classes) {
@@ -23,9 +24,9 @@ function findSubject(classes: TeacherClass[], subjectID: string) {
   }
 
   return {
-    name: 'Error',
+    name: t`Error`,
     icon: 'book',
-    className: 'Error'
+    className: t`Error`
   };
 }
 
@@ -59,13 +60,13 @@ export default function SubjectLayout() {
         <Tabs.Screen
           name='index'
           options={{
-            title: 'Stream',
+            title: t`Stream`,
             tabBarLabel: ({ focused }) => {
               return (
                 <Text
                   style={tw`text-primary-800${focused ? '' : '/60'} dark:text-primary-200${focused ? '' : '/60'} text-[10.5px] leading-tight`}
                 >
-                  Stream
+                  <Trans>Stream</Trans>
                 </Text>
               );
             },
@@ -111,13 +112,13 @@ export default function SubjectLayout() {
         <Tabs.Screen
           name='students'
           options={{
-            title: 'Students',
+            title: t`Students`,
             tabBarLabel: ({ focused }) => {
               return (
                 <Text
                   style={tw`text-primary-800${focused ? '' : '/60'} dark:text-primary-200${focused ? '' : '/60'} text-[10.5px] leading-tight`}
                 >
-                  Students
+                  <Trans>Students</Trans>
                 </Text>
               );
             },
@@ -140,7 +141,7 @@ export default function SubjectLayout() {
                   tintColor={color}
                   resizeMode={'scaleAspectFill'}
                   fallback={
-                    <MaterialIcons name='home' size={24} color={color} />
+                    <MaterialIcons name='people' size={24} color={color} />
                   }
                 />
               );

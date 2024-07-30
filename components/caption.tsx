@@ -16,7 +16,7 @@ export default function Caption({
   return (
     <Text
       style={tw.style(
-        `text-primary-800 dark:text-primary-50 py-4 text-xl font-bold`,
+        `py-4 text-xl font-bold text-primary-800 dark:text-primary-50`,
         style
       )}
     >

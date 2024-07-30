@@ -6,6 +6,9 @@ import tw from '@/lib/tailwind';
 import { useState } from 'react';
 import ParentSubjectGradesView from '@/components/parent-subject-grades-view';
 import ParentSubjectAbsencesView from '@/components/parent-subject-absences-view';
+import StudentSubjectGradesView from '@/components/student-subject-grades-view';
+import StudentSubjectAbsencesView from '@/components/student-subject-absences-view';
+import { t } from '@lingui/macro';
 
 export default function ClassbookSubject() {
   const { subjectID, subjectName, userType } = useGlobalSearchParams<{
@@ -32,16 +35,22 @@ export default function ClassbookSubject() {
       />
       <View style={tw`flex-1 gap-6 bg-secondary-100 px-4 dark:bg-primary-950`}>
         <SegmentedControl
-          values={['Grades', 'Absences']}
+          values={[t`Grades`, t`Absences`]}
           selectedIndex={selectedIndex}
           onChange={(event) => {
             setSelectedIndex(event.nativeEvent.selectedSegmentIndex);
           }}
         />
-        {selectedIndex === 0 ? (
-          <ParentSubjectGradesView subjectID={+(subjectID as string)} />
+        {userType === 'parent' ? (
+          selectedIndex === 0 ? (
+            <ParentSubjectGradesView subjectID={+(subjectID as string)} />
+          ) : (
+            <ParentSubjectAbsencesView subjectID={+(subjectID as string)} />
+          )
+        ) : selectedIndex === 0 ? (
+          <StudentSubjectGradesView subjectID={+(subjectID as string)} />
         ) : (
-          <ParentSubjectAbsencesView subjectID={+(subjectID as string)} />
+          <StudentSubjectAbsencesView subjectID={+(subjectID as string)} />
         )}
       </View>
     </>

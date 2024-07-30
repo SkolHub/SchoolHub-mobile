@@ -1,5 +1,5 @@
 import { Pressable, Text, View } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import tw from '@/lib/tailwind';
 import { Theme } from '@/lib/types';
 import { SymbolView } from 'expo-symbols';
@@ -44,14 +44,21 @@ export default function LargeButton({
     >
       <View
         style={tw.style(
-          `h-14 w-full flex-row items-center justify-center rounded-[16.5] bg-primary-600`,
+          `h-12 w-full flex-row items-center justify-center rounded-[16.5] bg-primary-600`,
           contentContainerStyle
         )}
       >
         {symbol && (
           <SymbolView
             name={symbol.name}
-            fallback={symbol.fallback}
+            fallback={
+              <MaterialIcons
+                name={symbol.fallback as any}
+                size={28}
+                color={iconColor}
+                style={tw.style(text ? `mr-2` : ``, textStyle)}
+              />
+            }
             size={24}
             resizeMode={'scaleAspectFill'}
             tintColor={tw.color('primary-50')}
@@ -67,7 +74,7 @@ export default function LargeButton({
           />
         )}
         <Text
-          style={tw.style(`text-lg font-semibold text-primary-50`, textStyle)}
+          style={tw.style(`text-base font-semibold text-primary-50`, textStyle)}
         >
           {text}
         </Text>

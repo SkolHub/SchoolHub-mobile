@@ -1,0 +1,837 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2024-07-30 00:03+0300\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: ko\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
+
+#: app/(app)/modals/attendance-mode.tsx:86
+msgid "{0} of {1} students"
+msgstr "{1}명 중 {0}명"
+
+#: components/subject-absences-view.tsx:121
+msgid "absences"
+msgstr "결석"
+
+#: app/(app)/modals/classbook-subject.tsx:38
+#: app/(app)/modals/student-classbook.tsx:37
+#: app/(app)/teacher/class-master/student-classbook.tsx:79
+#: components/subject-absences-view.tsx:118
+msgid "Absences"
+msgstr "결석"
+
+#: app/(app)/modals/attendance-mode.tsx:137
+#: app/(app)/modals/attendance-mode.tsx:194
+msgid "Absent"
+msgstr "결석"
+
+#: app/(app)/modals/_layout.tsx:142
+#: app/(app)/modals/account.tsx:62
+msgid "Account"
+msgstr "계정"
+
+#: app/(app)/modals/assessment.tsx:241
+#: app/(app)/modals/grade-mode.tsx:194
+#: app/(app)/teacher/post/assignment/student-submission.tsx:392
+#: components/student-absences.tsx:243
+#: components/student-grades.tsx:257
+#: components/student-observations.tsx:196
+msgid "Add"
+msgstr "추가"
+
+#: components/student-absences.tsx:206
+#: components/student-absences.tsx:239
+msgid "Add absence"
+msgstr "결석 추가"
+
+#: components/student-absences.tsx:214
+msgid "Add absence for {studentName}"
+msgstr "{studentName}님의 결석 추가"
+
+#: app/(app)/modals/attendance-mode.tsx:232
+#: app/(app)/modals/attendance-mode.tsx:240
+msgid "Add absences"
+msgstr "결석 추가"
+
+#: app/(app)/student/post/assignment.tsx:308
+msgid "Add attachment"
+msgstr "첨부 파일 추가"
+
+#: app/(app)/modals/assessment.tsx:170
+#: app/(app)/modals/assessment.tsx:196
+#: app/(app)/modals/grade-mode.tsx:150
+#: app/(app)/modals/grade-mode.tsx:176
+#: app/(app)/teacher/post/assignment/student-submission.tsx:383
+#: components/student-grades.tsx:191
+#: components/student-grades.tsx:248
+msgid "Add grade"
+msgstr "성적 추가"
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:327
+msgid "Add grade for {0}"
+msgstr "{0}에 대한 성적 추가"
+
+#: components/student-grades.tsx:198
+msgid "Add grade for {studentName}"
+msgstr "{studentName}님의 성적 추가"
+
+#: app/(app)/modals/assessment.tsx:236
+#: app/(app)/modals/grade-mode.tsx:185
+msgid "Add grades"
+msgstr "성적 추가"
+
+#: app/(app)/student/post/assignment.tsx:478
+msgid "Add link"
+msgstr "링크 추가"
+
+#: components/student-observations.tsx:166
+#: components/student-observations.tsx:191
+msgid "Add observation"
+msgstr "관찰 내용 추가"
+
+#: components/student-observations.tsx:174
+msgid "Add observation for {studentName}"
+msgstr "{studentName}님에 대한 관찰 내용 추가"
+
+#: app/(app)/teacher/subject/index.tsx:183
+msgid "Announcement"
+msgstr "공지 사항"
+
+#: components/filter-dropdown.tsx:43
+msgid "Announcements"
+msgstr "공지 사항"
+
+#: app/(app)/modals/grade-mode.tsx:196
+msgid "Are you sure you want to add these grades?"
+msgstr "이 성적을 추가하시겠습니까?"
+
+#: components/student-absences.tsx:245
+msgid "Are you sure you want to add this absence?"
+msgstr "이 결석을 추가하시겠습니까?"
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:394
+#: components/student-grades.tsx:259
+msgid "Are you sure you want to add this grade?"
+msgstr "이 성적을 추가하시겠습니까?"
+
+#: components/student-observations.tsx:198
+msgid "Are you sure you want to add this observation?"
+msgstr "이 관찰 내용을 추가하시겠습니까?"
+
+#: components/edit-grade-modal.tsx:142
+msgid "Are you sure you want to change this grade?"
+msgstr "이 성적을 변경하시겠습니까?"
+
+#: components/student-absences.tsx:169
+msgid "Are you sure you want to delete this absence?"
+msgstr "이 결석을 삭제하시겠습니까?"
+
+#: app/(app)/student/post/assignment.tsx:267
+msgid "Are you sure you want to delete this attachment?"
+msgstr "이 첨부 파일을 삭제하시겠습니까?"
+
+#: components/student-grades.tsx:154
+msgid "Are you sure you want to delete this grade?"
+msgstr "이 성적을 삭제하시겠습니까?"
+
+#: components/student-observations.tsx:131
+msgid "Are you sure you want to delete this observation?"
+msgstr "이 관찰 내용을 삭제하시겠습니까?"
+
+#: app/(app)/teacher/class-master/student-classbook.tsx:192
+msgid "Are you sure you want to excuse this absence?"
+msgstr "이 결석을 승인하시겠습니까?"
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:300
+msgid "Are you sure you want to return this submission?"
+msgstr "이 제출물을 반환하시겠습니까?"
+
+#: app/(app)/student/post/assignment.tsx:349
+msgid "Are you sure you want to submit your work?"
+msgstr "작업물을 제출하시겠습니까?"
+
+#: app/(app)/student/post/assignment.tsx:295
+msgid "Are you sure you want to unsubmit?"
+msgstr "제출을 취소하시겠습니까?"
+
+#: app/(app)/modals/_layout.tsx:156
+msgid "Assessment"
+msgstr "평가"
+
+#: app/(app)/teacher/subject/index.tsx:302
+msgid "Assessment mode"
+msgstr "평가 모드"
+
+#: app/(app)/teacher/subject/index.tsx:167
+msgid "Assignment"
+msgstr "과제"
+
+#: app/(app)/student/subject/index.tsx:70
+msgid "assignments"
+msgstr "과제"
+
+#: app/(app)/student/(home)/_layout.tsx:116
+#: app/(app)/student/(home)/_layout.tsx:122
+#: app/(app)/student/(home)/_layout.tsx:151
+#: app/(app)/teacher/(home)/_layout.tsx:68
+#: app/(app)/teacher/(home)/_layout.tsx:74
+#: app/(app)/teacher/(home)/_layout.tsx:103
+#: components/filter-dropdown.tsx:85
+msgid "Assignments"
+msgstr "과제"
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:160
+msgid "Attachments"
+msgstr "첨부 파일"
+
+#: app/(app)/student/subject/_layout.tsx:174
+#: app/(app)/student/subject/_layout.tsx:180
+msgid "Attendance"
+msgstr "출석"
+
+#: app/(app)/modals/_layout.tsx:16
+#: app/(app)/modals/attendance-mode.tsx:61
+#: app/(app)/teacher/subject/index.tsx:286
+msgid "Attendance mode"
+msgstr "출석 모드"
+
+#: app/(app)/modals/attendance-mode.tsx:246
+msgid "Authenticate to add absences"
+msgstr "결석을 추가하려면 인증하세요."
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:399
+#: components/student-absences.tsx:250
+#: components/student-grades.tsx:264
+msgid "Authenticate to add grade"
+msgstr "성적을 추가하려면 인증하세요."
+
+#: app/(app)/modals/assessment.tsx:247
+#: app/(app)/modals/grade-mode.tsx:201
+msgid "Authenticate to add grades"
+msgstr "성적을 추가하려면 인증하세요."
+
+#: components/student-observations.tsx:203
+msgid "Authenticate to add observation"
+msgstr "관찰 내용을 추가하려면 인증하세요."
+
+#: components/edit-grade-modal.tsx:147
+msgid "Authenticate to change grade"
+msgstr "성적을 변경하려면 인증하세요."
+
+#: components/student-absences.tsx:174
+msgid "Authenticate to delete absence"
+msgstr "결석을 삭제하려면 인증하세요."
+
+#: components/student-grades.tsx:159
+msgid "Authenticate to delete grade"
+msgstr "성적을 삭제하려면 인증하세요."
+
+#: components/student-observations.tsx:136
+msgid "Authenticate to delete observation"
+msgstr "관찰 내용을 삭제하려면 인증하세요."
+
+#: app/(app)/teacher/class-master/student-classbook.tsx:197
+msgid "Authenticate to excuse absence"
+msgstr "결석을 승인하려면 인증하세요."
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:305
+msgid "Authenticate to return submission"
+msgstr "제출물을 반환하려면 인증하세요."
+
+#: app/(app)/modals/attendance-mode.tsx:117
+#: app/(app)/parent/(home)/index.tsx:79
+#: app/(app)/student/(home)/grades.tsx:78
+#: app/(app)/teacher/subject/students.tsx:77
+msgid "average"
+msgstr "평균"
+
+#: app/(app)/teacher/subject/index.tsx:77
+msgid "average grades"
+msgstr "평균 성적"
+
+#: app/(app)/modals/create-announcement.tsx:64
+#: app/(app)/modals/create-assignment.tsx:63
+#: app/(app)/modals/create-material.tsx:54
+#: app/(app)/modals/create-test.tsx:62
+msgid "Body"
+msgstr "본문"
+
+#: app/(app)/modals/create-assignment.tsx:68
+#: app/(app)/modals/create-test.tsx:67
+msgid "Body must be completed"
+msgstr "본문을 입력해야 합니다."
+
+#: app/login.tsx:48
+msgid "Can't sign you in!"
+msgstr "로그인할 수 없습니다!"
+
+#: app/(app)/modals/assessment.tsx:241
+#: app/(app)/modals/attendance-mode.tsx:240
+#: app/(app)/modals/grade-mode.tsx:194
+#: app/(app)/student/post/assignment.tsx:264
+#: app/(app)/student/post/assignment.tsx:292
+#: app/(app)/student/post/assignment.tsx:312
+#: app/(app)/student/post/assignment.tsx:347
+#: app/(app)/teacher/class-master/student-classbook.tsx:190
+#: app/(app)/teacher/post/assignment/student-submission.tsx:298
+#: app/(app)/teacher/post/assignment/student-submission.tsx:392
+#: components/edit-grade-modal.tsx:140
+#: components/student-absences.tsx:166
+#: components/student-absences.tsx:243
+#: components/student-grades.tsx:151
+#: components/student-grades.tsx:257
+#: components/student-observations.tsx:128
+#: components/student-observations.tsx:196
+msgid "Cancel"
+msgstr "취소"
+
+#: components/edit-grade-modal.tsx:140
+msgid "Change"
+msgstr "변경"
+
+#: components/edit-grade-modal.tsx:135
+msgid "Change grade"
+msgstr "성적 변경"
+
+#: app/(app)/modals/account.tsx:64
+msgid "Change password"
+msgstr "비밀번호 변경"
+
+#: app/(app)/modals/create-assignment.tsx:109
+msgid "Choose due date"
+msgstr "마감일 선택"
+
+#: app/(app)/modals/create-test.tsx:108
+msgid "Choose planned day for the test"
+msgstr "시험 예정일 선택"
+
+#: app/(app)/teacher/subject/index.tsx:81
+msgid "class average"
+msgstr "반 평균"
+
+#: components/class-card.tsx:52
+msgid "Class Master"
+msgstr "클래스 마스터"
+
+#: app/(app)/parent/(home)/_layout.tsx:22
+#: app/(app)/parent/(home)/_layout.tsx:28
+#: app/(app)/parent/(home)/_layout.tsx:55
+#: app/(app)/student/(home)/_layout.tsx:69
+#: app/(app)/student/(home)/_layout.tsx:75
+#: app/(app)/student/(home)/_layout.tsx:104
+msgid "Classbook"
+msgstr "클래스북"
+
+#: app/(app)/teacher/(home)/_layout.tsx:23
+#: app/(app)/teacher/(home)/_layout.tsx:29
+#: app/(app)/teacher/(home)/_layout.tsx:56
+msgid "Classes"
+msgstr "수업"
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:285
+#: app/(app)/teacher/post/assignment/student-submission.tsx:375
+msgid "Comment for the submission..."
+msgstr "제출물에 대한 의견..."
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:288
+#: app/(app)/teacher/post/assignment/student-submission.tsx:378
+msgid "Comment is required"
+msgstr "의견을 입력해야 합니다."
+
+#: app/(app)/student/post/announcement.tsx:113
+#: app/(app)/student/post/assignment.tsx:427
+#: app/(app)/student/post/material.tsx:112
+#: app/(app)/student/post/test.tsx:119
+#: app/(app)/teacher/post/announcement.tsx:113
+#: app/(app)/teacher/post/assignment/index.tsx:173
+#: app/(app)/teacher/post/material.tsx:126
+#: app/(app)/teacher/post/test.tsx:133
+msgid "Comments"
+msgstr "의견"
+
+#: app/(app)/modals/create-announcement.tsx:73
+#: app/(app)/modals/create-assignment.tsx:90
+#: app/(app)/modals/create-material.tsx:63
+#: app/(app)/modals/create-test.tsx:88
+#: app/(app)/teacher/subject/index.tsx:94
+#: app/(app)/teacher/subject/index.tsx:147
+msgid "Create"
+msgstr "만들기"
+
+#: app/(app)/modals/_layout.tsx:100
+msgid "Create a new announcement"
+msgstr "새로운 공지 사항 만들기"
+
+#: app/(app)/modals/_layout.tsx:114
+msgid "Create Assignment"
+msgstr "과제 만들기"
+
+#: app/(app)/student/subject/index.tsx:86
+msgid "Create post"
+msgstr "게시물 만들기"
+
+#: app/(app)/modals/assessment.tsx:218
+#: app/(app)/modals/assessment.tsx:261
+#: app/(app)/modals/grade-mode.tsx:120
+#: app/(app)/modals/grade-mode.tsx:123
+#: app/(app)/modals/grade-mode.tsx:213
+#: components/edit-grade-modal.tsx:93
+#: components/edit-grade-modal.tsx:96
+#: components/student-absences.tsx:218
+#: components/student-grades.tsx:209
+msgid "Date"
+msgstr "날짜"
+
+#: app/(app)/student/post/assignment.tsx:264
+#: components/delete-dropdown.tsx:35
+#: components/student-absences.tsx:166
+#: components/student-grades.tsx:151
+#: components/student-observations.tsx:128
+msgid "Delete"
+msgstr "삭제"
+
+#: app/(app)/student/post/assignment.tsx:165
+#: components/small-assignment-card.tsx:39
+msgid "Due {0}"
+msgstr "{0}까지"
+
+#: app/(app)/teacher/post/assignment/index.tsx:127
+msgid "Due {0}, {1}"
+msgstr "{0} {1}까지"
+
+#: components/assignment-card.tsx:62
+msgid "Due {dueDate}"
+msgstr "{dueDate}까지"
+
+#: app/(app)/modals/create-assignment.tsx:74
+msgid "Due date"
+msgstr "마감일"
+
+#: components/edit-grade-modal.tsx:89
+msgid "Edit grade for {studentName}"
+msgstr "{studentName}님의 성적 수정"
+
+#: app/login.tsx:114
+msgid "Email"
+msgstr "이메일"
+
+#: app/login.tsx:117
+msgid "Email is not valid"
+msgstr "이메일 주소가 올바르지 않습니다."
+
+#: app/(app)/modals/account.tsx:90
+#: app/(app)/modals/account.tsx:137
+#~ msgid "English"
+#~ msgstr "영어"
+
+#: app/(app)/student/post/assignment.tsx:468
+msgid "Enter the link here..."
+msgstr "링크를 여기에 입력하세요..."
+
+#: app/(app)/modals/assessment.tsx:208
+#: app/(app)/modals/grade-mode.tsx:113
+msgid "Enter the reason for the grades..."
+msgstr "성적에 대한 이유를 입력하세요..."
+
+#: app/(app)/student/subject/_layout.tsx:30
+#: app/(app)/teacher/subject/_layout.tsx:27
+#: app/(app)/teacher/subject/_layout.tsx:29
+msgid "Error"
+msgstr "오류"
+
+#: app/(app)/teacher/class-master/student-classbook.tsx:190
+msgid "Excuse"
+msgstr "승인"
+
+#: app/(app)/teacher/class-master/student-classbook.tsx:159
+#: components/student-absences.tsx:124
+#: components/subject-absences-view.tsx:163
+msgid "Excused"
+msgstr "승인됨"
+
+#: app/(app)/modals/_layout.tsx:128
+#: app/(app)/student/post/assignment.tsx:312
+msgid "File"
+msgstr "파일"
+
+#: app/(app)/modals/attendance-mode.tsx:157
+msgid "Finish up"
+msgstr "마무리"
+
+#: app/(app)/modals/account.tsx:102
+#: app/(app)/modals/account.tsx:263
+#~ msgid "French"
+#~ msgstr "프랑스어"
+
+#: app/(app)/modals/account.tsx:100
+#: app/(app)/modals/account.tsx:242
+#~ msgid "German"
+#~ msgstr "독일어"
+
+#: app/(app)/modals/assessment.tsx:144
+msgid "Get students"
+msgstr "학생 가져오기"
+
+#: app/(app)/student/post/assignment.tsx:374
+#: app/(app)/student/post/assignment.tsx:381
+#: app/(app)/teacher/post/assignment/student-submission.tsx:220
+#: app/(app)/teacher/post/assignment/student-submission.tsx:227
+#: app/(app)/teacher/post/assignment/student-submission.tsx:354
+#: app/(app)/teacher/post/assignment/submissions.tsx:124
+#: components/edit-grade-modal.tsx:120
+#: components/student-grades.tsx:229
+msgid "Grade"
+msgstr "성적"
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:367
+#: components/edit-grade-modal.tsx:131
+#: components/student-grades.tsx:244
+msgid "Grade is required"
+msgstr "성적을 입력해야 합니다."
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:254
+msgid "Grade submission"
+msgstr "제출물 채점"
+
+#: app/(app)/modals/_layout.tsx:30
+#: app/(app)/teacher/subject/index.tsx:270
+msgid "Grade the class"
+msgstr "반 성적 매기기"
+
+#: app/(app)/teacher/post/assignment/index.tsx:160
+msgid "graded"
+msgstr "채점됨"
+
+#: app/(app)/modals/attendance-mode.tsx:113
+#: app/(app)/parent/(home)/index.tsx:66
+#: app/(app)/student/(home)/grades.tsx:65
+#: app/(app)/teacher/subject/students.tsx:65
+#: components/subject-grades-view.tsx:102
+msgid "grades"
+msgstr "성적"
+
+#: app/(app)/modals/classbook-subject.tsx:38
+#: app/(app)/modals/student-classbook.tsx:37
+#: app/(app)/student/subject/_layout.tsx:125
+#: app/(app)/student/subject/_layout.tsx:131
+#: app/(app)/teacher/class-master/student-classbook.tsx:79
+#: components/subject-grades-view.tsx:98
+msgid "Grades"
+msgstr "성적"
+
+#: app/(app)/student/post/assignment.tsx:314
+msgid "How would you like to add an attachment?"
+msgstr "첨부 파일을 어떻게 추가하시겠습니까?"
+
+#: app/(app)/modals/account.tsx:94
+#: app/(app)/modals/account.tsx:179
+#~ msgid "Hungarian"
+#~ msgstr "헝가리어"
+
+#: app/(app)/modals/account.tsx:96
+#: app/(app)/modals/account.tsx:200
+#~ msgid "Italian"
+#~ msgstr "이탈리아어"
+
+#: app/(app)/modals/account.tsx:77
+#: app/(app)/modals/account.tsx:80
+msgid "Language"
+msgstr "언어"
+
+#: app/(app)/student/(home)/assignments.tsx:65
+msgid "Later"
+msgstr "나중에"
+
+#: app/(app)/student/post/assignment.tsx:312
+#: app/(app)/student/post/assignment.tsx:460
+msgid "Link"
+msgstr "링크"
+
+#: app/(app)/student/post/assignment.tsx:471
+msgid "Link is required"
+msgstr "링크를 입력해야 합니다."
+
+#: app/(app)/modals/account.tsx:66
+msgid "Log out"
+msgstr "로그아웃"
+
+#: app/(app)/teacher/subject/index.tsx:200
+msgid "Material"
+msgstr "자료"
+
+#: components/filter-dropdown.tsx:57
+msgid "Materials"
+msgstr "자료"
+
+#: app/(app)/student/(home)/assignments.tsx:77
+#: app/(app)/teacher/post/assignment/submissions.tsx:95
+msgid "Missing"
+msgstr "없음"
+
+#: app/(app)/student/(home)/assignments.tsx:71
+#: app/(app)/student/post/assignment.tsx:166
+#: app/(app)/teacher/(home)/assignments.tsx:55
+#: app/(app)/teacher/post/assignment/index.tsx:128
+#: components/assignment-card.tsx:62
+#: components/small-assignment-card.tsx:40
+msgid "No due date"
+msgstr "마감일 없음"
+
+#: app/(app)/student/post/assignment.tsx:386
+#: app/(app)/teacher/post/assignment/student-submission.tsx:232
+msgid "No grade"
+msgstr "성적 없음"
+
+#: app/(app)/teacher/post/assignment/index.tsx:159
+msgid "not submitted"
+msgstr "제출되지 않음"
+
+#: app/(app)/modals/assessment.tsx:126
+msgid "Number of students"
+msgstr "학생 수"
+
+#: app/(app)/modals/student-classbook.tsx:37
+#: app/(app)/parent/(home)/_layout.tsx:67
+#: app/(app)/parent/(home)/_layout.tsx:73
+#: app/(app)/parent/(home)/_layout.tsx:102
+msgid "Observations"
+msgstr "관찰 내용"
+
+#: app/(app)/teacher/(home)/assignments.tsx:49
+msgid "Ongoing assignments"
+msgstr "진행 중인 과제"
+
+#: app/(app)/student/subject/index.tsx:74
+#: components/subject-grades-view.tsx:101
+msgid "overall average"
+msgstr "전체 평균"
+
+#: app/login.tsx:124
+msgid "Password"
+msgstr "비밀번호"
+
+#: app/login.tsx:127
+msgid "Password is not valid"
+msgstr "비밀번호가 올바르지 않습니다."
+
+#: app/(app)/modals/_layout.tsx:86
+msgid "Plan a new test"
+msgstr "새로운 시험 계획"
+
+#: app/(app)/modals/create-test.tsx:73
+msgid "Planned on"
+msgstr "예정일"
+
+#: app/(app)/student/post/test.tsx:93
+#: app/(app)/teacher/post/test.tsx:107
+msgid "Planned on {0}"
+msgstr "{0} 예정"
+
+#: components/test-card.tsx:62
+msgid "Planned on {dueDate}"
+msgstr "{dueDate} 예정"
+
+#: app/(app)/modals/_layout.tsx:72
+msgid "Post a new material"
+msgstr "새로운 자료 게시"
+
+#: app/(app)/modals/attendance-mode.tsx:128
+#: app/(app)/modals/attendance-mode.tsx:222
+msgid "Present"
+msgstr "출석"
+
+#: app/(app)/modals/assessment.tsx:204
+#: app/(app)/modals/grade-mode.tsx:109
+#: app/(app)/teacher/post/assignment/student-submission.tsx:342
+#: components/edit-grade-modal.tsx:108
+#: components/student-grades.tsx:217
+#: components/student-observations.tsx:182
+msgid "Reason"
+msgstr "이유"
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:347
+#: components/edit-grade-modal.tsx:113
+#: components/student-grades.tsx:222
+msgid "Reason for the grade..."
+msgstr "성적에 대한 이유..."
+
+#: app/(app)/modals/assessment.tsx:211
+#: app/(app)/teacher/post/assignment/student-submission.tsx:350
+#: components/edit-grade-modal.tsx:116
+#: components/student-grades.tsx:225
+#: components/student-observations.tsx:185
+msgid "Reason is required"
+msgstr "이유를 입력해야 합니다."
+
+#: components/error-view.tsx:32
+msgid "Retry"
+msgstr "다시 시도"
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:298
+msgid "Return"
+msgstr "반환"
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:264
+#: app/(app)/teacher/post/assignment/student-submission.tsx:273
+#: app/(app)/teacher/post/assignment/student-submission.tsx:293
+msgid "Return submission"
+msgstr "제출물 반환"
+
+#: app/(app)/modals/account.tsx:92
+#: app/(app)/modals/account.tsx:158
+#~ msgid "Romanian"
+#~ msgstr "루마니아어"
+
+#: app/login.tsx:79
+#: app/login.tsx:132
+msgid "Sign in"
+msgstr "로그인"
+
+#: app/(app)/modals/account.tsx:98
+#: app/(app)/modals/account.tsx:221
+#~ msgid "Spanish"
+#~ msgstr "스페인어"
+
+#: app/(app)/student/subject/_layout.tsx:71
+#: app/(app)/student/subject/_layout.tsx:77
+#: app/(app)/teacher/subject/_layout.tsx:63
+#: app/(app)/teacher/subject/_layout.tsx:69
+msgid "Stream"
+msgstr "스트림"
+
+#: app/(app)/modals/assessment.tsx:160
+#: app/(app)/modals/grade-mode.tsx:140
+msgid "Student grades"
+msgstr "학생 성적"
+
+#: app/(app)/teacher/post/assignment/_layout.tsx:43
+msgid "Student submission"
+msgstr "학생 제출물"
+
+#: app/(app)/teacher/post/assignment/_layout.tsx:30
+#: app/(app)/teacher/post/assignment/index.tsx:154
+msgid "Student submissions"
+msgstr "학생 제출물"
+
+#: app/(app)/teacher/subject/_layout.tsx:115
+#: app/(app)/teacher/subject/_layout.tsx:121
+msgid "Students"
+msgstr "학생"
+
+#: app/(app)/teacher/subject/index.tsx:85
+msgid "students with few grades"
+msgstr "성적이 적은 학생"
+
+#: app/(app)/student/(home)/_layout.tsx:24
+#: app/(app)/student/(home)/_layout.tsx:30
+#: app/(app)/student/(home)/_layout.tsx:57
+msgid "Subjects"
+msgstr "과목"
+
+#: app/(app)/student/post/assignment.tsx:396
+#: app/(app)/teacher/post/assignment/student-submission.tsx:239
+#: app/(app)/teacher/post/assignment/student-submission.tsx:280
+#: app/(app)/teacher/post/assignment/student-submission.tsx:370
+msgid "Submission comment"
+msgstr "제출물 의견"
+
+#: app/(app)/student/post/assignment.tsx:343
+#: app/(app)/student/post/assignment.tsx:347
+msgid "Submit"
+msgstr "제출"
+
+#: app/(app)/teacher/post/assignment/index.tsx:158
+msgid "submitted"
+msgstr "제출됨"
+
+#: app/(app)/student/post/assignment.tsx:285
+#: app/(app)/teacher/post/assignment/submissions.tsx:94
+msgid "Submitted"
+msgstr "제출됨"
+
+#: app/(app)/teacher/post/assignment/student-submission.tsx:151
+msgid "Submitted at {0}"
+msgstr "{0}에 제출됨"
+
+#: app/(app)/teacher/subject/index.tsx:216
+msgid "Test"
+msgstr "시험"
+
+#: components/filter-dropdown.tsx:71
+msgid "Tests"
+msgstr "시험"
+
+#: components/error-view.tsx:28
+msgid "There was a problem while loading."
+msgstr "로드하는 동안 문제가 발생했습니다."
+
+#: app/(app)/student/(home)/assignments.tsx:59
+msgid "This week"
+msgstr "이번 주"
+
+#: app/(app)/modals/create-announcement.tsx:54
+#: app/(app)/modals/create-assignment.tsx:53
+#: app/(app)/modals/create-material.tsx:44
+#: app/(app)/modals/create-test.tsx:52
+msgid "Title"
+msgstr "제목"
+
+#: app/(app)/modals/create-assignment.tsx:56
+#: app/(app)/modals/create-test.tsx:55
+msgid "Title must be completed"
+msgstr "제목을 입력해야 합니다."
+
+#: app/(app)/teacher/subject/index.tsx:101
+#: app/(app)/teacher/subject/index.tsx:250
+msgid "Tools"
+msgstr "도구"
+
+#: app/(app)/teacher/class-master/student-classbook.tsx:176
+#: components/student-absences.tsx:141
+#: components/subject-absences-view.tsx:180
+msgid "Unexcused"
+msgstr "무단"
+
+#: app/(app)/student/subject/index.tsx:78
+#: components/subject-absences-view.tsx:123
+msgid "unexcused absences"
+msgstr "무단 결석"
+
+#: app/(app)/student/post/assignment.tsx:292
+msgid "Unsubmit"
+msgstr "제출 취소"
+
+#: app/(app)/teacher/post/assignment/index.tsx:164
+msgid "View student submissions"
+msgstr "학생 제출물 보기"
+
+#: app/(app)/student/post/announcement.tsx:118
+#: app/(app)/student/post/assignment.tsx:432
+#: app/(app)/student/post/material.tsx:117
+#: app/(app)/student/post/test.tsx:124
+#: app/(app)/teacher/post/announcement.tsx:118
+#: app/(app)/teacher/post/assignment/index.tsx:178
+#: app/(app)/teacher/post/material.tsx:131
+#: app/(app)/teacher/post/test.tsx:138
+msgid "Write your comment here..."
+msgstr "여기에 의견을 작성하세요..."
+
+#: app/(app)/student/post/assignment.tsx:192
+msgid "Your submission"
+msgstr "제출물"
+
+#: app/(app)/student/post/assignment.tsx:369
+msgid "Your submission has been graded"
+msgstr "제출물이 채점되었습니다."
+
+#: app/(app)/student/post/assignment.tsx:411
+msgid "Your submission has been returned"
+msgstr "제출물이 반환되었습니다."

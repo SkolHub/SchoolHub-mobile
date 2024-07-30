@@ -7,6 +7,7 @@ import React from 'react';
 import ErrorView from '@/components/error-view';
 import List from '@/components/list';
 import ListItem from '@/components/list-item';
+import { Trans } from '@lingui/macro';
 
 export default function Students() {
   const { subjectID } = useGlobalSearchParams();
@@ -61,7 +62,7 @@ export default function Students() {
                   <Text
                     style={tw`text-xs font-medium leading-tight text-primary-700 dark:text-primary-300`}
                   >
-                    grades
+                    <Trans>grades</Trans>
                   </Text>
                 </View>
                 <View style={tw`items-center justify-center`}>
@@ -73,7 +74,7 @@ export default function Students() {
                   <Text
                     style={tw`text-xs font-medium leading-tight text-primary-700 dark:text-primary-300`}
                   >
-                    average
+                    <Trans>average</Trans>
                   </Text>
                 </View>
               </View>

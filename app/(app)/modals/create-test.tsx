@@ -14,6 +14,7 @@ import Modal from 'react-native-modal';
 import Caption from '@/components/caption';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { useCreateTeacherPost } from '@/api/post';
+import { t } from '@lingui/macro';
 
 export default function CreateAssignment() {
   const createPost = useCreateTeacherPost();
@@ -48,28 +49,28 @@ export default function CreateAssignment() {
       <FormInput
         control={control}
         name='title'
-        placeholder='Title'
+        placeholder={t`Title`}
         secureTextEntry={false}
         inputAccessoryViewID=''
-        errorText='Title must be completed'
+        errorText={t`Title must be completed`}
         contentType='default'
         flex1={false}
       />
       <FormInput
         control={control}
         name='body'
-        placeholder='Body'
+        placeholder={t`Body`}
         multiline={true}
         numberOfLines={10}
         secureTextEntry={false}
         inputAccessoryViewID=''
-        errorText='Body must be completed'
+        errorText={t`Body must be completed`}
         contentType='default'
         flex1={false}
       />
       <List>
         <ListItem
-          text={'Planned on'}
+          text={t`Planned on`}
           rightComponent={
             <Pressable
               style={tw`rounded-xl bg-neutral-200 px-4 py-3 dark:bg-neutral-600`}
@@ -84,7 +85,7 @@ export default function CreateAssignment() {
           }
         />
       </List>
-      <LargeButton text='Create' onPress={handleSubmit(onSubmit)} />
+      <LargeButton text={t`Create`} onPress={handleSubmit(onSubmit)} />
       <Modal
         animationIn={'slideInUp'}
         isVisible={modalVisible}
@@ -104,7 +105,7 @@ export default function CreateAssignment() {
         >
           <View style={tw`w-full flex-row items-start justify-between`}>
             <Caption
-              text={'Choose planned day for the test'}
+              text={t`Choose planned day for the test`}
               style={'pb-6 pt-0'}
             />
             <Pressable

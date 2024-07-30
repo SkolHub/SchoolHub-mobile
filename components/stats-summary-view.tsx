@@ -6,7 +6,10 @@ export default function StatsSummaryView({
   data,
   style
 }: {
-  data: Array<Record<string, string>>;
+  data: Array<{
+    label: string;
+    value: string;
+  }>;
   style?: string;
 }) {
   return (
@@ -27,14 +30,14 @@ export default function StatsSummaryView({
             )}
           >
             <Text
-              style={tw`text-center text-xl font-bold text-primary-800 dark:text-primary-50`}
+              style={tw`text-center text-lg font-bold text-primary-800 dark:text-primary-50`}
             >
-              {Object.entries(item)[0][1]}
+              {item.value}
             </Text>
             <Text
-              style={tw`text-center text-sm font-semibold text-primary-700 dark:text-primary-200`}
+              style={tw`text-center text-xs font-semibold text-primary-700 dark:text-primary-200`}
             >
-              {Object.entries(item)[0][0]}
+              {item.label}
             </Text>
           </View>
         ))}

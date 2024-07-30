@@ -124,7 +124,9 @@ const fetchStudentAbsences = async ({
 };
 
 const createGrades = async (grades: BatchGrades) => {
-  return api.post('/grade/teacher', grades).then((res) => res.data as null);
+  return api
+    .post('/grade/teacher', grades)
+    .then((res) => res.data as { id: number }[]);
 };
 
 const updateGrade = async (data: {
@@ -161,7 +163,7 @@ const updateAbsence = async (data: {
 };
 
 const excuseAbsences = async (absences: number[]) => {
-  return api.patch(`/absence/teacher`, { absences });
+  return api.patch(`/absence/teacher/excuse`, { absences });
 };
 
 const deleteAbsences = async (absences: number[]) => {
@@ -210,7 +212,6 @@ export const useGetStudentGrades = ({
   subjectID: string;
   studentID: string;
 }) => {
-  console.log('am dat fetch', ['studentSubjectGrades', subjectID, studentID]);
   return useQuery({
     queryKey: ['studentSubjectGrades', subjectID, studentID],
     queryFn: () => fetchStudentGrades({ subjectID, studentID })
@@ -540,8 +541,6 @@ export const useUpdateObservation = () => {
 };
 
 export const useDeleteObservations = () => {
-  const queryClient = useQueryClient();
-
   return useMutation({
     mutationFn: (observations: number[]) => deleteObservations(observations),
     onError: (err) => {

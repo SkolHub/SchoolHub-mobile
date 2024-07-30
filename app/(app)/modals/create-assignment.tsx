@@ -14,6 +14,8 @@ import Modal from 'react-native-modal';
 import Caption from '@/components/caption';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { useCreateTeacherPost } from '@/api/post';
+import KeyboardAccessory from '@/components/keyboard-accessory';
+import { t } from '@lingui/macro';
 
 export default function CreateAssignment() {
   const createPost = useCreateTeacherPost();
@@ -48,28 +50,28 @@ export default function CreateAssignment() {
       <FormInput
         control={control}
         name='title'
-        placeholder='Title'
+        placeholder={t`Title`}
         secureTextEntry={false}
-        inputAccessoryViewID=''
-        errorText='Title must be completed'
+        inputAccessoryViewID='key'
+        errorText={t`Title must be completed`}
         contentType='default'
         flex1={false}
       />
       <FormInput
         control={control}
         name='body'
-        placeholder='Body'
+        placeholder={t`Body`}
         multiline={true}
         numberOfLines={10}
         secureTextEntry={false}
-        inputAccessoryViewID=''
-        errorText='Body must be completed'
+        inputAccessoryViewID='key'
+        errorText={t`Body must be completed`}
         contentType='default'
         flex1={false}
       />
       <List>
         <ListItem
-          text={'Due date'}
+          text={t`Due date`}
           rightComponent={
             <Pressable
               style={tw`rounded-xl bg-neutral-200 px-4 py-3 dark:bg-neutral-600`}
@@ -85,7 +87,7 @@ export default function CreateAssignment() {
           }
         />
       </List>
-      <LargeButton text='Create' onPress={handleSubmit(onSubmit)} />
+      <LargeButton text={t`Create`} onPress={handleSubmit(onSubmit)} />
       <Modal
         animationIn={'slideInUp'}
         isVisible={modalVisible}
@@ -104,7 +106,7 @@ export default function CreateAssignment() {
           style={tw`items-center rounded-[8] bg-white p-6 dark:bg-neutral-700`}
         >
           <View style={tw`w-full flex-row items-start justify-between`}>
-            <Caption text={'Choose due date'} style={'pb-6 pt-0'} />
+            <Caption text={t`Choose due date`} style={'pb-6 pt-0'} />
             <Pressable
               onPress={() => {
                 setModalVisible(false);
@@ -129,6 +131,7 @@ export default function CreateAssignment() {
           />
         </View>
       </Modal>
+      <KeyboardAccessory inputAccessoryViewID={'key'} />
     </View>
   );
 }

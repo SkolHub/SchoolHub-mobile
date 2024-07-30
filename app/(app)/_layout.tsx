@@ -1,7 +1,6 @@
 import { useSession } from '@/context/AuthContext';
-import { Redirect, Slot, Stack } from 'expo-router';
+import { Redirect, Stack } from 'expo-router';
 import LoadingView from '@/components/loading-view';
-import { useAccount } from '@/data/accounts';
 
 export default function AppLayout() {
   const { session, isLoading } = useSession();

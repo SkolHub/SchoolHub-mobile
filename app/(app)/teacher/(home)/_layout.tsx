@@ -6,6 +6,7 @@ import { SymbolView } from 'expo-symbols';
 import tw from '@/lib/tailwind';
 import { rgbaToHex } from '@/lib/utils';
 import { MaterialIcons } from '@expo/vector-icons';
+import { t, Trans } from '@lingui/macro';
 
 export default function HomeLayout() {
   const colorScheme = useColorScheme();
@@ -19,13 +20,13 @@ export default function HomeLayout() {
       <Tabs.Screen
         name='index'
         options={{
-          title: 'Classes',
+          title: t`Classes`,
           tabBarLabel: ({ focused }) => {
             return (
               <Text
                 style={tw`text-primary-800${focused ? '' : '/60'} dark:text-primary-200${focused ? '' : '/60'} text-[10.5px] leading-tight`}
               >
-                Classes
+                <Trans>Classes</Trans>
               </Text>
             );
           },
@@ -52,7 +53,7 @@ export default function HomeLayout() {
           header: () => {
             return (
               <HomeHeader
-                text='Classes'
+                text={t`Classes`}
                 onPress={() => {
                   router.push('/modals/account');
                 }}
@@ -64,13 +65,13 @@ export default function HomeLayout() {
       <Tabs.Screen
         name='assignments'
         options={{
-          title: 'Assignments',
+          title: t`Assignments`,
           tabBarLabel: ({ focused }) => {
             return (
               <Text
                 style={tw`text-primary-800${focused ? '' : '/60'} dark:text-primary-200${focused ? '' : '/60'} text-[10.5px] leading-tight`}
               >
-                Assignments
+                <Trans>Assignments</Trans>
               </Text>
             );
           },
@@ -99,7 +100,7 @@ export default function HomeLayout() {
           header: () => {
             return (
               <HomeHeader
-                text='Assignments'
+                text={t`Assignments`}
                 onPress={() => {
                   router.push('/modals/account');
                 }}

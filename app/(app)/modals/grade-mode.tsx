@@ -1,4 +1,4 @@
-import { Pressable, ScrollView, Text } from 'react-native';
+import { Pressable, Text } from 'react-native';
 import ListItem from '@/components/list-item';
 import List from '@/components/list';
 import tw from '@/lib/tailwind';
@@ -19,6 +19,8 @@ import DatePicker from 'react-native-date-picker';
 import { BatchGrades, useCreateGrades } from '@/api/grade';
 import { useActionSheet } from '@expo/react-native-action-sheet';
 import * as LocalAuthentication from 'expo-local-authentication';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { t } from '@lingui/macro';
 
 export default function GradeMode() {
   const { subjectID } = useLocalSearchParams();
@@ -82,7 +84,7 @@ export default function GradeMode() {
         }))
       );
     }
-  }, []);
+  }, [studentsData.data]);
 
   if (studentsData.isPending) {
     return <LoadingView />;
@@ -98,27 +100,27 @@ export default function GradeMode() {
   }
 
   return (
-    <ScrollView
+    <KeyboardAwareScrollView
       style={tw`flex-1 bg-secondary-100 px-4 dark:bg-primary-950`}
       contentContainerStyle={tw`pb-20`}
     >
       {studentGrades && (
         <>
-          <Caption text={'Reason'} style={`pt-0`} />
+          <Caption text={t`Reason`} style={`pt-0`} />
           <FormInput
             control={control}
             name={'message'}
-            placeholder={'Enter the reason for the grades...'}
+            placeholder={t`Enter the reason for the grades...`}
             secureTextEntry={false}
             inputAccessoryViewID={'accessory-view'}
             errorText={'Reason is required'}
             contentType={''}
             flex1={false}
           />
-          <Caption text={'Date'} />
+          <Caption text={t`Date`} />
           <List>
             <ListItem
-              text={'Date'}
+              text={t`Date`}
               rightComponent={
                 <Pressable
                   style={tw`rounded-xl bg-neutral-200 px-4 py-2 dark:bg-neutral-600`}
@@ -135,7 +137,7 @@ export default function GradeMode() {
               }
             />
           </List>
-          <Caption text={'Student grades'} />
+          <Caption text={t`Student grades`} />
           <List>
             {studentGrades?.map(({ student, grade }, index) => (
               <ListItem
@@ -145,7 +147,7 @@ export default function GradeMode() {
                 rightComponent={
                   <>
                     <GeneralModal
-                      title={'Add grade'}
+                      title={t`Add grade`}
                       visible={visibleID === student.student.id}
                       setVisible={() => setVisibleID(-1)}
                       children={
@@ -171,7 +173,7 @@ export default function GradeMode() {
                       <Text
                         style={tw`text-base font-medium text-black/70 dark:text-white/90`}
                       >
-                        {grade ?? 'Add grade'}
+                        {grade ?? t`Add grade`}
                       </Text>
                     </Pressable>
                   </>
@@ -180,33 +182,35 @@ export default function GradeMode() {
             )) ?? []}
           </List>
           <LargeButton
-            text={'Add grades'}
+            text={t`Add grades`}
             symbol={{
               name: 'faceid',
               fallback: 'fingerprint'
             }}
             onPress={() => {
-              showActionSheetWithOptions(
-                {
-                  options: ['Add', 'Cancel'],
-                  cancelButtonIndex: 1,
-                  title: 'Are you sure you want to add these grades?'
-                },
-                (buttonIndex) => {
-                  if (buttonIndex === 0) {
-                    LocalAuthentication.authenticateAsync({
-                      promptMessage: 'Authenticate to add grades'
-                    }).then(() => {
-                      handleSubmit(onSubmit)();
-                    });
+              handleSubmit(() => {
+                showActionSheetWithOptions(
+                  {
+                    options: [t`Add`, t`Cancel`],
+                    cancelButtonIndex: 1,
+                    title: t`Are you sure you want to add these grades?`
+                  },
+                  (buttonIndex) => {
+                    if (buttonIndex === 0) {
+                      LocalAuthentication.authenticateAsync({
+                        promptMessage: t`Authenticate to add grades`
+                      }).then((res) => {
+                        if (res.success) handleSubmit(onSubmit)();
+                      });
+                    }
                   }
-                }
-              );
+                );
+              })();
             }}
             style={'mt-4'}
           />
           <GeneralModal
-            title={'Date'}
+            title={t`Date`}
             visible={dateModalVisible}
             setVisible={setDateModalVisible}
           >
@@ -214,6 +218,6 @@ export default function GradeMode() {
           </GeneralModal>
         </>
       )}
-    </ScrollView>
+    </KeyboardAwareScrollView>
   );
 }

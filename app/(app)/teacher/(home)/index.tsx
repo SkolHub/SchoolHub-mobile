@@ -53,7 +53,7 @@ export default function Index() {
                   key={class_.subjects[0].id}
                   name={class_.schoolClasses.map((c) => c.name).join(', ')}
                   icon={class_.subjects[0].icon}
-                  secondaryText={class_.subjects[0].id}
+                  secondaryText={class_.subjects[0].name}
                   onPress={() => {
                     router.push({
                       pathname: '/teacher/subject',
@@ -74,6 +74,14 @@ export default function Index() {
                 classMaster={
                   class_.schoolClasses[0].classMasterID == accountID.data
                 }
+                onPress={() => {
+                  router.push({
+                    pathname: '/teacher/class-master',
+                    params: {
+                      classID: class_.schoolClasses[0].id
+                    }
+                  });
+                }}
               />
             );
           })}

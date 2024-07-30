@@ -19,6 +19,7 @@ import DatePicker from 'react-native-date-picker';
 import { useState } from 'react';
 import * as LocalAuthentication from 'expo-local-authentication';
 import { useActionSheet } from '@expo/react-native-action-sheet';
+import { t, Trans } from '@lingui/macro';
 
 export default function StudentAbsences({
   subjectID,
@@ -80,7 +81,7 @@ export default function StudentAbsences({
 
   return (
     <>
-      <Caption text={'Absences'} />
+      {/*<Caption text={'Absences'} />*/}
       <List>
         {
           absences.data.map((absence) => (
@@ -93,7 +94,7 @@ export default function StudentAbsences({
                   style={tw`shrink grow flex-col items-start justify-between`}
                 >
                   <Text
-                    style={tw`text-lg font-bold leading-tight text-primary-800 dark:text-primary-50`}
+                    style={tw`text-base font-bold leading-tight text-primary-800 dark:text-primary-50`}
                   >
                     {formatShortDate(absence.date)}
                     {/*{absence.date}*/}
@@ -110,7 +111,7 @@ export default function StudentAbsences({
                     <View style={tw`flex-row items-center justify-end gap-1`}>
                       <Ionicons
                         name={'checkmark-circle'}
-                        size={20}
+                        size={18}
                         color={
                           tw.prefixMatch('dark')
                             ? tw.color('green-400')
@@ -118,16 +119,16 @@ export default function StudentAbsences({
                         }
                       />
                       <Text
-                        style={tw`text-base font-bold leading-tight text-green-500 dark:text-green-400`}
+                        style={tw`text-sm font-bold leading-tight text-green-500 dark:text-green-400`}
                       >
-                        Excused
+                        <Trans>Excused</Trans>
                       </Text>
                     </View>
                   ) : (
                     <View style={tw`flex-row items-center justify-end gap-1`}>
                       <Ionicons
                         name={'close-circle'}
-                        size={20}
+                        size={18}
                         color={
                           tw.prefixMatch('dark')
                             ? tw.color('red-400')
@@ -135,9 +136,9 @@ export default function StudentAbsences({
                         }
                       />
                       <Text
-                        style={tw`text-base font-bold leading-tight text-red-500 dark:text-red-400`}
+                        style={tw`text-sm font-bold leading-tight text-red-500 dark:text-red-400`}
                       >
-                        Unexcused
+                        <Trans>Unexcused</Trans>
                       </Text>
                     </View>
                   )}
@@ -155,29 +156,30 @@ export default function StudentAbsences({
                   {/*  }*/}
                   {/*/>*/}
                   {!absence.excused &&
-                    new Date(absence.date).getDay() === new Date().getDay() && (
+                    new Date(absence.date).toLocaleDateString() ===
+                      new Date().toLocaleDateString() && (
                       <IconButton
                         icon={'trash'}
                         onPress={() => {
                           showActionSheetWithOptions(
                             {
-                              options: ['Delete', 'Cancel'],
+                              options: [t`Delete`, t`Cancel`],
                               cancelButtonIndex: 1,
                               destructiveButtonIndex: 0,
-                              title:
-                                'Are you sure you want to delete this absence?'
+                              title: t`Are you sure you want to delete this absence?`
                             },
                             (buttonIndex) => {
                               if (buttonIndex === 0) {
                                 LocalAuthentication.authenticateAsync({
-                                  promptMessage:
-                                    'Authenticate to delete absence'
-                                }).then(async () => {
-                                  await deleteAbsence.mutateAsync({
-                                    subjectID: +subjectID,
-                                    absences: [absence.id]
-                                  });
-                                  await absences.refetch();
+                                  promptMessage: t`Authenticate to delete absence`
+                                }).then(async (res) => {
+                                  if (res.success) {
+                                    await deleteAbsence.mutateAsync({
+                                      subjectID: +subjectID,
+                                      absences: [absence.id]
+                                    });
+                                    await absences.refetch();
+                                  }
                                 });
                               }
                             }
@@ -201,7 +203,7 @@ export default function StudentAbsences({
             <>
               <LargeButton
                 iconName={'add'}
-                text={'Add absence'}
+                text={t`Add absence`}
                 onPress={() => {
                   setVisible(true);
                 }}
@@ -209,11 +211,11 @@ export default function StudentAbsences({
               />
 
               <GeneralModal
-                title={`Add absence for ${studentName}`}
+                title={t`Add absence for ${studentName}`}
                 visible={visible}
                 setVisible={setVisible}
               >
-                <Caption text={'Date'} />
+                <Caption text={t`Date`} />
                 <DatePicker
                   style={tw`self-center`}
                   mode='date'
@@ -234,20 +236,22 @@ export default function StudentAbsences({
                 {/*  flex1={false}*/}
                 {/*/>*/}
                 <LargeButton
-                  text={'Add absence'}
+                  text={t`Add absence`}
                   onPress={() => {
                     showActionSheetWithOptions(
                       {
-                        options: ['Add', 'Cancel'],
+                        options: [t`Add`, t`Cancel`],
                         cancelButtonIndex: 1,
-                        title: 'Are you sure you want to add this absence?'
+                        title: t`Are you sure you want to add this absence?`
                       },
                       (buttonIndex) => {
                         if (buttonIndex === 0) {
                           LocalAuthentication.authenticateAsync({
-                            promptMessage: 'Authenticate to add grade'
-                          }).then(async () => {
-                            await onSubmit();
+                            promptMessage: t`Authenticate to add grade`
+                          }).then(async (res) => {
+                            if (res.success) {
+                              await onSubmit();
+                            }
                           });
                         }
                       }

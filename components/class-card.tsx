@@ -6,21 +6,32 @@ import { Icons } from '@/lib/icons';
 import { androidRipple } from '@/lib/utils';
 import { router } from 'expo-router';
 import Ionicons from '@expo/vector-icons/Ionicons';
+import { Trans } from '@lingui/macro';
 
 export default function ClassCard({
   name,
   subjects,
-  classMaster
+  classMaster,
+  onPress
 }: {
   name: string;
   subjects: Subject[];
   classMaster: boolean;
+  onPress: () => void;
 }) {
   return (
-    <View style={tw`rounded-3xl bg-neutral-50 p-4 dark:bg-neutral-700/80`}>
+    <Pressable
+      onPress={onPress}
+      style={({ pressed }) =>
+        tw.style(
+          `rounded-3xl bg-neutral-50 p-4 dark:bg-neutral-700/80`,
+          pressed && `ios:opacity-80`
+        )
+      }
+    >
       <View style={tw`flex-row items-center justify-between pb-2`}>
         <Text
-          style={tw`text-lg font-semibold leading-tight text-primary-700 dark:text-neutral-200`}
+          style={tw`text-base font-semibold leading-tight text-primary-700 dark:text-neutral-200`}
         >
           {name}
         </Text>
@@ -38,7 +49,7 @@ export default function ClassCard({
             <Text
               style={tw`text-base font-semibold leading-tight text-primary-600 dark:text-primary-300`}
             >
-              Class Master
+              <Trans>Class Master</Trans>
             </Text>
           </View>
         )}
@@ -69,10 +80,10 @@ export default function ClassCard({
                   Icons.find((i) => i.name === subject.icon)?.icon ??
                   Icons[0].icon
                 }
-                style={{ width: 28, height: 28 }}
+                style={{ width: 24, height: 24 }}
               />
               <Text
-                style={tw`text-base font-semibold leading-tight text-primary-800 dark:text-neutral-100`}
+                style={tw`text-sm font-semibold leading-tight text-primary-800 dark:text-neutral-100`}
               >
                 {subject.name}
               </Text>
@@ -80,6 +91,6 @@ export default function ClassCard({
           </View>
         ))}
       </View>
-    </View>
+    </Pressable>
   );
 }

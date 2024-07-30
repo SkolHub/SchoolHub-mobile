@@ -28,7 +28,11 @@ export default function ListItem({
 
   return (
     <Pressable
-      onPress={onPress}
+      onPress={() => {
+        if (shouldPress && onPress) {
+          onPress();
+        }
+      }}
       android_ripple={
         shouldPress ? { color: 'rgba(0, 0, 0, 0.1)', borderless: false } : null
       }

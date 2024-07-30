@@ -7,6 +7,7 @@ import FormInput from '@/components/form-input';
 import LargeButton from '@/components/large-button';
 import tw from '@/lib/tailwind';
 import { useCreateTeacherPost } from '@/api/post';
+import { t } from '@lingui/macro';
 
 export default function CreateAnnouncement() {
   const { subjectID } = useLocalSearchParams();
@@ -40,7 +41,7 @@ export default function CreateAnnouncement() {
       <FormInput
         control={control}
         name='title'
-        placeholder='Title'
+        placeholder={t`Title`}
         secureTextEntry={false}
         inputAccessoryViewID=''
         errorText=''
@@ -50,7 +51,7 @@ export default function CreateAnnouncement() {
       <FormInput
         control={control}
         name='body'
-        placeholder='Body'
+        placeholder={t`Body`}
         multiline={true}
         numberOfLines={10}
         secureTextEntry={false}
@@ -59,7 +60,7 @@ export default function CreateAnnouncement() {
         contentType='default'
         flex1={false}
       />
-      <LargeButton text='Create' onPress={handleSubmit(onSubmit)} />
+      <LargeButton text={t`Create`} onPress={handleSubmit(onSubmit)} />
     </View>
   );
 }

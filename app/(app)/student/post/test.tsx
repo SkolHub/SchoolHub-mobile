@@ -19,6 +19,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useGetAccountID } from '@/api/account';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import CommentCard from '@/components/comment-card';
+import { t, Trans } from '@lingui/macro';
 
 export default function Test() {
   const { postID } = useLocalSearchParams();
@@ -40,8 +41,12 @@ export default function Test() {
     resolver: yupResolver(schema)
   });
   const onSubmit = async (data: { comment: string }) => {
-    createComment.mutate({ postID: +(postID as string), body: data.comment });
     reset();
+    await createComment.mutateAsync({
+      postID: +(postID as string),
+      body: data.comment
+    });
+    await post.refetch();
   };
 
   if (post.isPending || accountID.isPending) {
@@ -78,25 +83,25 @@ export default function Test() {
           />
           <View>
             <Text
-              style={tw`text-xl font-semibold leading-tight text-primary-800 dark:text-primary-50`}
+              style={tw`text-lg font-semibold leading-tight text-primary-800 dark:text-primary-50`}
             >
               {post.data.title}
             </Text>
             <Text
-              style={tw`mt-[-2px] text-base font-semibold leading-tight text-primary-700 dark:text-primary-100`}
+              style={tw`mt-[-2px] text-sm font-semibold leading-tight text-primary-700 dark:text-primary-100`}
             >
-              Planned on {formatShortDate(post.data.dueDate)}
+              <Trans>Planned on {formatShortDate(post.data.dueDate)}</Trans>
             </Text>
           </View>
         </View>
         <View style={tw`flex-row justify-between`}>
           <Text
-            style={tw`text-base font-semibold text-primary-700 dark:text-primary-100`}
+            style={tw`text-sm font-semibold text-primary-700 dark:text-primary-100`}
           >
             {post.data.member.name}
           </Text>
           <Text
-            style={tw`text-base font-semibold text-primary-700 dark:text-primary-100`}
+            style={tw`text-sm font-semibold text-primary-700 dark:text-primary-100`}
           >
             {formatTime(post.data.timestamp) +
               ', ' +
@@ -106,17 +111,17 @@ export default function Test() {
       </View>
       <View style={tw`rounded-3xl bg-neutral-50 p-4 dark:bg-neutral-700`}>
         <Text
-          style={tw` text-base font-semibold text-primary-700 dark:text-primary-100`}
+          style={tw`text-base font-semibold leading-tight text-primary-700 dark:text-primary-100`}
         >
           {post.data.body.trim()}
         </Text>
       </View>
-      <Caption text={'Comments'} />
+      <Caption text={t`Comments`} />
       <View style={tw`mb-3 flex-1 flex-row gap-2`}>
         <FormInput
           control={control}
           name='comment'
-          placeholder='Write your comment here...'
+          placeholder={t`Write your comment here...`}
           secureTextEntry={false}
           inputAccessoryViewID={inputAccessoryViewID}
           errorText=''
@@ -125,7 +130,7 @@ export default function Test() {
           shouldError={false}
         />
         <SmallButton
-          contentContainerStyle={'h-14 w-14 rounded-2xl'}
+          contentContainerStyle={'h-12 w-12 rounded-2xl'}
           onPress={handleSubmit(onSubmit)}
           text={''}
           iconName={'send'}
@@ -139,6 +144,7 @@ export default function Test() {
             deleteComment={deleteComment}
             postID={postID as string}
             accountID={accountID}
+            refetch={post.refetch}
           />
         ))}
       </View>

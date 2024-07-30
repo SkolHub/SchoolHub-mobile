@@ -2,6 +2,7 @@ import { Pressable, Text, useColorScheme, View } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import tw from '@/lib/tailwind';
 import { Theme } from '@/lib/types';
+import { Trans } from '@lingui/macro';
 
 export default function TestCard({
   title,
@@ -58,7 +59,7 @@ export default function TestCard({
         <Text
           style={tw`text-sm font-semibold text-primary-700 dark:text-primary-300`}
         >
-          Planned on {dueDate}
+          <Trans>Planned on {dueDate}</Trans>
         </Text>
       </View>
     </Pressable>
